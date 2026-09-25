@@ -1,0 +1,59 @@
+---
+// Every page's <html>: meta, canonical, icons, self-hosted fonts, header and footer.
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { url, absoluteUrl } from '../lib/url';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Site path of this page, e.g. "privacy/" ("" for home). Used for the canonical link. */
+  path: string;
+  /** Pages that must not be indexed, such as 404. */
+  noindex?: boolean;
+}
+const { title, description, path, noindex = false } = Astro.props;
+const canonical = absoluteUrl(path);
+
+// Self-hosted fonts (docs/design.md §3). Fallback faces use metrics measured from the real fonts,
+// so text doesn't move when the web fonts arrive.
+const fontCss = `
+@font-face{font-family:'Fraunces';src:url('${url('fonts/fraunces-600.woff2')}') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Manrope';src:url('${url('fonts/manrope-var.woff2')}') format('woff2');font-weight:200 800;font-style:normal;font-display:swap}
+@font-face{font-family:'Fraunces Fallback';src:local('Georgia');size-adjust:93.68%;ascent-override:104.62%;descent-override:27.76%;line-gap-override:0%}
+@font-face{font-family:'Manrope Fallback';src:local('Arial');size-adjust:105.25%;ascent-override:101.66%;descent-override:28.5%;line-gap-override:0%}
+`;
+---
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    <meta name="theme-color" content="#0E1650" />
+    <link rel="preload" href={url('fonts/fraunces-600.woff2')} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={url('fonts/manrope-var.woff2')} as="font" type="font/woff2" crossorigin />
+    <style is:inline set:html={fontCss}></style>
+    <link rel="icon" href={url('favicon.ico')} sizes="32x32" />
+    <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={url('apple-touch-icon.png')} />
+    <link rel="manifest" href={url('site.webmanifest')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pledge" />
+    <meta property="og:locale" content="en_AU" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header path={path} />
+    <slot />
+    <Footer />
+  </body>
+</html>

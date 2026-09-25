@@ -9,6 +9,17 @@ Choices made during a run without stopping to ask. Each is a recommendation; say
 | Date | Decision |
 |---|---|
 | 2026-09-25 | Privacy Policy "Last updated" stays 25 September 2026: the approved §11 change was made the same day. |
+| 2026-09-25 | The rehearsal repo `raghavkant/pledge-pages-rehearsal` is left in branch mode (after the rollback test). It is yours to delete. |
+| 2026-09-25 | Legal pages: their `<main>` text moved word for word into `src/content/legal/*.html`; `Legal.astro` wraps it in the new design. On desktop (≥ 1100px) an "On this page" list repeats the h2 headings; `check:legal` leaves it out of the text comparison and checks it holds only those headings. |
+| 2026-09-25 | Header navigation shows only "Support" for now; links are added as pages arrive (Runs 2–3). |
+| 2026-09-25 | Interim home page (until Run 2): the old home page's text in the new design, plus a "Coming soon to iPhone" pill, "Independent study app. Not affiliated with the Australian Government." and the large app icon; three cards link Support, Privacy and Terms. Title and description unchanged. |
+| 2026-09-25 | Footer on every page: the disclaimer, "General information, not migration advice.", Help and legal links, the support email, the CC BY credit and "© 2026 Raghav Kant". |
+| 2026-09-25 | One layout frame for every page (1320px; 1440px on screens ≥ 1600px), so the logo, titles and text share one left edge. Reading text stops at 42rem (about 68 characters). |
+| 2026-09-25 | The signature of the reading pages is the "dawn horizon": every night hero fades into the page through a low gold glow (CSS only). |
+| 2026-09-25 | CSS is inlined into each page (3.7 KB gzipped): no extra request. Page-to-page transitions use CSS View Transitions (0 KB), off with reduced motion. |
+| 2026-09-25 | Icons are made from the app icon by `scripts/build-icons.mjs` (macOS `sips`, run by hand; outputs committed). The favicon and header mark use a simplified map (2 KB). |
+| 2026-09-25 | The 404 page is `noindex` and has no canonical link. |
+| 2026-09-25 | The old root files (`index.html`, `style.css`, `privacy/`, `terms/`, `support/`) stay on `main` as rollback copies (old design, current text) until a later cleanup, after at least a week of stable Actions deploys. |
 | 2026-09-25 | Lighthouse in CI scores the median of 3 runs after an unscored warm-up (a single cold run gave perf 84 on a plain HTML page). Local runs use 1 run by default. The limits are unchanged. |
 
 ## Decided

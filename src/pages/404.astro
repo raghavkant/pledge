@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/url';
+
+const links = [
+  { path: '', title: 'Home', text: 'Start again from the Pledge home page.' },
+  { path: 'support/', title: 'Support', text: 'Help with purchases, subscriptions and your progress.' },
+  { path: 'privacy/', title: 'Privacy Policy', text: 'What happens to your information.' },
+];
+---
+<Base title="Page not found · Pledge" description="This page doesn’t exist." path="404.html" noindex>
+  <main id="main">
+    <header class="night page-hero">
+      <div class="container">
+        <h1>Page not found</h1>
+        <p class="lead-in">This page doesn’t exist. It may have moved, or the link may have a typo.</p>
+      </div>
+    </header>
+    <section class="section" aria-labelledby="where-title">
+      <div class="container">
+        <div class="section-head"><h2 id="where-title">Where to go next</h2></div>
+        <ul class="cards">
+          {links.map((l) => (
+            <li><a class="card" href={url(l.path)}><span class="card-title">{l.title}</span><p>{l.text}</p></a></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </main>
+</Base>
