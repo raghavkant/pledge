@@ -1,0 +1,40 @@
+Terms of Use
+Last updated: 25 September 2026
+1. About these terms
+These terms are an agreement between you and Raghav Kant, the individual developer of Pledge (“I” or “me”). By downloading or using the app you agree to them. If you don’t agree, please don’t use the app.
+2. Apple’s standard terms also apply
+Pledge is licensed to you through Apple’s App Store. Apple’s Licensed Application End User License Agreement [link: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/] also applies. I, not Apple, am responsible for the app and its content. Apple has no obligation to provide support for the app.
+3. What Pledge is
+Pledge is an independent study aid. It is not affiliated with or endorsed by the Australian Government. It does not book tests and is not the citizenship test.
+The questions in Pledge are original practice questions written from the booklet Australian Citizenship: Our Common Bond. They are not questions from the real test.
+For official information about citizenship and the test, see the Australian Government’s Department of Home Affairs website.
+4. No guarantee of a result
+Pledge helps you practise, but I cannot promise that you will pass the citizenship test. Practice readiness is worked out only from your own practice results and does not predict your result in the real test. The real test and the booklet can change; the app shows the date its content was last checked against the booklet.
+5. Content and licence
+Pledge contains material from Australian Citizenship: Our Common Bond, © Commonwealth of Australia, licensed under CC BY 4.0 [link: https://creativecommons.org/licenses/by/4.0/].
+Everything else in the app, including the questions, explanations, lessons, flashcards, illustrations and design, is © 2026 Raghav Kant. You may use the app for your own personal study. Please don’t copy, sell or republish its content.
+6. Pledge Premium
+Some features are free. Pledge Premium unlocks the rest, as shown in the app before you buy.
+Plans. Premium is an auto-renewing subscription (weekly or monthly), bought through your Apple ID. The price, in your local currency, is shown in the app before you buy.
+Free trial. The weekly plan may include a 3-day free trial for new subscribers. If you don’t cancel at least 24 hours before the trial ends, the weekly price is charged.
+Welcome offer. For 72 hours after you first open the app, a lower monthly price may be offered. If you subscribe at that price, you keep it for as long as that subscription stays active.
+Renewal. Payment is charged to your Apple ID when you confirm the purchase. The subscription renews automatically at the end of each period unless you cancel at least 24 hours before the period ends.
+Cancelling. Cancel any time in your iPhone’s Settings → your name → Subscriptions. Cancelling stops future renewals; Premium stays on until the end of the period you have paid for.
+Refunds. Apple handles all payments and refunds. You can ask Apple for a refund at reportaproblem.apple.com [link: https://reportaproblem.apple.com/].
+Price changes follow Apple’s rules, including telling you in advance.
+When Premium ends, Premium features lock again. Your progress on your phone is kept.
+New phone or reinstall? Use “Restore purchases” in the app with the same Apple ID.
+7. Your progress
+Your progress is saved only on your phone. I don’t keep a copy, so I can’t recover it if you delete the app or reset your progress. See the Privacy Policy [link: ~/privacy/].
+8. Fair use
+Please don’t misuse the app: for example, don’t try to get around the Premium locks, copy its content in bulk, or break the law while using it.
+9. Your rights under consumer law
+Nothing in these terms excludes, restricts or changes any right, remedy or guarantee you have under the Australian Consumer Law, or under any other law that cannot be excluded.
+10. Limits of responsibility
+Subject to section 9, and as far as the law allows: the app is provided “as is”; I am not responsible for indirect loss, including the result of your citizenship test; and my total responsibility to you is limited to the amount you paid for Premium in the 12 months before the claim.
+11. Changes
+I may update the app and these terms. If the terms change, I will update this page and the date at the top. Continuing to use the app means you accept the updated terms.
+12. Governing law
+These terms are governed by the laws of India, and the courts of Delhi have jurisdiction. This does not take away the protection of the Australian Consumer Law (section 9), or of any other consumer law that applies to you where you live.
+13. Contact
+pledge.citizenship.help@gmail.com [link: mailto:pledge.citizenship.help@gmail.com]
