@@ -8,6 +8,8 @@ Choices made during a run without stopping to ask. Each is a recommendation; say
 
 | Date | Decision |
 |---|---|
+| 2026-09-25 | Privacy Policy "Last updated" stays 25 September 2026: the approved §11 change was made the same day. |
+| 2026-09-25 | Lighthouse in CI scores the median of 3 runs after an unscored warm-up (a single cold run gave perf 84 on a plain HTML page). Local runs use 1 run by default. The limits are unchanged. |
 
 ## Decided
 
@@ -32,3 +34,4 @@ Choices made during a run without stopping to ask. Each is a recommendation; say
 | 2026-09-25 | Home page JS ≤ 15 KB gzipped and Lighthouse performance ≥ 90 are hard limits: cut the idea, not the limit. |
 | 2026-09-25 | Build in 3 runs: Run 1 = phases 0–4, Run 2 = 5–8, Run 3 = 9–14. Domain day and App Store launch are separate small steps. |
 | 2026-09-25 | Desktop is designed, not stretched: wide editorial layouts, full-width hero, desktop-only hover and pointer depth, retina images. Screenshots at 390×844, 1280×800, 1440×900 and 1920×1080, light and dark. |
+| 2026-09-25 | Privacy Policy §11 now reads "This website uses no cookies, analytics or tracking. Some pages, such as the free practice test, use small scripts that run only in your browser. They don’t store anything on your device or send anything anywhere. Fonts and images are loaded from this website only." (approved); legal baseline updated in the same commit. |
