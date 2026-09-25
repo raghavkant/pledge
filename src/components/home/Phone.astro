@@ -1,0 +1,26 @@
+---
+// A neutral phone frame drawn in CSS (no Apple device image), holding one named screen slot.
+// Space is reserved with aspect-ratio, so nothing shifts. See src/assets/screens/.
+import { screens, type ScreenSlot } from '../../assets/screens';
+import brand from '../../lib/brand-paths.json';
+
+interface Props { screen: ScreenSlot; class?: string; eager?: boolean }
+const { screen, class: className, eager = false } = Astro.props;
+const slot = screens[screen];
+---
+<figure class:list={['phone', className]} data-screen={screen}>
+  <div class="phone-body">
+    <div class="phone-screen">
+      {slot.image ? (
+        <img src={slot.image.src} width={slot.image.width} height={slot.image.height} alt={`The ${slot.name.toLowerCase()} screen in Pledge.`} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+      ) : (
+        <div class="screen-slot">
+          <svg class="screen-sparkle" viewBox="714 116 184 184" aria-hidden="true"><path d={brand.sparkle} /></svg>
+          <p class="screen-name">{slot.name}</p>
+          <p class="screen-caption">{slot.caption}</p>
+          <p class="screen-note">App screenshot coming at launch</p>
+        </div>
+      )}
+    </div>
+  </div>
+</figure>

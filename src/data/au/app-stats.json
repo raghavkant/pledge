@@ -10,6 +10,12 @@
   "valuesQuestions": 94,
   "lessons": 33,
   "flashcards": 159,
+  "mockTest": {
+    "questions": 20,
+    "minutes": 45,
+    "passMark": 15,
+    "allValuesMustBeCorrect": true
+  },
   "free": {
     "part1Questions": 125,
     "valuesQuestions": 20,

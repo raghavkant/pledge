@@ -17,11 +17,12 @@ const server = await serve();
 const pages = (await builtPages()).filter((p) => p.path !== '404.html' && (!only.length || only.some((o) => p.path.startsWith(o))));
 await rm(OUT, { recursive: true, force: true });
 
-const args = ['lhci', 'collect', `--numberOfRuns=${runs}`, '--settings.chromeFlags=--headless=new --no-sandbox',
+const args = ['collect', `--numberOfRuns=${runs}`, '--settings.chromeFlags=--headless=new --no-sandbox',
   `--url=${server.base}?warm-up`, ...pages.map((p) => `--url=${server.base}${p.path}`)];
 const log = await new Promise((resolve) => {
   let out = '';
-  const child = spawn('npx', args, { cwd: ROOT, env: process.env });
+  // The installed lhci directly, not through npx (npx can stop to contact the npm registry).
+  const child = spawn(join(ROOT, 'node_modules', '.bin', 'lhci'), args, { cwd: ROOT, env: process.env });
   child.stdout.on('data', (d) => (out += d));
   child.stderr.on('data', (d) => (out += d));
   child.on('close', (code) => resolve({ code, out }));

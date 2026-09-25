@@ -22,8 +22,8 @@ if (!existsSync(join(SRC, 'questions.json'))) {
 }
 
 const read = async (name) => JSON.parse(await readFile(join(SRC, name), 'utf8'));
-const [bank, freeValues, lessons, flashcards, meta] = await Promise.all(
-  ['questions.json', 'free-values.json', 'lessons.json', 'flashcards.json', 'meta.json'].map(read),
+const [bank, freeValues, lessons, flashcards, meta, testConfig] = await Promise.all(
+  ['questions.json', 'free-values.json', 'lessons.json', 'flashcards.json', 'meta.json', 'test-config.json'].map(read),
 );
 
 const freeValueSet = new Set(freeValues);
@@ -51,6 +51,12 @@ const files = {
     valuesQuestions: count(bank, (q) => q.isValues === true),
     lessons: lessons.length,
     flashcards: flashcards.length,
+    mockTest: {
+      questions: testConfig.questionsPerPart.reduce((sum, p) => sum + p.count, 0),
+      minutes: testConfig.timeLimitMinutes,
+      passMark: testConfig.passMark,
+      allValuesMustBeCorrect: testConfig.allValuesMustBeCorrect,
+    },
     free: {
       part1Questions: part1.length,
       valuesQuestions: values.length,
