@@ -1,6 +1,7 @@
 // check:lighthouse: Lighthouse on mobile (its default: phone screen, slow 4G, slower CPU) for every page.
 // Hard limits (docs/rules.md, rule 12): performance ≥ 90; accessibility, best practices, SEO ≥ 95; CLS ≤ 0.05.
-// Options: --runs=N (median of N runs, default 1), page path prefixes to check only some pages.
+// Options: --runs=N (median of N runs; default 1, or LH_RUNS; CI uses 3), page path prefixes to check only some pages.
+// The first URL is also run once as a warm-up that isn't scored (a cold browser skews the first result).
 import { spawn } from 'node:child_process';
 import { readdir, readFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -8,7 +9,7 @@ import { ROOT, builtPages, serve, ok, fail } from './lib.mjs';
 
 const MIN = { performance: 0.9, accessibility: 0.95, 'best-practices': 0.95, seo: 0.95 };
 const MAX_CLS = 0.05;
-const runs = Number((process.argv.find((a) => a.startsWith('--runs=')) || '--runs=1').split('=')[1]);
+const runs = Number((process.argv.find((a) => a.startsWith('--runs=')) || `--runs=${process.env.LH_RUNS || 1}`).split('=')[1]);
 const only = process.argv.slice(2).filter((a) => !a.startsWith('-'));
 const OUT = join(ROOT, '.lighthouseci');
 
@@ -17,7 +18,7 @@ const pages = (await builtPages()).filter((p) => p.path !== '404.html' && (!only
 await rm(OUT, { recursive: true, force: true });
 
 const args = ['lhci', 'collect', `--numberOfRuns=${runs}`, '--settings.chromeFlags=--headless=new --no-sandbox',
-  ...pages.map((p) => `--url=${server.base}${p.path}`)];
+  `--url=${server.base}?warm-up`, ...pages.map((p) => `--url=${server.base}${p.path}`)];
 const log = await new Promise((resolve) => {
   let out = '';
   const child = spawn('npx', args, { cwd: ROOT, env: process.env });
