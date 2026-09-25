@@ -15,7 +15,7 @@ Do these in this order:
 
 ## Privacy Policy change (Phase 3, approved 2026-09-25)
 
-7. §11 "This website" now says the website uses small first-party scripts that store and send nothing. `PRIVACY_SUMMARY` in `src/store/legalLinks.ts` describes the app, not the website, so it should not need to change. Read it once to confirm. The Privacy screen in the app opens the live page, so there is nothing else to update.
+7. §11 "This website" now says the website uses small first-party scripts that store and send nothing. `PRIVACY_SUMMARY` in `src/store/legalLinks.ts` describes the app, not the website, so it should not need to change. Read it once to confirm. The Privacy screen in the app opens the live page, so there is nothing else to update. If you keep `site/` for a while before deleting it, copy the same §11 sentence into `site/privacy/index.html` so the two don't disagree.
 
 ## Domain day (later)
 

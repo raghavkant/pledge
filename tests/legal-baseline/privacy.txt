@@ -43,7 +43,7 @@ Wherever you live, you can ask me what information about you is held and ask for
 10. Security
 Information on your phone is protected by your phone’s own security. The app talks to RevenueCat over encrypted (HTTPS) connections.
 11. This website
-This website is hosted by GitHub Pages. GitHub may keep visitors’ IP addresses in its server logs (see the GitHub Privacy Statement [link: https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement]). This website uses no cookies, scripts or analytics.
+This website is hosted by GitHub Pages. GitHub may keep visitors’ IP addresses in its server logs (see the GitHub Privacy Statement [link: https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement]). This website uses no cookies, analytics or tracking. Some pages, such as the free practice test, use small scripts that run only in your browser. They don’t store anything on your device or send anything anywhere. Fonts and images are loaded from this website only.
 12. Changes to this policy
 If this policy changes, I will update it here and change the date at the top. Important changes will also be mentioned in the app’s update notes.
 13. Contact
