@@ -1,0 +1,19 @@
+{
+  "contentVersion": "0.6.0",
+  "questions": 476,
+  "questionsByPart": {
+    "1": 125,
+    "2": 99,
+    "3": 158,
+    "4": 94
+  },
+  "valuesQuestions": 94,
+  "lessons": 33,
+  "flashcards": 159,
+  "free": {
+    "part1Questions": 125,
+    "valuesQuestions": 20,
+    "lessons": 8,
+    "flashcards": 53
+  }
+}

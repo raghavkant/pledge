@@ -1,0 +1,2181 @@
+{
+  "contentVersion": "0.6.0",
+  "bookletCheckedDate": "2026-09-23",
+  "questions": [
+    {
+      "id": "p1-001",
+      "part": 1,
+      "topic": "Aboriginal and Torres Strait Islander peoples",
+      "isValues": false,
+      "question": "Who were Australia’s first inhabitants?",
+      "options": [
+        "Convicts who arrived on the First Fleet",
+        "The Aboriginal and Torres Strait Islander peoples",
+        "Free settlers from Great Britain and Ireland"
+      ],
+      "answerIndex": 1,
+      "explanation": "The booklet says Australia’s first inhabitants are the Aboriginal and Torres Strait Islander peoples.",
+      "source": "Part 1 › Aboriginal and Torres Strait Islander peoples › p. 8"
+    },
+    {
+      "id": "p1-002",
+      "part": 1,
+      "topic": "Aboriginal and Torres Strait Islander peoples",
+      "isValues": false,
+      "question": "What does the booklet say about the cultures and traditions of Aboriginal and Torres Strait Islander peoples?",
+      "options": [
+        "They began when the colonies united in 1901",
+        "They are the oldest continuous cultures and traditions in the world",
+        "They started during the gold rush of the 1850s"
+      ],
+      "answerIndex": 1,
+      "explanation": "Aboriginal and Torres Strait Islander peoples have the oldest continuous cultures and traditions in the world.",
+      "source": "Part 1 › Aboriginal and Torres Strait Islander peoples › p. 8"
+    },
+    {
+      "id": "p1-003",
+      "part": 1,
+      "topic": "Aboriginal and Torres Strait Islander peoples",
+      "isValues": false,
+      "question": "Historically, where are Aboriginal people from?",
+      "options": [
+        "Mainland Australia and Tasmania",
+        "Islands between Queensland and Papua New Guinea",
+        "Great Britain and Ireland"
+      ],
+      "answerIndex": 0,
+      "explanation": "Historically, Aboriginal people are from mainland Australia and Tasmania. Torres Strait Islander people are from the islands between the northern tip of Queensland and Papua New Guinea.",
+      "source": "Part 1 › Aboriginal and Torres Strait Islander peoples › p. 8"
+    },
+    {
+      "id": "p1-004",
+      "part": 1,
+      "topic": "Aboriginal and Torres Strait Islander peoples",
+      "isValues": false,
+      "question": "Where are Torres Strait Islander people from?",
+      "options": [
+        "The island of Tasmania, across the Bass Strait",
+        "The desert regions in the east of Western Australia",
+        "Islands between the northern tip of Queensland and Papua New Guinea"
+      ],
+      "answerIndex": 2,
+      "explanation": "Torres Strait Islander people are from the islands between the northern tip of Queensland and Papua New Guinea.",
+      "source": "Part 1 › Aboriginal and Torres Strait Islander peoples › p. 8"
+    },
+    {
+      "id": "p1-005",
+      "part": 1,
+      "topic": "Aboriginal and Torres Strait Islander peoples",
+      "isValues": false,
+      "question": "Approximately how long have Aboriginal and Torres Strait Islander peoples been in Australia?",
+      "options": [
+        "About 65,000 years",
+        "About 6,500 years",
+        "Since the First Fleet arrived in 1788"
+      ],
+      "answerIndex": 0,
+      "explanation": "The booklet says Aboriginal and Torres Strait Islander peoples have been here for approximately 65,000 years. The archaeological record puts the arrival of Aboriginal peoples between 65,000 and 40,000 years ago.",
+      "source": "Part 1 › Aboriginal and Torres Strait Islander peoples › p. 8"
+    },
+    {
+      "id": "p1-006",
+      "part": 1,
+      "topic": "Aboriginal and Torres Strait Islander peoples",
+      "isValues": false,
+      "question": "According to the booklet, when do the creation stories of Aboriginal peoples begin?",
+      "options": [
+        "With the beginning of time",
+        "With the arrival of the First Fleet",
+        "With the federation of Australia in 1901"
+      ],
+      "answerIndex": 0,
+      "explanation": "Aboriginal peoples believe they are central to the creation stories of this land, and their creation stories commence with the beginning of time.",
+      "source": "Part 1 › Aboriginal and Torres Strait Islander peoples › p. 8"
+    },
+    {
+      "id": "p1-007",
+      "part": 1,
+      "topic": "Aboriginal and Torres Strait Islander peoples",
+      "isValues": false,
+      "question": "How is the deep connection of Aboriginal and Torres Strait Islander peoples with the land expressed?",
+      "options": [
+        "In the laws of the first colony",
+        "In their stories, art and dance",
+        "In the colours of the national flag"
+      ],
+      "answerIndex": 1,
+      "explanation": "They have a deep connection with the land, which is expressed in their stories, art and dance.",
+      "source": "Part 1 › Aboriginal and Torres Strait Islander peoples › p. 8"
+    },
+    {
+      "id": "p1-008",
+      "part": 1,
+      "topic": "Aboriginal and Torres Strait Islander peoples",
+      "isValues": false,
+      "question": "Which statement about Indigenous cultures is correct?",
+      "options": [
+        "They are all the same and are not part of Australia’s national identity",
+        "They are diverse and an important part of Australia’s national identity",
+        "They stopped being practised when European settlement started"
+      ],
+      "answerIndex": 1,
+      "explanation": "The booklet says Indigenous cultures are diverse and an important part of Australia’s national identity.",
+      "source": "Part 1 › Aboriginal and Torres Strait Islander peoples › p. 8"
+    },
+    {
+      "id": "p1-009",
+      "part": 1,
+      "topic": "Aboriginal and Torres Strait Islander peoples",
+      "isValues": false,
+      "question": "Which statement about the age-old beliefs and traditions of Aboriginal and Torres Strait Islander peoples is correct?",
+      "options": [
+        "They stopped being followed when the colonies were formed",
+        "They still guide Aboriginal and Torres Strait Islander peoples today",
+        "They were replaced by British traditions at Federation in 1901"
+      ],
+      "answerIndex": 1,
+      "explanation": "The booklet says Aboriginal and Torres Strait Islander peoples have age-old beliefs and traditions that still guide them today.",
+      "source": "Part 1 › Aboriginal and Torres Strait Islander peoples › p. 8"
+    },
+    {
+      "id": "p1-011",
+      "part": 1,
+      "topic": "Aboriginal and Torres Strait Islander peoples",
+      "isValues": false,
+      "question": "In the booklet, what does the word ‘Indigenous’ refer to?",
+      "options": [
+        "People who arrived in Australia with the First Fleet",
+        "Migrants who came to Australia after World War II",
+        "The Aboriginal and/or Torres Strait Islander peoples of Australia"
+      ],
+      "answerIndex": 2,
+      "explanation": "The glossary defines ‘Indigenous’ as the Aboriginal and/or Torres Strait Islander peoples of Australia.",
+      "source": "Glossary › Indigenous › p. 42"
+    },
+    {
+      "id": "p1-012",
+      "part": 1,
+      "topic": "Aboriginal and Torres Strait Islander peoples",
+      "isValues": false,
+      "question": "Which group of people is historically from mainland Australia and Tasmania?",
+      "options": [
+        "Torres Strait Islander people",
+        "The convicts of the First Fleet",
+        "Aboriginal people"
+      ],
+      "answerIndex": 2,
+      "explanation": "Historically, Aboriginal people are from mainland Australia and Tasmania.",
+      "source": "Part 1 › Aboriginal and Torres Strait Islander peoples › p. 8"
+    },
+    {
+      "id": "p1-013",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "When did the First Fleet arrive from Great Britain?",
+      "options": [
+        "26 January 1788",
+        "25 April 1915",
+        "1 January 1901"
+      ],
+      "answerIndex": 0,
+      "explanation": "European settlement started when the First Fleet arrived from Great Britain on 26 January 1788.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-014",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "How many convict ships made up the First Fleet?",
+      "options": [
+        "6",
+        "7",
+        "11"
+      ],
+      "answerIndex": 2,
+      "explanation": "European settlement started when the first 11 convict ships, which became known as the ‘First Fleet’, arrived from Great Britain.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-015",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "Where did the First Fleet come from?",
+      "options": [
+        "New Zealand",
+        "China",
+        "Great Britain"
+      ],
+      "answerIndex": 2,
+      "explanation": "The First Fleet arrived from Great Britain on 26 January 1788.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-016",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "Why did the British Government decide to send convicts to Australia?",
+      "options": [
+        "The British Government wanted convicts to look for gold",
+        "Convicts were needed to fight in World War I",
+        "British jails could not hold the large number of prisoners"
+      ],
+      "answerIndex": 2,
+      "explanation": "British laws were harsh and the jails could not hold the large number of people imprisoned, so the British Government transported convicts to New South Wales.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-017",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "To which new colony were the first convicts transported?",
+      "options": [
+        "Victoria",
+        "Queensland",
+        "New South Wales"
+      ],
+      "answerIndex": 2,
+      "explanation": "The British Government decided to transport convicts to the new colony of New South Wales.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-018",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "Captain Arthur Phillip was the first ___ of the colony of New South Wales.",
+      "options": [
+        "Premier",
+        "Prime Minister",
+        "Governor"
+      ],
+      "answerIndex": 2,
+      "explanation": "The first Governor of the colony of New South Wales was Captain Arthur Phillip.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-019",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "Where did early free settlers come from?",
+      "options": [
+        "China and Papua New Guinea",
+        "Great Britain and Ireland",
+        "New Zealand and Türkiye"
+      ],
+      "answerIndex": 1,
+      "explanation": "Early free settlers came from Great Britain and Ireland.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-020",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "Which heritage has had a major influence on Australia’s recent history, culture and politics?",
+      "options": [
+        "Chinese and Vietnamese heritage",
+        "British and Irish heritage",
+        "Turkish and New Zealand heritage"
+      ],
+      "answerIndex": 1,
+      "explanation": "Early free settlers came from Great Britain and Ireland, and this British and Irish heritage has had a major influence on Australia’s recent history, culture and politics.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-021",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "In what year did a ‘gold rush’ begin in Australia?",
+      "options": [
+        "1788",
+        "1851",
+        "1901"
+      ],
+      "answerIndex": 1,
+      "explanation": "In 1851, a ‘gold rush’ began when gold was discovered in the colonies of New South Wales and Victoria.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-022",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "In which colonies was gold discovered in 1851?",
+      "options": [
+        "Western Australia and South Australia",
+        "Queensland and Tasmania",
+        "New South Wales and Victoria"
+      ],
+      "answerIndex": 2,
+      "explanation": "In 1851, a gold rush began when gold was discovered in the colonies of New South Wales and Victoria.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-023",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "Who were the first large group of migrants to Australia not from Europe?",
+      "options": [
+        "Chinese people who came during the gold rush",
+        "Vietnamese people who came after World War II",
+        "People from Türkiye who came after World War I"
+      ],
+      "answerIndex": 0,
+      "explanation": "Chinese people arriving during the gold rush were the first large group of migrants not from Europe.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-024",
+      "part": 1,
+      "topic": "Early days of European settlement",
+      "isValues": false,
+      "question": "What happened to Australia’s population in the 10 years after the gold rush began?",
+      "options": [
+        "It more than doubled",
+        "It fell by half",
+        "It stayed about the same"
+      ],
+      "answerIndex": 0,
+      "explanation": "People from all around the world came to try to make their fortunes. In 10 years, Australia’s population more than doubled.",
+      "source": "Part 1 › Early days of European settlement › p. 8"
+    },
+    {
+      "id": "p1-026",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "In 1901, the separate colonies were united into a federation of states called:",
+      "options": [
+        "The Colony of New South Wales",
+        "The Australian Capital Territory",
+        "The Commonwealth of Australia"
+      ],
+      "answerIndex": 2,
+      "explanation": "In 1901, the separate colonies were united into a federation of states called the Commonwealth of Australia.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-027",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "In what year were the separate colonies united into a federation?",
+      "options": [
+        "1851",
+        "1967",
+        "1901"
+      ],
+      "answerIndex": 2,
+      "explanation": "In 1901, the separate colonies were united into a federation of states called the Commonwealth of Australia.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-028",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "Which institutions were established under the new Australian Constitution in 1901?",
+      "options": [
+        "The first convict colony and its first Governor",
+        "The Australian Aboriginal Flag and the Torres Strait Islander Flag",
+        "The national parliament, government and the High Court"
+      ],
+      "answerIndex": 2,
+      "explanation": "In 1901, national democratic institutions, including the national parliament, government and the High Court, were established under the new Australian Constitution.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-029",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "What was Australia’s population in 1901, according to the booklet?",
+      "options": [
+        "About forty million",
+        "About four hundred thousand",
+        "About four million"
+      ],
+      "answerIndex": 2,
+      "explanation": "In 1901, Australia’s population was about four million. This number did not include Aboriginal and Torres Strait Islander peoples.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-030",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "After which event were Aboriginal and Torres Strait Islander peoples included in official estimates of the Australian population?",
+      "options": [
+        "Federation in 1901",
+        "The end of World War II",
+        "A Referendum in 1967"
+      ],
+      "answerIndex": 2,
+      "explanation": "It was not until after a Referendum in 1967 that Aboriginal and Torres Strait Islander peoples were included in official estimates of the Australian population.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-031",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "What is Australia’s national language?",
+      "options": [
+        "Each state chooses its own national language",
+        "Australia does not have a national language",
+        "English"
+      ],
+      "answerIndex": 2,
+      "explanation": "Australia’s national language is English. It is part of our national identity.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-032",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "In keeping with Australian values, why should migrants learn and use English?",
+      "options": [
+        "To help them participate in Australian society",
+        "Because speaking other languages is not allowed",
+        "Because English is only needed to vote"
+      ],
+      "answerIndex": 0,
+      "explanation": "In keeping with Australian values, migrants should learn and use English to help them participate in Australian society. Other languages are also valued.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-033",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "About how many distinct Aboriginal and Torres Strait Islander languages are there?",
+      "options": [
+        "More than 100",
+        "About 10",
+        "Exactly 6, one for each state"
+      ],
+      "answerIndex": 0,
+      "explanation": "Other languages are also valued, including more than 100 distinct Aboriginal and Torres Strait Islander languages.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-034",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "In the first half of the 20th century, there were programs to actively encourage migrants from which country to settle in Australia?",
+      "options": [
+        "Britain",
+        "China",
+        "Türkiye"
+      ],
+      "answerIndex": 0,
+      "explanation": "Throughout the first half of the 20th century, there were programs to actively encourage British migrants to settle in Australia, and many did.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-035",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "When did a wave of non-British migration come to Australia, as millions of people in Europe had to leave their homelands?",
+      "options": [
+        "After World War II",
+        "After World War I",
+        "After Federation in 1901"
+      ],
+      "answerIndex": 0,
+      "explanation": "A wave of non-British migration came after World War II, when millions of people in Europe had to leave their homelands.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-036",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "After World War II, large numbers of people came to Australia from which part of the world to build a new life?",
+      "options": [
+        "Europe",
+        "Papua New Guinea",
+        "The Torres Strait Islands"
+      ],
+      "answerIndex": 0,
+      "explanation": "After World War II, large numbers of Europeans came to Australia to build a new life.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-037",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "According to the booklet, why have people come to Australia in recent years?",
+      "options": [
+        "To work as convicts in the colony of New South Wales",
+        "To join family, make a new life, or escape poverty, war or persecution",
+        "Only to serve in the Australian Defence Force"
+      ],
+      "answerIndex": 1,
+      "explanation": "In recent years, people have come to Australia to join family, to make a new life, or to escape poverty, war or persecution.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-038",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "While we celebrate the diversity of Australia’s people, what do we also aim to build?",
+      "options": [
+        "A cohesive and unified nation",
+        "Separate communities that do not mix",
+        "A nation with one official religion"
+      ],
+      "answerIndex": 0,
+      "explanation": "While we celebrate the diversity of Australia’s people, we also aim to build a cohesive and unified nation.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-039",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "According to the booklet, why is communicating in English important?",
+      "options": [
+        "It is not important, because other languages are also valued",
+        "It is important for making the most of living and working in Australia",
+        "It is only important for people who want to vote"
+      ],
+      "answerIndex": 1,
+      "explanation": "Communicating in English is important for making the most of living and working in Australia.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-040",
+      "part": 1,
+      "topic": "The nation of Australia",
+      "isValues": false,
+      "question": "Which statement about languages in Australia is correct?",
+      "options": [
+        "English is the national language, and other languages are also valued",
+        "English is the national language, and no other languages are valued",
+        "Australia has two national languages: English and one Aboriginal language"
+      ],
+      "answerIndex": 0,
+      "explanation": "English is the national language, but other languages are also valued, including more than 100 distinct Aboriginal and Torres Strait Islander languages.",
+      "source": "Part 1 › The nation of Australia › p. 9"
+    },
+    {
+      "id": "p1-041",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "How many states are there in Australia?",
+      "options": [
+        "Six",
+        "Seven",
+        "Eight"
+      ],
+      "answerIndex": 0,
+      "explanation": "There are six states and two mainland territories.",
+      "source": "Part 1 › Australia’s states and territories › p. 10"
+    },
+    {
+      "id": "p1-042",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "How many mainland territories are there in Australia?",
+      "options": [
+        "One",
+        "Six",
+        "Two"
+      ],
+      "answerIndex": 2,
+      "explanation": "There are six states and two mainland territories.",
+      "source": "Part 1 › Australia’s states and territories › p. 10"
+    },
+    {
+      "id": "p1-043",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "What is Australia’s capital city?",
+      "options": [
+        "Canberra",
+        "Sydney",
+        "Melbourne"
+      ],
+      "answerIndex": 0,
+      "explanation": "Canberra is Australia’s capital city.",
+      "source": "Part 1 › Australia’s states and territories › p. 10"
+    },
+    {
+      "id": "p1-044",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "What is the capital city of New South Wales?",
+      "options": [
+        "Canberra",
+        "Sydney",
+        "Melbourne"
+      ],
+      "answerIndex": 1,
+      "explanation": "Sydney is the capital city of New South Wales.",
+      "source": "Part 1 › Australia’s states and territories › p. 10"
+    },
+    {
+      "id": "p1-045",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "What is the capital city of Victoria?",
+      "options": [
+        "Sydney",
+        "Adelaide",
+        "Melbourne"
+      ],
+      "answerIndex": 2,
+      "explanation": "Melbourne is the capital city of Victoria.",
+      "source": "Part 1 › Australia’s states and territories › p. 10"
+    },
+    {
+      "id": "p1-046",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "What is the capital city of Queensland?",
+      "options": [
+        "Darwin",
+        "Perth",
+        "Brisbane"
+      ],
+      "answerIndex": 2,
+      "explanation": "Brisbane is the capital city of Queensland.",
+      "source": "Part 1 › Australia’s states and territories › p. 10"
+    },
+    {
+      "id": "p1-047",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "What is the capital city of Western Australia?",
+      "options": [
+        "Perth",
+        "Darwin",
+        "Adelaide"
+      ],
+      "answerIndex": 0,
+      "explanation": "Perth is the capital city of Western Australia.",
+      "source": "Part 1 › Australia’s states and territories › p. 10"
+    },
+    {
+      "id": "p1-048",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "What is the capital city of South Australia?",
+      "options": [
+        "Perth",
+        "Hobart",
+        "Adelaide"
+      ],
+      "answerIndex": 2,
+      "explanation": "Adelaide is the capital city of South Australia.",
+      "source": "Part 1 › Australia’s states and territories › p. 10"
+    },
+    {
+      "id": "p1-049",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "What is the capital city of Tasmania?",
+      "options": [
+        "Adelaide",
+        "Hobart",
+        "Melbourne"
+      ],
+      "answerIndex": 1,
+      "explanation": "Hobart is the capital city of Tasmania.",
+      "source": "Part 1 › Australia’s states and territories › p. 10"
+    },
+    {
+      "id": "p1-050",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "What is the capital city of the Northern Territory?",
+      "options": [
+        "Brisbane",
+        "Canberra",
+        "Darwin"
+      ],
+      "answerIndex": 2,
+      "explanation": "Darwin is the capital city of the Northern Territory.",
+      "source": "Part 1 › Australia’s states and territories › p. 10"
+    },
+    {
+      "id": "p1-051",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "In which state or territory is Canberra?",
+      "options": [
+        "The Northern Territory",
+        "The Australian Capital Territory",
+        "New South Wales"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Australian Capital Territory is home to the nation’s capital city, Canberra.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-052",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "Which is the largest state in Australia?",
+      "options": [
+        "Queensland",
+        "New South Wales",
+        "Western Australia"
+      ],
+      "answerIndex": 2,
+      "explanation": "Western Australia is the largest state. Queensland is the second largest.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-053",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "Which is the second largest state in Australia?",
+      "options": [
+        "Queensland",
+        "Western Australia",
+        "Victoria"
+      ],
+      "answerIndex": 0,
+      "explanation": "Queensland is the second largest state. Western Australia is the largest.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-054",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "Which is the smallest state in Australia?",
+      "options": [
+        "Victoria",
+        "Tasmania",
+        "South Australia"
+      ],
+      "answerIndex": 1,
+      "explanation": "Tasmania is the smallest state. Victoria is the smallest of the mainland states.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-055",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "Which is the smallest of the mainland states?",
+      "options": [
+        "Victoria",
+        "Tasmania",
+        "South Australia"
+      ],
+      "answerIndex": 0,
+      "explanation": "Victoria is the smallest of the mainland states. Tasmania is smaller, but it is not on the mainland.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-056",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "Which is the nation’s largest city?",
+      "options": [
+        "Melbourne",
+        "Sydney",
+        "Canberra"
+      ],
+      "answerIndex": 1,
+      "explanation": "Sydney is the capital city of New South Wales and is the nation’s largest city.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-057",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "Which was the first colony established by the British?",
+      "options": [
+        "Victoria",
+        "New South Wales",
+        "Tasmania"
+      ],
+      "answerIndex": 1,
+      "explanation": "New South Wales was the first colony established by the British.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-058",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "Which state is separated from the mainland by the Bass Strait?",
+      "options": [
+        "Victoria",
+        "Tasmania",
+        "Queensland"
+      ],
+      "answerIndex": 1,
+      "explanation": "Tasmania is the smallest state, separated from the mainland by the Bass Strait.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-059",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "The Great Barrier Reef runs along the eastern coast of which state?",
+      "options": [
+        "Western Australia",
+        "New South Wales",
+        "Queensland"
+      ],
+      "answerIndex": 2,
+      "explanation": "The world-famous Great Barrier Reef runs along Queensland’s eastern coast.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-060",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "Uluru, Kata Tjuta and Kings Canyon are icons of which state or territory?",
+      "options": [
+        "The Northern Territory",
+        "South Australia",
+        "Western Australia"
+      ],
+      "answerIndex": 0,
+      "explanation": "Northern Territory icons include Uluru, Kata Tjuta and Kings Canyon.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-061",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "Where is the Australian Capital Territory located?",
+      "options": [
+        "Between Adelaide and Perth",
+        "Between Darwin and Brisbane",
+        "Between Sydney and Melbourne"
+      ],
+      "answerIndex": 2,
+      "explanation": "The Australian Capital Territory is located between Sydney and Melbourne.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-062",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "In which city are Parliament House and the High Court of Australia located?",
+      "options": [
+        "Sydney",
+        "Canberra",
+        "Melbourne"
+      ],
+      "answerIndex": 1,
+      "explanation": "Several national institutions are located in Canberra, including Parliament House and the High Court of Australia.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-063",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "The Sydney Harbour Bridge and Opera House are national icons found in which state?",
+      "options": [
+        "Victoria",
+        "New South Wales",
+        "Queensland"
+      ],
+      "answerIndex": 1,
+      "explanation": "Sydney is the capital city of New South Wales. The Sydney Harbour Bridge and Opera House are national icons.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-064",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "The Melbourne Cricket Ground, the 12 Apostles and the Royal Exhibition Building are icons of which state?",
+      "options": [
+        "Victoria",
+        "New South Wales",
+        "South Australia"
+      ],
+      "answerIndex": 0,
+      "explanation": "Victoria’s icons include the Melbourne Cricket Ground, the 12 Apostles, and the Royal Exhibition Building.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-065",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "The Barossa Valley and the Flinders Ranges are icons of which state?",
+      "options": [
+        "Western Australia",
+        "South Australia",
+        "Tasmania"
+      ],
+      "answerIndex": 1,
+      "explanation": "South Australia’s icons include the Barossa Valley and the Flinders Ranges.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-066",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "Cradle Mountain, Port Arthur and the Bay of Fires are icons of which state?",
+      "options": [
+        "Tasmania",
+        "Victoria",
+        "New South Wales"
+      ],
+      "answerIndex": 0,
+      "explanation": "Tasmanian icons include Cradle Mountain, Port Arthur, and the Bay of Fires.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-067",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "The Ningaloo Coast, Margaret River and the Kimberley region are icons of which state?",
+      "options": [
+        "Queensland",
+        "South Australia",
+        "Western Australia"
+      ],
+      "answerIndex": 2,
+      "explanation": "Western Australia’s icons include the Ningaloo Coast, Margaret River, and the Kimberley region.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-068",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "The Torres Strait Islands lie to the north of which state?",
+      "options": [
+        "Western Australia",
+        "Queensland",
+        "New South Wales"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Torres Strait Islands lie to the north of Queensland.",
+      "source": "Part 1 › Australia’s states and territories › p. 11"
+    },
+    {
+      "id": "p1-069",
+      "part": 1,
+      "topic": "Australia’s states and territories",
+      "isValues": false,
+      "question": "In the booklet, what is an ‘icon’?",
+      "options": [
+        "A state’s capital city",
+        "A well-known image",
+        "A national holiday"
+      ],
+      "answerIndex": 1,
+      "explanation": "The glossary defines an icon as a well-known image. For example, the booklet calls the Sydney Harbour Bridge and Opera House national icons.",
+      "source": "Glossary › icon › p. 42"
+    },
+    {
+      "id": "p1-070",
+      "part": 1,
+      "topic": "Traditions",
+      "isValues": false,
+      "question": "Who performs a Welcome to Country?",
+      "options": [
+        "Anyone at the meeting or event who is asked to do it",
+        "The Prime Minister or a government minister",
+        "An Aboriginal or Torres Strait Islander custodian of the local region"
+      ],
+      "answerIndex": 2,
+      "explanation": "A Welcome to Country is performed by an Aboriginal or Torres Strait Islander custodian of the local region. Anyone can deliver an Acknowledgement of Country.",
+      "source": "Part 1 › Traditions › p. 12"
+    },
+    {
+      "id": "p1-071",
+      "part": 1,
+      "topic": "Traditions",
+      "isValues": false,
+      "question": "Who can deliver an Acknowledgement of Country?",
+      "options": [
+        "Only an Aboriginal or Torres Strait Islander custodian",
+        "Only the Governor-General",
+        "Anyone"
+      ],
+      "answerIndex": 2,
+      "explanation": "Anyone can deliver an Acknowledgement of Country. A Welcome to Country is performed by an Aboriginal or Torres Strait Islander custodian.",
+      "source": "Part 1 › Traditions › p. 12"
+    },
+    {
+      "id": "p1-072",
+      "part": 1,
+      "topic": "Traditions",
+      "isValues": false,
+      "question": "At meetings and events, who would generally deliver the Acknowledgement of Country?",
+      "options": [
+        "The Chair or Master of Ceremonies",
+        "A police officer",
+        "The Governor-General"
+      ],
+      "answerIndex": 0,
+      "explanation": "At meetings and events, the Acknowledgement of Country would generally be done by the Chair or Master of Ceremonies.",
+      "source": "Part 1 › Traditions › p. 12"
+    },
+    {
+      "id": "p1-073",
+      "part": 1,
+      "topic": "Traditions",
+      "isValues": false,
+      "question": "When is a Welcome to Country usually held at an event?",
+      "options": [
+        "As the last item, to close the event",
+        "As the first item, to open the event",
+        "Halfway through, after the main speeches"
+      ],
+      "answerIndex": 1,
+      "explanation": "A Welcome to Country is usually the first item of proceedings to open an event.",
+      "source": "Part 1 › Traditions › p. 12"
+    },
+    {
+      "id": "p1-074",
+      "part": 1,
+      "topic": "Traditions",
+      "isValues": false,
+      "question": "Which of these can be part of a Welcome to Country?",
+      "options": [
+        "A secret ballot",
+        "A smoking ceremony",
+        "A jury trial"
+      ],
+      "answerIndex": 1,
+      "explanation": "A Welcome to Country can take place through many forms, including songs, dances, smoking ceremonies or speeches in traditional language or English.",
+      "source": "Part 1 › Traditions › p. 12"
+    },
+    {
+      "id": "p1-075",
+      "part": 1,
+      "topic": "Traditions",
+      "isValues": false,
+      "question": "Why was a Welcome to Country traditionally performed?",
+      "options": [
+        "To collect payment from visitors before they entered the land",
+        "To choose a leader for the visitors while they were on that land",
+        "To ensure visitors had a safe and protected journey on that land"
+      ],
+      "answerIndex": 2,
+      "explanation": "A Welcome to Country was traditionally performed to ensure visitors had a safe and protected journey during their time on that land.",
+      "source": "Part 1 › Traditions › p. 12"
+    },
+    {
+      "id": "p1-076",
+      "part": 1,
+      "topic": "Traditions",
+      "isValues": false,
+      "question": "An Acknowledgement of Country is an opportunity to recognise that the gathering is:",
+      "options": [
+        "On land owned by the Australian Government",
+        "Approved by the Governor-General",
+        "On Aboriginal or Torres Strait Islander land"
+      ],
+      "answerIndex": 2,
+      "explanation": "An Acknowledgement of Country is an opportunity to recognise that the gathering is on Aboriginal or Torres Strait Islander land.",
+      "source": "Part 1 › Traditions › p. 12"
+    },
+    {
+      "id": "p1-077",
+      "part": 1,
+      "topic": "Traditions",
+      "isValues": false,
+      "question": "In an Acknowledgement of Country, respect is paid to Traditional Custodians, particularly:",
+      "options": [
+        "Elders past and present",
+        "Members of the local council",
+        "The first Governor, Captain Arthur Phillip"
+      ],
+      "answerIndex": 0,
+      "explanation": "An Acknowledgement of Country pays respect to Traditional Custodians, particularly Elders past and present.",
+      "source": "Part 1 › Traditions › p. 12"
+    },
+    {
+      "id": "p1-078",
+      "part": 1,
+      "topic": "Traditions",
+      "isValues": false,
+      "question": "Why are Welcome to Country and Acknowledgement of Country practices performed?",
+      "options": [
+        "To show respect for Aboriginal and Torres Strait Islander peoples",
+        "To ask the government for permission to hold the event",
+        "To celebrate the arrival of the First Fleet"
+      ],
+      "answerIndex": 0,
+      "explanation": "These practices are performed to show respect for Aboriginal and Torres Strait Islander peoples.",
+      "source": "Part 1 › Traditions › p. 12"
+    },
+    {
+      "id": "p1-079",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "On what date do we celebrate Australia Day each year?",
+      "options": [
+        "25 April",
+        "1 January",
+        "26 January"
+      ],
+      "answerIndex": 2,
+      "explanation": "On 26 January each year, we celebrate Australia Day.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-080",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "Australia Day is the anniversary of what event?",
+      "options": [
+        "The federation of the colonies in 1901",
+        "The arrival of the First Fleet from Great Britain in 1788",
+        "The landing at Gallipoli in 1915"
+      ],
+      "answerIndex": 1,
+      "explanation": "Australia Day is the anniversary of the arrival of the First Fleet from Great Britain in 1788.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-081",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "On what date is Anzac Day commemorated each year?",
+      "options": [
+        "26 January",
+        "1 January",
+        "25 April"
+      ],
+      "answerIndex": 2,
+      "explanation": "Anzac Day is commemorated on 25 April each year.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-082",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "Anzac Day is named after the:",
+      "options": [
+        "Australian National Air Command",
+        "Australian and New Zealand Army Corps",
+        "Australian and New Zealand Navy Council"
+      ],
+      "answerIndex": 1,
+      "explanation": "Anzac Day is named after the Australian and New Zealand Army Corps.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-083",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "Where did the Australian and New Zealand Army Corps land on 25 April 1915?",
+      "options": [
+        "Gallipoli in Türkiye",
+        "Sydney Cove in New South Wales",
+        "The Torres Strait Islands"
+      ],
+      "answerIndex": 0,
+      "explanation": "The Australian and New Zealand Army Corps landed at Gallipoli in Türkiye during World War I on 25 April 1915.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-084",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "During which war did the Australian and New Zealand Army Corps land at Gallipoli?",
+      "options": [
+        "World War I",
+        "World War II",
+        "A war between the colonies before Federation"
+      ],
+      "answerIndex": 0,
+      "explanation": "The Australian and New Zealand Army Corps landed at Gallipoli in Türkiye during World War I on 25 April 1915.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-085",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "Anzac Day is a solemn day when we remember:",
+      "options": [
+        "The arrival of the First Fleet and the start of European settlement in 1788",
+        "The day the separate colonies united to become the Commonwealth of Australia",
+        "The sacrifice of all Australians who served and died in wars, conflicts and peacekeeping operations"
+      ],
+      "answerIndex": 2,
+      "explanation": "Anzac Day is a solemn day when we remember the sacrifice of all Australians who served and died in wars, conflicts and peacekeeping operations.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-086",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "What is the biggest annual public holiday in Australia?",
+      "options": [
+        "Anzac Day",
+        "Australia Day",
+        "Christmas Day"
+      ],
+      "answerIndex": 1,
+      "explanation": "The booklet says Australia Day is the biggest annual public holiday in Australia.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-087",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "Who announces the Australian of the Year Awards during Australia Day celebrations?",
+      "options": [
+        "The Prime Minister",
+        "The Governor-General",
+        "The King of Australia"
+      ],
+      "answerIndex": 0,
+      "explanation": "During Australia Day celebrations, the Prime Minister announces the Australian of the Year Awards in Canberra.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-088",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "In which city are the Australian of the Year Awards announced?",
+      "options": [
+        "Sydney",
+        "Canberra",
+        "Melbourne"
+      ],
+      "answerIndex": 1,
+      "explanation": "During Australia Day celebrations, the Prime Minister announces the Australian of the Year Awards in Canberra.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-089",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "Australia Day is marked by events across Australia, including:",
+      "options": [
+        "Federal elections",
+        "Referendums to change the Constitution",
+        "Special citizenship ceremonies"
+      ],
+      "answerIndex": 2,
+      "explanation": "Australia Day is marked by events across Australia, including special citizenship ceremonies.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-090",
+      "part": 1,
+      "topic": "Important days for Australians",
+      "isValues": false,
+      "question": "Where is Australia Day a public holiday?",
+      "options": [
+        "In the six states, but not in the territories",
+        "In every state and territory",
+        "In the two mainland territories, but not in the states"
+      ],
+      "answerIndex": 1,
+      "explanation": "Australia Day is a public holiday in every state and territory in Australia.",
+      "source": "Part 1 › Important days for Australians › p. 13"
+    },
+    {
+      "id": "p1-091",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "Which is the official flag of our nation?",
+      "options": [
+        "The Australian Aboriginal Flag",
+        "The Australian National Flag",
+        "The Torres Strait Islander Flag"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Australian National Flag is the official flag of our nation. The Australian Aboriginal Flag and the Torres Strait Islander Flag are also officially recognised.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-092",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "What colours are the Australian National Flag?",
+      "options": [
+        "Black, red and yellow",
+        "Green, blue, black and white",
+        "Blue, white and red"
+      ],
+      "answerIndex": 2,
+      "explanation": "The Australian National Flag is blue, white and red.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-093",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "What is in the top left corner of the Australian National Flag?",
+      "options": [
+        "The Union Jack",
+        "The Southern Cross",
+        "The Commonwealth Star"
+      ],
+      "answerIndex": 0,
+      "explanation": "The Union Jack, the flag of the United Kingdom, is in the top left corner.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-094",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "What does the Union Jack on the Australian National Flag represent?",
+      "options": [
+        "Our history of British settlement and the laws and institutions we inherited",
+        "The six states and the territories that make up the Commonwealth of Australia",
+        "A group of stars that can be seen in the southern sky over Australia"
+      ],
+      "answerIndex": 0,
+      "explanation": "The Union Jack represents our history of British settlement and the laws and institutions we inherited as a result.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-095",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "How many points does the Commonwealth Star have?",
+      "options": [
+        "Six",
+        "Seven",
+        "Eight"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Commonwealth Star has seven points: one for each of the six states and one for the territories.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-096",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "What do the points of the Commonwealth Star represent?",
+      "options": [
+        "Seven states, one point for each",
+        "The six states, plus one point for the territories",
+        "The Aboriginal peoples of Australia"
+      ],
+      "answerIndex": 1,
+      "explanation": "Each point represents one of the six states, and one point is for the territories.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-097",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "Where is the Commonwealth Star on the Australian National Flag?",
+      "options": [
+        "In the centre of the flag",
+        "In the top right corner",
+        "Under the Union Jack"
+      ],
+      "answerIndex": 2,
+      "explanation": "The Commonwealth Star is under the Union Jack.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-098",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "What is the Southern Cross on the Australian National Flag?",
+      "options": [
+        "The flag of the United Kingdom, in the top left corner",
+        "A symbol for the six states and federation",
+        "A group of stars that can be seen in the southern sky"
+      ],
+      "answerIndex": 2,
+      "explanation": "The Southern Cross, on the right of the flag, is a group of stars that can be seen in the southern sky.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-099",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "What colours are the Australian Aboriginal Flag?",
+      "options": [
+        "Green, blue, black and white",
+        "Black, red and yellow",
+        "Blue, white and red"
+      ],
+      "answerIndex": 1,
+      "explanation": "The Australian Aboriginal Flag is black, red and yellow.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-100",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "On the Australian Aboriginal Flag, what does the black top half represent?",
+      "options": [
+        "The Aboriginal peoples of Australia",
+        "The earth",
+        "The sea"
+      ],
+      "answerIndex": 0,
+      "explanation": "The top half of the Aboriginal Flag is black and represents the Aboriginal peoples of Australia.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-101",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "On the Australian Aboriginal Flag, what does the red bottom half represent?",
+      "options": [
+        "The earth",
+        "The sun",
+        "The Aboriginal peoples of Australia"
+      ],
+      "answerIndex": 0,
+      "explanation": "The bottom half is red and represents the earth, which has ceremonial significance.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-102",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "On the Australian Aboriginal Flag, what does the yellow circle represent?",
+      "options": [
+        "The earth",
+        "The land",
+        "The sun"
+      ],
+      "answerIndex": 2,
+      "explanation": "The yellow circle on the Australian Aboriginal Flag represents the sun.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-103",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "What colours are the Torres Strait Islander Flag?",
+      "options": [
+        "Black, red and yellow",
+        "Green and gold",
+        "Green, blue, black and white"
+      ],
+      "answerIndex": 2,
+      "explanation": "The Torres Strait Islander Flag is green, blue, black and white.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-104",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "On the Torres Strait Islander Flag, what do the green stripes represent?",
+      "options": [
+        "The sea",
+        "Peace",
+        "The land"
+      ],
+      "answerIndex": 2,
+      "explanation": "The green stripes on the Torres Strait Islander Flag represent the land.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-105",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "On the Torres Strait Islander Flag, what does the blue panel in the centre represent?",
+      "options": [
+        "The land",
+        "The sea",
+        "The earth"
+      ],
+      "answerIndex": 1,
+      "explanation": "The blue panel in the centre represents the sea.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-106",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "On the Torres Strait Islander Flag, what is the white dancer’s headdress a symbol for?",
+      "options": [
+        "All Torres Strait Islanders",
+        "The six states and the territories",
+        "The island of Tasmania"
+      ],
+      "answerIndex": 0,
+      "explanation": "The white dancer’s headdress in the centre is a symbol for all Torres Strait Islanders.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-107",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "On the Torres Strait Islander Flag, what do the points of the white star represent?",
+      "options": [
+        "The six states and the territories",
+        "The island groups in the Torres Strait",
+        "The stars of the Southern Cross"
+      ],
+      "answerIndex": 1,
+      "explanation": "The points of the white star represent the island groups in the Torres Strait.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-108",
+      "part": 1,
+      "topic": "Australia’s flags",
+      "isValues": false,
+      "question": "On the Torres Strait Islander Flag, what does the colour white symbolise?",
+      "options": [
+        "The land",
+        "Peace",
+        "The sun"
+      ],
+      "answerIndex": 1,
+      "explanation": "The colour white on the Torres Strait Islander Flag symbolises peace.",
+      "source": "Part 1 › Australia’s flags › p. 14"
+    },
+    {
+      "id": "p1-109",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "Which two animals support the shield on the Commonwealth Coat of Arms?",
+      "options": [
+        "A kangaroo and a koala",
+        "An emu and a platypus",
+        "A kangaroo and an emu"
+      ],
+      "answerIndex": 2,
+      "explanation": "A kangaroo and an emu support the shield on each side. Both are native Australian animals.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-110",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "What does the shield in the centre of the Commonwealth Coat of Arms represent?",
+      "options": [
+        "Our history of British settlement",
+        "The six states and federation",
+        "The Aboriginal peoples of Australia"
+      ],
+      "answerIndex": 1,
+      "explanation": "The shield in the centre of the Coat of Arms represents the six states and federation.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-111",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "What sits above the shield on the Commonwealth Coat of Arms?",
+      "options": [
+        "A gold Commonwealth Star",
+        "The Union Jack",
+        "The Southern Cross"
+      ],
+      "answerIndex": 0,
+      "explanation": "A gold Commonwealth Star sits above the shield.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-112",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "What is in the background of the Commonwealth Coat of Arms?",
+      "options": [
+        "An opal",
+        "The golden wattle",
+        "The Southern Cross"
+      ],
+      "answerIndex": 1,
+      "explanation": "The background of the Coat of Arms is the golden wattle, Australia’s national flower.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-113",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "What is the official symbol of the Commonwealth of Australia?",
+      "options": [
+        "The Commonwealth Coat of Arms",
+        "The golden wattle",
+        "The opal"
+      ],
+      "answerIndex": 0,
+      "explanation": "The Commonwealth Coat of Arms is the official symbol of the Commonwealth of Australia. The golden wattle is the national flower and the opal is the national gemstone.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-114",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "What does the Commonwealth Coat of Arms identify?",
+      "options": [
+        "The authority and property of the Commonwealth of Australia",
+        "The capital city of each state and territory",
+        "The uniforms of Australia’s national sports teams"
+      ],
+      "answerIndex": 0,
+      "explanation": "The Commonwealth Coat of Arms represents our national unity and identifies the authority and property of the Commonwealth of Australia.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-115",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "What is Australia’s national flower?",
+      "options": [
+        "The golden wattle",
+        "The red rose",
+        "The white lily"
+      ],
+      "answerIndex": 0,
+      "explanation": "Australia’s national flower is the golden wattle.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-116",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "Where does the golden wattle mainly grow?",
+      "options": [
+        "In south-eastern Australia",
+        "In the tropical rainforests of Queensland",
+        "In the dry red desert of the Northern Territory"
+      ],
+      "answerIndex": 0,
+      "explanation": "The golden wattle is a small tree that grows mainly in south-eastern Australia.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-117",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "In which season does the golden wattle have many golden yellow flowers?",
+      "options": [
+        "Spring",
+        "Winter",
+        "Autumn"
+      ],
+      "answerIndex": 0,
+      "explanation": "The golden wattle has bright green leaves and many golden yellow flowers in spring.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-118",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "What are Australia’s national colours?",
+      "options": [
+        "Blue, white and red",
+        "Green and gold",
+        "Black, red and yellow"
+      ],
+      "answerIndex": 1,
+      "explanation": "Australia’s national colours are green and gold, the colours of the golden wattle.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-119",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "Australia’s national colours of green and gold come from:",
+      "options": [
+        "The opal",
+        "The golden wattle",
+        "The Australian National Flag"
+      ],
+      "answerIndex": 1,
+      "explanation": "Australia’s national colours are green and gold, the colours of the golden wattle.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-120",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "What is Australia’s national gemstone?",
+      "options": [
+        "The opal",
+        "Gold",
+        "The emerald"
+      ],
+      "answerIndex": 0,
+      "explanation": "The opal is Australia’s national gemstone.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-121",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "According to Aboriginal legend, how were the colours of the opal created?",
+      "options": [
+        "A star fell into the desert",
+        "A rainbow touched the earth",
+        "The sun touched the sea"
+      ],
+      "answerIndex": 1,
+      "explanation": "According to Aboriginal legend, a rainbow touched the earth and created the colours of the opal.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-122",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "Which statement about floral emblems is correct?",
+      "options": [
+        "Each state and territory also has its own floral emblem",
+        "The golden wattle is the floral emblem of every state and territory",
+        "The six states have floral emblems, but the territories do not"
+      ],
+      "answerIndex": 0,
+      "explanation": "Each of the states and territories of Australia also has its own floral emblem.",
+      "source": "Part 1 › Australia’s symbols › p. 15"
+    },
+    {
+      "id": "p1-123",
+      "part": 1,
+      "topic": "Australia’s symbols",
+      "isValues": false,
+      "question": "In the booklet, what is a ‘floral emblem’?",
+      "options": [
+        "A national gemstone",
+        "A national flower",
+        "A national flag"
+      ],
+      "answerIndex": 1,
+      "explanation": "The glossary defines a floral emblem as a national flower. Australia’s national flower is the golden wattle.",
+      "source": "Glossary › floral emblem › p. 41"
+    },
+    {
+      "id": "p1-124",
+      "part": 1,
+      "topic": "Australia’s national anthem",
+      "isValues": false,
+      "question": "What is Australia’s national anthem?",
+      "options": [
+        "‘Advance Australia Fair’",
+        "‘Beneath our Radiant Southern Cross’",
+        "‘Our Home is Girt by Sea’"
+      ],
+      "answerIndex": 0,
+      "explanation": "‘Advance Australia Fair’ is Australia’s national anthem. The other options are lines from it.",
+      "source": "Part 1 › Australia’s national anthem › p. 16"
+    },
+    {
+      "id": "p1-125",
+      "part": 1,
+      "topic": "Australia’s national anthem",
+      "isValues": false,
+      "question": "When is the national anthem sung?",
+      "options": [
+        "On occasions of national importance, such as citizenship ceremonies and major sporting events",
+        "Only on Anzac Day, as part of the solemn ceremony at dawn",
+        "Only when parliament opens after a federal election"
+      ],
+      "answerIndex": 0,
+      "explanation": "‘Advance Australia Fair’ is sung on occasions of national importance, including at Australian citizenship ceremonies and major sporting events.",
+      "source": "Part 1 › Australia’s national anthem › p. 16"
+    },
+    {
+      "id": "p1-126",
+      "part": 1,
+      "topic": "Australia’s national anthem",
+      "isValues": false,
+      "question": "Which line opens Australia’s national anthem?",
+      "options": [
+        "Beneath our radiant Southern Cross",
+        "With courage let us all combine",
+        "Australians all let us rejoice"
+      ],
+      "answerIndex": 2,
+      "explanation": "The anthem opens with ‘Australians all let us rejoice, For we are one and free’.",
+      "source": "Part 1 › Australia’s national anthem › p. 16"
+    },
+    {
+      "id": "p1-132",
+      "part": 1,
+      "topic": "Australia’s national anthem",
+      "isValues": false,
+      "question": "In the booklet, what is a ‘national anthem’?",
+      "options": [
+        "A national song",
+        "A national flag",
+        "A national holiday"
+      ],
+      "answerIndex": 0,
+      "explanation": "The glossary defines a national anthem as a national song. Australia’s national anthem is ‘Advance Australia Fair’.",
+      "source": "Glossary › national anthem › p. 42"
+    },
+    {
+      "id": "p4-001",
+      "part": 4,
+      "topic": "Australian values",
+      "isValues": true,
+      "question": "According to the booklet, Australian values are based on which ideas?",
+      "options": [
+        "Wealth, social class, gender and ethnicity",
+        "Religious law, family status and personal wealth",
+        "Freedom, respect, fairness and equality of opportunity"
+      ],
+      "answerIndex": 2,
+      "explanation": "Australian values are based on freedom, respect, fairness and equality of opportunity.",
+      "source": "Part 4 › Australian values › p. 34"
+    },
+    {
+      "id": "p4-007",
+      "part": 4,
+      "topic": "Commitment to the Rule of Law",
+      "isValues": true,
+      "question": "According to the booklet, what happens if you break the law in Australia?",
+      "options": [
+        "Nothing, if you did not know the law",
+        "You will face penalties",
+        "Only a warning, the first time"
+      ],
+      "answerIndex": 1,
+      "explanation": "Everybody should obey the law and not break it at any time, otherwise they will face penalties. Not knowing the law is no excuse.",
+      "source": "Part 4 › Commitment to the Rule of Law › p. 34"
+    },
+    {
+      "id": "p4-010",
+      "part": 4,
+      "topic": "Parliamentary democracy",
+      "isValues": true,
+      "question": "Why does the power of the government come from the Australian people?",
+      "options": [
+        "Citizens vote for their representatives in parliament",
+        "Citizens elect the judges and magistrates of every court",
+        "Citizens elect the Governor-General at every election"
+      ],
+      "answerIndex": 0,
+      "explanation": "The power of the government comes from the Australian people because Australian citizens vote for people to represent them in parliament.",
+      "source": "Part 4 › Parliamentary democracy › p. 34"
+    },
+    {
+      "id": "p4-015",
+      "part": 4,
+      "topic": "Freedom of speech",
+      "isValues": true,
+      "question": "Is it legal in Australia to make false allegations about another person?",
+      "options": [
+        "Yes, under freedom of speech",
+        "Yes, if it is only said in private",
+        "No, it is illegal"
+      ],
+      "answerIndex": 2,
+      "explanation": "Freedom of speech has limits. It is illegal to make false allegations.",
+      "source": "Part 4 › Freedom of speech › p. 35"
+    },
+    {
+      "id": "p4-017",
+      "part": 4,
+      "topic": "Freedom of speech",
+      "isValues": true,
+      "question": "What freedom do newspapers, television and radio outlets have in Australia?",
+      "options": [
+        "Only the freedom to report the government’s views",
+        "No freedom, unless the government approves",
+        "The same freedom of speech as people"
+      ],
+      "answerIndex": 2,
+      "explanation": "People are free to say and write what they think. Newspapers, television and radio outlets have the same freedom.",
+      "source": "Part 4 › Freedom of speech › p. 35"
+    },
+    {
+      "id": "p4-020",
+      "part": 4,
+      "topic": "Freedom of association",
+      "isValues": true,
+      "question": "A member of a social club decides to leave it. What does the booklet say?",
+      "options": [
+        "Members need the leaders’ permission to leave",
+        "People are free to leave any group voluntarily",
+        "Members can be forced to stay once they join"
+      ],
+      "answerIndex": 1,
+      "explanation": "In Australia, people are free to join or leave any group voluntarily, as long as it is within the law.",
+      "source": "Part 4 › Freedom of association › p. 35"
+    },
+    {
+      "id": "p4-025",
+      "part": 4,
+      "topic": "Freedom of religion",
+      "isValues": true,
+      "question": "What can happen to someone who forces another person into a marriage in Australia?",
+      "options": [
+        "Only a warning, if the families agree",
+        "Nothing, if religious law allows it",
+        "Severe legal penalties, including prison"
+      ],
+      "answerIndex": 2,
+      "explanation": "Forced marriage is against the law in Australia and can result in severe legal penalties, including imprisonment.",
+      "source": "Part 4 › Freedom of religion › p. 35"
+    },
+    {
+      "id": "p4-027",
+      "part": 4,
+      "topic": "Freedom of religion",
+      "isValues": true,
+      "question": "What legal status do religious laws have in Australia?",
+      "options": [
+        "The same status as Australian law",
+        "A higher status than Australian law",
+        "They have no legal status"
+      ],
+      "answerIndex": 2,
+      "explanation": "Religious laws have no legal status in Australia. Australian law must be followed by everyone.",
+      "source": "Part 4 › Freedom of religion › p. 35"
+    },
+    {
+      "id": "p4-030",
+      "part": 4,
+      "topic": "Equality of all people under the law",
+      "isValues": true,
+      "question": "A woman wants to join the Australian Defence Force. What does the booklet say?",
+      "options": [
+        "Only men can join the Defence Force",
+        "Men and women have equal access to join it",
+        "Women can join only if a husband agrees"
+      ],
+      "answerIndex": 1,
+      "explanation": "Men and women have equal rights. Both can join the Australian Defence Force and the police force.",
+      "source": "Part 4 › Equality of all people under the law › p. 36"
+    },
+    {
+      "id": "p4-033",
+      "part": 4,
+      "topic": "Equality of all people under the law",
+      "isValues": true,
+      "question": "A wife wants a divorce, but her husband wants to stay married. Can she apply for a divorce?",
+      "options": [
+        "No, both spouses must agree to a divorce",
+        "Yes, either spouse may apply to the courts",
+        "Only if her religious leader approves"
+      ],
+      "answerIndex": 1,
+      "explanation": "Divorce is acceptable in Australia. Either a husband or a wife may apply to the courts for a divorce, even if the other spouse wishes to continue the marriage.",
+      "source": "Part 4 › Equality of all people under the law › p. 36"
+    },
+    {
+      "id": "p4-038",
+      "part": 4,
+      "topic": "Equality of opportunity and a ‘fair go’",
+      "isValues": true,
+      "question": "Your cousin says people from wealthy families deserve the best jobs. Which Australian value does this go against?",
+      "options": [
+        "Equality of opportunity and a ‘fair go’",
+        "Freedom of association",
+        "English as the national language"
+      ],
+      "answerIndex": 0,
+      "explanation": "Everyone deserves a ‘fair go’. A person should get a job based on their skills and experience, not because of their wealth.",
+      "source": "Part 4 › Equality of opportunity and a ‘fair go’ › p. 36"
+    },
+    {
+      "id": "p4-039",
+      "part": 4,
+      "topic": "Mutual respect and tolerance for others",
+      "isValues": true,
+      "question": "During an argument, one neighbour shouts insults and threats at another. What does the booklet say?",
+      "options": [
+        "Only physical violence is against the law",
+        "Shouting threats is fine if no one is hurt",
+        "Verbal abuse is illegal, like physical abuse"
+      ],
+      "answerIndex": 2,
+      "explanation": "It is against the law to be violent towards another person. Violence of any kind, including verbal and physical abuse, is illegal.",
+      "source": "Part 4 › Mutual respect and tolerance for others › p. 37"
+    },
+    {
+      "id": "p4-048",
+      "part": 4,
+      "topic": "Mutual respect and tolerance for others",
+      "isValues": true,
+      "question": "Why should you obey a lawful request from the police?",
+      "options": [
+        "The police make the laws in Australia",
+        "The police decide who is guilty in court",
+        "All Australians commit to following the law"
+      ],
+      "answerIndex": 2,
+      "explanation": "You should obey a lawful request from the police, because all Australians commit to following the law. Parliament makes the laws, and courts decide if a person is guilty.",
+      "source": "Part 4 › Mutual respect and tolerance for others › p. 37"
+    },
+    {
+      "id": "p4-049",
+      "part": 4,
+      "topic": "Making a contribution",
+      "isValues": true,
+      "question": "According to the booklet, what does everyone have a responsibility to do when they are able?",
+      "options": [
+        "Rely on other people to support them",
+        "Leave supporting families to the government",
+        "Try to support themselves and their families"
+      ],
+      "answerIndex": 2,
+      "explanation": "Everyone has a responsibility to try and support themselves and their families when they are able to do so.",
+      "source": "Part 4 › Making a contribution › p. 38"
+    },
+    {
+      "id": "p4-052",
+      "part": 4,
+      "topic": "Compassion for those in need",
+      "isValues": true,
+      "question": "In the booklet, what does ‘mateship’ mean?",
+      "options": [
+        "Joining a trade union with your friends",
+        "Helping only people from your own culture",
+        "Helping others, and receiving help, in hard times"
+      ],
+      "answerIndex": 2,
+      "explanation": "Mateship means helping and receiving help from others, especially in difficult times.",
+      "source": "Glossary › mateship › p. 42"
+    },
+    {
+      "id": "p4-058",
+      "part": 4,
+      "topic": "English as the national language",
+      "isValues": true,
+      "question": "If English is not their native language, what must applicants for Australian citizenship undertake to do?",
+      "options": [
+        "Make reasonable efforts to learn English",
+        "Stop using their first language at home",
+        "Speak only English with their children"
+      ],
+      "answerIndex": 0,
+      "explanation": "Applicants for Australian citizenship must undertake to make reasonable efforts to learn the English language, if it is not their native language.",
+      "source": "Part 4 › English as the national language › p. 38"
+    },
+    {
+      "id": "p4-060",
+      "part": 4,
+      "topic": "Helping to keep our society safe",
+      "isValues": true,
+      "question": "You suspect your neighbour may be planning to commit a serious crime. What should you do?",
+      "options": [
+        "Report it to government authorities quickly",
+        "Say nothing, as it is a private matter",
+        "Wait until the crime has happened first"
+      ],
+      "answerIndex": 0,
+      "explanation": "If people suspect a friend or neighbour may be planning to commit a serious crime, they should report this to Australian government authorities as soon as possible.",
+      "source": "Part 4 › Helping to keep our society safe › p. 38"
+    },
+    {
+      "id": "p4-066",
+      "part": 4,
+      "topic": "Loyalty to Australia",
+      "isValues": true,
+      "question": "Can an Australian citizen also be a citizen of another country?",
+      "options": [
+        "Yes, if that country’s laws allow it",
+        "No, this is never allowed",
+        "Only if they live outside Australia"
+      ],
+      "answerIndex": 0,
+      "explanation": "Australian citizens may also hold the citizenship of another country or countries if the laws of those countries allow. This is known as dual, or multiple, citizenship.",
+      "source": "Part 4 › Loyalty to Australia › p. 38"
+    },
+    {
+      "id": "p4-069",
+      "part": 4,
+      "topic": "Loyalty to Australia",
+      "isValues": true,
+      "question": "Someone uses social media to share official government secrets. What does the booklet say?",
+      "options": [
+        "It undermines Australia’s interests",
+        "It is protected by freedom of speech",
+        "It is fine if the secrets are old"
+      ],
+      "answerIndex": 0,
+      "explanation": "Australian society is based on shared obligations not to undermine Australia’s interests and security. Using social media to share official government secrets would undermine Australia’s interests.",
+      "source": "Part 4 › Loyalty to Australia › p. 38"
+    },
+    {
+      "id": "p4-075",
+      "part": 4,
+      "topic": "In conclusion",
+      "isValues": true,
+      "question": "According to the booklet, what has created Australia’s peaceful and stable society?",
+      "options": [
+        "One official religion and one set of beliefs",
+        "A single political party that runs the country",
+        "Democratic institutions and shared values"
+      ],
+      "answerIndex": 2,
+      "explanation": "Our democratic institutions and shared Australian values have created our peaceful and stable society.",
+      "source": "Part 4 › In conclusion › p. 39"
+    }
+  ]
+}

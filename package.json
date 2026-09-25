@@ -12,10 +12,12 @@
     "check:a11y": "node scripts/check-a11y.mjs",
     "check:lighthouse": "node scripts/check-lighthouse.mjs",
     "check:budgets": "node scripts/check-budgets.mjs",
+    "check:export": "node scripts/export-questions.mjs --check",
     "check:paid-leak": "node scripts/check-paid-leak.mjs",
     "check:ci": "npm run -s check && npm run -s check:types && npm run -s check:budgets && npm run -s check:links && npm run -s check:a11y && npm run -s check:lighthouse",
-    "check:full": "npm run -s check:ci && npm run -s check:paid-leak && npm run -s screenshots",
-    "screenshots": "node scripts/screenshots.mjs"
+    "check:full": "npm run -s check:ci && npm run -s check:export && npm run -s check:paid-leak && npm run -s screenshots",
+    "screenshots": "node scripts/screenshots.mjs",
+    "export:questions": "node scripts/export-questions.mjs"
   },
   "dependencies": {
     "astro": "7.3.5"
