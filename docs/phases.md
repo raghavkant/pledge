@@ -1,6 +1,6 @@
 # Phases
 
-**Current:** Run 1 (phases 0–4) finished 2026-09-25. Next: Run 2 (phases 5–8). See `docs/progress-log.md` for the latest step.
+**Current:** Run 2 (phases 5–8) in progress, in the order 7 → 8 → 5 → 6. See `docs/progress-log.md` for the latest step.
 
 The owner prefers **fewer, longer runs** (2026-09-25). Each phase inside a run still gets its own branch (`phase-N-name`) and one commit, merged into `main` and pushed only when `npm run check:full` passes, with a line in `docs/progress-log.md`. Inside a run, don't stop to ask: pick the recommendation and log it under "Decisions for Raghav to review" in `docs/decisions.md`. The only reason to stop early is a legal URL (`/privacy/`, `/terms/`, `/support/`) not returning 200: roll back, then stop and report.
 
@@ -20,7 +20,7 @@ Every phase ends with something the owner can open, and with screenshots reviewe
 
 - [ ] **Phase 5. Home page, static.** All sections, labelled phone frames, calls to action ("Take the free practice test", "Coming soon to iPhone"); full-width desktop hero with the map and phones beside the headline.
 - [ ] **Phase 6. Home page motion.** Map draw, sparkle, floating phones, desktop pointer depth, scroll story, count-up, view transitions, reduced motion. Home JS ≤ 15 KB.
-- [ ] **Phase 7. Question export and free-tier checks.** `npm run export:questions` (read-only from the app project), committed JSON and allow-list, checks tightened.
+- [x] **Phase 7. Question export and free-tier checks.** `npm run export:questions` (read-only from the app project), committed JSON and allow-list, checks tightened.
 - [ ] **Phase 8. Practice test page.** Quiz, feedback motion, optional timer, results with both pass rules, app card; keyboard and screen reader tested.
 
 ## Run 3: guides and SEO (phases 9–14)
