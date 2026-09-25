@@ -1,52 +1,389 @@
 ---
-// Interim home page (Run 1): the old home page's content in the new design.
-// Run 2 replaces it with the full "Night to morning" home page (docs/design.md §5).
+// Home page, Direction A "Night to morning" (docs/design.md §5). Every number comes from the export
+// (src/data/au/app-stats.json) or from src/data/au/facts.ts (docs/facts.md). Motion arrives in Phase 6.
 import Base from '../layouts/Base.astro';
+import Phone from '../components/home/Phone.astro';
 import { url } from '../lib/url';
+import brand from '../lib/brand-paths.json';
+import stats from '../data/au/app-stats.json';
+import free from '../data/au/free-questions.json';
+import { CHECKED, SOURCES, TEST } from '../data/au/facts';
 
-const links = [
-  { path: 'support/', title: 'Support', text: 'Help with purchases, subscriptions, reminders and your progress.' },
-  { path: 'privacy/', title: 'Privacy Policy', text: 'No account, no ads, no tracking. What happens to your information.' },
-  { path: 'terms/', title: 'Terms of Use', text: 'The terms for using Pledge and Pledge Premium.' },
+// The practice test teaser shows one real free question, with its answer and booklet page.
+const sample = free.questions.find((q) => q.id === 'p1-001')!;
+const sampleSource = sample.source.split(' › ');
+
+// A quiet night sky: the same stars on every build (seeded), drawn in one small SVG.
+let seed = 7;
+const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+const stars = Array.from({ length: 70 }, () => ({
+  x: +(rand() * 1600).toFixed(1),
+  y: +(rand() * 900).toFixed(1),
+  r: +(0.5 + rand() * 1.1).toFixed(2),
+  o: +(0.2 + rand() * 0.55).toFixed(2),
+}));
+
+const counts = [
+  { n: stats.questions, label: 'practice questions' },
+  { n: stats.lessons, label: 'lessons in simple English' },
+  { n: stats.flashcards, label: 'flashcards' },
+  { n: stats.valuesQuestions, label: 'values questions' },
+];
+
+const plans = [
+  { feature: 'Lessons', free: `Part 1: ${stats.free.lessons} lessons`, premium: `All ${stats.lessons} lessons` },
+  { feature: 'Practice questions', free: `Part 1: ${stats.free.part1Questions} questions`, premium: `All ${stats.questions} questions` },
+  { feature: 'Values drill', free: `${stats.free.valuesQuestions} values questions`, premium: `All ${stats.valuesQuestions} values questions` },
+  { feature: 'Mock tests', free: 'One full mock test', premium: 'Unlimited mock tests' },
+  { feature: 'Flashcards', free: `Part 1: ${stats.free.flashcards} flashcards`, premium: `All ${stats.flashcards} flashcards` },
+  { feature: 'Review your mistakes', free: 'Mistakes on free questions', premium: 'Every mistake' },
+  { feature: 'Progress and study plan', free: 'Included', premium: 'Included' },
+];
+
+const steps = [
+  {
+    screen: 'lesson' as const,
+    title: 'Learn the booklet in simple English',
+    text: `${stats.lessons} lessons follow the four parts of Our Common Bond, with the key facts pulled out. Listen reads any lesson aloud.`,
+  },
+  {
+    screen: 'question' as const,
+    title: 'Practise with the answer and the page',
+    text: 'After every question you see the right answer, why, and the page of the booklet to read again.',
+  },
+  {
+    screen: 'mock-result' as const,
+    title: 'Sit mock tests in the real format',
+    text: `${stats.mockTest.questions} questions in ${stats.mockTest.minutes} minutes, marked with both pass rules, so you know where you stand before test day.`,
+  },
 ];
 ---
 <Base
-  title="Pledge: Citizenship Test AU"
-  description="Pledge helps you prepare for the Australian citizenship test."
+  title="Pledge: Australian Citizenship Test Practice App"
+  description="Practise for the Australian citizenship test in the real format: 20 questions, 45 minutes and the values rule. Free practice test online."
   path=""
 >
-  <main id="main">
-    <section class="night home-hero" aria-labelledby="home-title">
-      <div class="container">
-        <div>
-          <p class="pill">Coming soon to iPhone</p>
-          <h1 id="home-title">Pledge: Citizenship Test AU</h1>
-          <p class="lead">Pledge is an iPhone app that helps you prepare for the Australian citizenship test, with practice questions, mock tests and lessons based on the booklet <em>Australian Citizenship: Our Common Bond</em>.</p>
-          <p class="lead">It works offline, has no account and no ads, and keeps your progress on your phone.</p>
-          <p class="fine">Independent study app. Not affiliated with the Australian Government.</p>
+  <main id="main" class="home">
+    <!-- Hero: the night sky, the gold map and a floating phone -->
+    <section class="hero" aria-labelledby="home-title">
+      <svg class="hero-stars" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        {stars.map((s) => <circle cx={s.x} cy={s.y} r={s.r} opacity={s.o} />)}
+      </svg>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 id="home-title">Get ready for the Australian citizenship test.</h1>
+          <p class="hero-lead">Pledge is an iPhone app for the test in its real format: {TEST.questions} questions, {TEST.minutes} minutes and the values rule. Clear lessons, practice with the booklet page for every answer, and mock tests marked like the real thing.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href={url('australia/practice-test/')}>Take the free practice test</a>
+            <p class="pill">Coming soon to iPhone</p>
+          </div>
+          <p class="hero-fine">Independent study app. Not affiliated with the Australian Government.</p>
         </div>
-        <div class="app-icon">
-          <img src={url('icon-large.svg')} alt="The Pledge app icon: a gold map of Australia with a small ivory sparkle on deep blue." width="440" height="440" />
+        <div class="hero-visual">
+          <svg class="hero-map" viewBox="95 106 810 813" role="img" aria-label="A gold map of Australia with a small ivory sparkle, from the Pledge app icon.">
+            <defs>
+              <linearGradient id="map-gold" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F7D38E" />
+                <stop offset="1" stop-color="#E9AE4E" />
+              </linearGradient>
+              <path id="au-map-path" d={brand.map} />
+            </defs>
+            <use class="map-fill" href="#au-map-path" fill="url(#map-gold)" />
+            <path class="map-line" d={brand.map} pathLength="1" />
+            <path class="map-sparkle" d={brand.sparkle} />
+          </svg>
+          <Phone screen="mock-test" class="hero-phone" eager />
         </div>
       </div>
     </section>
-    <section class="section" aria-labelledby="help-title">
+
+    <!-- The rule that decides a pass -->
+    <section class="rule" aria-labelledby="rule-title">
       <div class="container">
-        <div class="section-head">
-          <h2 id="help-title">Help and legal</h2>
-          <p>Everything about using Pledge, your privacy and your subscription.</p>
+        <h2 id="rule-title" class="home-h2">The rule that decides a pass</h2>
+        <div class="rule-grid">
+          <div class="rule-item">
+            <p class="rule-num">{TEST.passMark}<span> of {TEST.questions}</span></p>
+            <p class="rule-text">At least {TEST.passMark} of the {TEST.questions} questions correct.</p>
+          </div>
+          <p class="rule-and">and</p>
+          <div class="rule-item rule-values">
+            <p class="rule-num">{TEST.valuesQuestions}<span> of {TEST.valuesQuestions}</span></p>
+            <p class="rule-text">Every Australian values question correct. Miss one and you don’t pass, even with {TEST.questions - 1} of {TEST.questions}.</p>
+          </div>
         </div>
-        <ul class="cards">
-          {links.map((l) => (
-            <li>
-              <a class="card" href={url(l.path)}>
-                <span class="card-title">{l.title}</span>
-                <p>{l.text}</p>
-              </a>
+        <p class="rule-foot">Pledge marks every mock test with both rules. Checked against <a href={SOURCES.test}>Home Affairs</a> on <time datetime={CHECKED.iso}>{CHECKED.label}</time>.</p>
+      </div>
+    </section>
+
+    <!-- From first lesson to test day (Phase 6: one sticky phone that changes screen as you scroll) -->
+    <section class="story" aria-labelledby="story-title">
+      <div class="container">
+        <h2 id="story-title" class="home-h2">From first lesson to test day</h2>
+        <ol class="story-steps">
+          {steps.map((s) => (
+            <li class="story-step" data-step={s.screen}>
+              <Phone screen={s.screen} class="story-phone" />
+              <div class="story-text">
+                <h3>{s.title}</h3>
+                <p>{s.text}</p>
+              </div>
             </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <!-- Real numbers, from the export -->
+    <section class="numbers" aria-labelledby="numbers-title">
+      <div class="container numbers-grid">
+        <div class="numbers-head">
+          <h2 id="numbers-title" class="home-h2">All of the booklet, in one app</h2>
+          <p>Written from the four parts of <em>Our Common Bond</em>. Every answer shows the page it comes from. Premium unlocks all of it; Part 1 and {stats.free.valuesQuestions} values questions are free.</p>
+        </div>
+        <ul class="count-lines">
+          {counts.map((c) => (
+            <li><span class="count-n" data-count={c.n}>{c.n}</span> <span class="count-label">{c.label}</span></li>
           ))}
         </ul>
       </div>
     </section>
+
+    <!-- Private by design: three glass cards over the map -->
+    <section class="private" aria-labelledby="private-title">
+      <svg class="private-map" viewBox="95 180 810 740" aria-hidden="true"><use href="#au-map-path" fill="url(#map-gold)" /></svg>
+      <div class="container">
+        <div class="private-head">
+          <h2 id="private-title" class="home-h2">Private by design</h2>
+          <p>Everything works offline except buying Premium. <a href={url('privacy/')}>Read the Privacy Policy</a></p>
+        </div>
+        <ul class="glass-cards">
+          <li class="glass">
+            <h3>No account</h3>
+            <p>No sign-up, no email and no password. Open the app and start studying.</p>
+          </li>
+          <li class="glass">
+            <h3>Your progress stays on your phone</h3>
+            <p>Your answers, scores and mistakes are saved on your phone only. They are never sent anywhere.</p>
+          </li>
+          <li class="glass">
+            <h3>No ads, no tracking</h3>
+            <p>The app has no ads, analytics or tracking, and neither does this website.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Free vs Premium: honest, no prices here (see the App Store) -->
+    <section class="plans" aria-labelledby="plans-title">
+      <div class="container plans-grid">
+        <div class="plans-head">
+          <h2 id="plans-title" class="home-h2">Free to start</h2>
+          <p>Part 1, {stats.free.valuesQuestions} values questions and a full mock test are free, for as long as you like. Premium is an in-app subscription that unlocks everything else. You’ll see the price in the App Store before you buy.</p>
+        </div>
+        <div class="plans-table-wrap">
+          <table class="plans-table">
+            <caption class="visually-hidden">What is free in Pledge and what Premium unlocks</caption>
+            <thead>
+              <tr><th scope="col"><span class="visually-hidden">Feature</span></th><th scope="col">Free</th><th scope="col" class="is-premium">Premium</th></tr>
+            </thead>
+            <tbody>
+              {plans.map((p) => (
+                <tr><th scope="row">{p.feature}</th><td>{p.free}</td><td class="is-premium">{p.premium}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practice test teaser, with one real free question -->
+    <section class="teaser" aria-labelledby="teaser-title">
+      <div class="container teaser-grid">
+        <div class="teaser-copy">
+          <h2 id="teaser-title" class="home-h2">Try {TEST.questions} questions now, free</h2>
+          <p>{TEST.questions - TEST.valuesQuestions} questions from Part 1 and {TEST.valuesQuestions} values questions, marked with both pass rules. No sign-up, and nothing is saved.</p>
+          <a class="btn btn-primary" href={url('australia/practice-test/')}>Take the free practice test</a>
+        </div>
+        <figure class="sample">
+          <figcaption class="sample-cap">A question from the free practice test, with its answer</figcaption>
+          <p class="sample-tag">Part 1: Australia and its people</p>
+          <p class="sample-q">{sample.question}</p>
+          <ul class="sample-options">
+            {sample.options.map((o, i) => (
+              <li class:list={[{ 'is-answer': i === sample.answerIndex }]}>
+                <span>{o}</span>
+                {i === sample.answerIndex && <span class="sample-mark">Correct answer</span>}
+              </li>
+            ))}
+          </ul>
+          <p class="sample-why">{sample.explanation} <span><em>Our Common Bond</em>, {sampleSource[0]}, page {sampleSource[2]?.replace(/^p\.\s*/, '')}</span></p>
+        </figure>
+      </div>
+    </section>
   </main>
 </Base>
+
+<style is:global>
+  /* ---------- Home: shared ---------- */
+  .home-h2 { margin: 0; color: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: clamp(2rem, 1.3rem + 2.6vw, 3.6rem); line-height: 1.04; letter-spacing: -0.025em; text-wrap: balance; }
+  .btn-gold { background: var(--gold); color: var(--night-0); }
+  .home section { position: relative; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    isolation: isolate; overflow: hidden; color: var(--on-night);
+    background: linear-gradient(180deg, var(--night-0) 0%, var(--night-mid) 58%, #1D2C98 88%, #2438B0 100%);
+    padding: clamp(40px, 7vw, 72px) 0 clamp(96px, 12vw, 180px);
+  }
+  .hero::after {
+    content: ''; position: absolute; inset: auto 0 -1px 0; z-index: -1; height: clamp(90px, 12vw, 190px);
+    background:
+      radial-gradient(55% 100% at 50% 100%, var(--horizon-glow), rgba(242, 192, 107, 0) 74%),
+      linear-gradient(180deg, rgba(36, 56, 176, 0) 0%, var(--bg) 100%);
+  }
+  .hero-stars { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; fill: var(--ivory); }
+  .hero-grid { display: grid; gap: clamp(28px, 5vw, 64px); align-items: center; grid-template-columns: minmax(0, 1fr); }
+  .hero h1 {
+    margin: 0; max-width: 12ch;
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(2.9rem, 1.2rem + 6.4vw, 6.6rem); line-height: 0.98; letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+  .hero-lead { max-width: 34rem; margin: clamp(18px, 2vw, 28px) 0 0; color: var(--on-night-soft); font-size: clamp(1.0625rem, 0.98rem + 0.4vw, 1.3rem); line-height: 1.6; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: clamp(26px, 3vw, 40px); }
+  .hero-actions .pill { margin: 0; }
+  .hero-fine { margin: 20px 0 0; color: var(--on-night-soft); font-size: 0.9375rem; }
+  .hero-visual { --vis: min(100vw - 2 * var(--gutter), 460px); position: relative; width: var(--vis); margin-inline: auto; aspect-ratio: 810 / 813; }
+  .hero-visual::before {
+    content: ''; position: absolute; inset: -12% -16% -8% -2%; z-index: -1;
+    background: radial-gradient(50% 50% at 58% 52%, rgba(242, 192, 107, 0.26), rgba(242, 192, 107, 0.08) 55%, rgba(242, 192, 107, 0) 100%);
+  }
+  .hero-map { width: 100%; height: 100%; overflow: visible; }
+  .map-line { fill: none; stroke: var(--gold-0); stroke-width: 3; stroke-linejoin: round; opacity: 0; }
+  .map-sparkle { fill: var(--ivory); transform-box: fill-box; transform-origin: center; }
+  .hero-phone { --pw: calc(var(--vis) * 0.38); position: absolute; left: 2%; bottom: -10%; }
+  @media (min-width: 1100px) {
+    .hero { padding-block: clamp(56px, 6vh, 88px) clamp(150px, 16vh, 210px); }
+    .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: 64px; min-height: min(calc(100svh - 68px - 240px), 700px); }
+    .hero h1 { max-width: 13ch; font-size: clamp(4rem, 1.2rem + 4vw, 6rem); }
+    .hero-visual { --vis: min((min(100vw - 2 * var(--gutter), var(--frame)) - 64px) * 0.475, 620px); margin-right: 0; }
+    .hero-phone { --pw: calc(var(--vis) * 0.36); left: -8%; bottom: -14%; }
+  }
+
+  /* ---------- Phone frame (neutral, drawn by us) ---------- */
+  .phone { --pw: 240px; width: var(--pw); margin: 0; aspect-ratio: 9 / 19.5; }
+  .phone-body {
+    height: 100%; padding: 3.2%; border-radius: 15% / 7%;
+    background: linear-gradient(145deg, #2A2F45, #0B0E1C 60%);
+    box-shadow: 0 0 0 1px rgba(246, 244, 239, 0.14) inset, 0 30px 60px -12px rgba(5, 9, 40, 0.55), 0 8px 18px rgba(5, 9, 40, 0.28);
+  }
+  .phone-screen { position: relative; height: 100%; border-radius: 12.5% / 5.8%; background: linear-gradient(170deg, #2743D6 0%, #17237A 55%, #0E1650 100%); }
+  .phone-screen::before { content: ''; position: absolute; top: 2.6%; left: 50%; width: 30%; height: 3.4%; margin-left: -15%; border-radius: 99px; background: #05070F; }
+  .phone-screen img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+  .screen-slot { display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 0 12%; color: var(--ivory); text-align: left; }
+  .screen-sparkle { width: calc(var(--pw) * 0.13); margin-bottom: calc(var(--pw) * 0.075); fill: var(--gold); }
+  .screen-name { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: calc(var(--pw) * 0.122); line-height: 1.05; letter-spacing: -0.02em; }
+  .screen-caption { margin: calc(var(--pw) * 0.047) 0 0; color: var(--on-night-soft); font-size: calc(var(--pw) * 0.06); font-weight: 600; line-height: 1.4; }
+  .screen-note { position: absolute; left: 12%; right: 12%; bottom: 7%; margin: 0; color: rgba(246, 244, 239, 0.66); font-size: calc(var(--pw) * 0.049); font-weight: 600; line-height: 1.35; }
+
+  /* ---------- The rule ---------- */
+  .rule { padding: clamp(24px, 4vw, 48px) 0 clamp(88px, 11vw, 168px); }
+  .rule-grid { display: grid; gap: 8px; margin-top: clamp(28px, 4vw, 56px); grid-template-columns: minmax(0, 1fr); align-items: start; }
+  .rule-num { margin: 0; color: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: clamp(6.5rem, 3rem + 14vw, 15rem); line-height: 0.86; letter-spacing: -0.055em; font-variant-numeric: lining-nums; }
+  .rule-num span { font-size: 0.3em; letter-spacing: -0.02em; color: var(--muted); }
+  .rule-values .rule-num { color: var(--ochre); }
+  .rule-text { max-width: 24rem; margin: 18px 0 0; color: var(--ink-soft); font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem); line-height: 1.55; }
+  .rule-and { margin: 18px 0 10px; color: var(--muted); font-size: 1.125rem; font-weight: 700; }
+  .rule-foot { max-width: 44rem; margin: clamp(32px, 4vw, 56px) 0 0; padding-top: 22px; border-top: 1px solid var(--hairline); color: var(--muted); font-size: 1rem; }
+  @media (min-width: 900px) {
+    .rule-grid { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: clamp(24px, 4vw, 72px); }
+    .rule-and { margin: 0; padding-top: clamp(4.2rem, 2rem + 9vw, 9.6rem); }
+  }
+  @media (prefers-color-scheme: dark) { .rule-values .rule-num { color: #F0B566; } }
+
+  /* ---------- Story ---------- */
+  .story { padding: 0 0 clamp(88px, 11vw, 168px); }
+  .story-steps { margin: clamp(32px, 5vw, 72px) 0 0; padding: 0; list-style: none; display: grid; gap: clamp(64px, 9vw, 140px); }
+  .story-step { display: grid; gap: 28px; align-items: center; grid-template-columns: minmax(0, 1fr); }
+  .story-phone { --pw: min(50vw, 200px); }
+  .story-text h3 { margin: 0; color: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 1.2rem + 1.5vw, 2.5rem); line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; }
+  .story-text p { max-width: 30rem; margin: 14px 0 0; font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem); }
+  @media (min-width: 900px) {
+    .story-step { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 110px); }
+    .story-phone { --pw: min(28vw, 320px); justify-self: center; }
+  }
+
+  /* ---------- Numbers ---------- */
+  .numbers { padding: clamp(72px, 9vw, 140px) 0; background: var(--sunk); }
+  .numbers-grid { display: grid; gap: clamp(28px, 4vw, 48px); grid-template-columns: minmax(0, 1fr); }
+  .numbers-head p { max-width: 30rem; margin: 18px 0 0; color: var(--ink-soft); }
+  .count-lines { margin: 0; padding: 0; list-style: none; }
+  .count-lines li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.3em; padding: clamp(10px, 1.4vw, 18px) 0; border-top: 1px solid var(--hairline); font-family: var(--font-display); font-weight: 600; line-height: 1; letter-spacing: -0.03em; }
+  .count-lines li:last-child { border-bottom: 1px solid var(--hairline); }
+  .count-n { color: var(--ink); font-size: clamp(3.2rem, 1.6rem + 6vw, 6.8rem); font-variant-numeric: tabular-nums; }
+  .count-label { color: var(--muted); font-size: clamp(1.35rem, 1rem + 1.4vw, 2.2rem); letter-spacing: -0.015em; }
+  @media (min-width: 1000px) {
+    .numbers-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(48px, 6vw, 110px); align-items: start; }
+    .numbers-head { position: sticky; top: 40px; }
+  }
+
+  /* ---------- Private by design ---------- */
+  .private { isolation: isolate; overflow: hidden; padding: clamp(88px, 11vw, 168px) 0; }
+  .private-map {
+    position: absolute; z-index: -1; left: 50%; top: 50%; width: min(120vw, 900px); transform: translate(-42%, -44%); opacity: 0.55;
+    -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent); mask-image: radial-gradient(closest-side, #000 62%, transparent);
+  }
+  @media (min-width: 900px) { .private-map { transform: translate(-50%, -40%); } }
+  .private-head { max-width: 36rem; }
+  .private-head p { margin: 16px 0 0; }
+  .glass-cards { display: grid; gap: 16px; margin: clamp(32px, 4vw, 56px) 0 0; padding: 0; list-style: none; grid-template-columns: minmax(0, 1fr); }
+  .glass { padding: clamp(24px, 2.6vw, 36px); border-radius: var(--radius-l); background: var(--surface); border: 1px solid var(--hairline); }
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass {
+      background: rgba(255, 255, 255, 0.62); border-color: rgba(255, 255, 255, 0.8);
+      -webkit-backdrop-filter: blur(22px) saturate(1.5); backdrop-filter: blur(22px) saturate(1.5);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 24px 48px rgba(20, 22, 31, 0.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      .glass { background: rgba(24, 28, 46, 0.62); border-color: rgba(246, 244, 239, 0.1); box-shadow: 0 1px 0 rgba(246, 244, 239, 0.06) inset, 0 24px 48px rgba(0, 0, 0, 0.3); }
+    }
+  }
+  .glass h3 { margin: 0; color: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 1.2rem + 0.6vw, 1.75rem); line-height: 1.15; letter-spacing: -0.015em; }
+  .glass p { margin: 12px 0 0; color: var(--ink-soft); }
+  @media (min-width: 900px) { .glass-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; } }
+  @media (prefers-color-scheme: dark) { .private-map { opacity: 0.3; } }
+
+  /* ---------- Free vs Premium ---------- */
+  .plans { padding: 0 0 clamp(88px, 11vw, 168px); }
+  .plans-grid { display: grid; gap: clamp(28px, 4vw, 48px); grid-template-columns: minmax(0, 1fr); }
+  .plans-head p { max-width: 30rem; margin: 18px 0 0; }
+  .plans-table { width: 100%; border-collapse: collapse; font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem); line-height: 1.4; }
+  .plans-table th, .plans-table td { padding: 16px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--hairline); }
+  .plans-table thead th { padding-block: 12px 14px; color: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.6rem); border-bottom: 2px solid var(--ink); }
+  .plans-table tbody th { color: var(--ink); font-weight: 700; width: 34%; padding-left: 0; }
+  .plans-table td { color: var(--ink-soft); }
+  .plans-table .is-premium { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+  .plans-table thead .is-premium { color: var(--accent); border-radius: 14px 14px 0 0; }
+  .plans-table tbody td.is-premium { color: var(--ink); font-weight: 700; }
+  @media (min-width: 1000px) {
+    .plans-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(48px, 6vw, 110px); }
+    .plans-table th, .plans-table td { padding: 18px 20px; }
+  }
+
+  /* ---------- Practice test teaser ---------- */
+  .teaser { padding: clamp(72px, 9vw, 140px) 0; background: var(--sunk); }
+  .teaser-grid { display: grid; gap: clamp(36px, 5vw, 64px); grid-template-columns: minmax(0, 1fr); align-items: center; }
+  .teaser-copy p { max-width: 30rem; margin: 18px 0 28px; }
+  .sample { margin: 0; padding: clamp(24px, 3vw, 40px); border-radius: var(--radius-l); background: var(--surface); border: 1px solid var(--hairline); box-shadow: var(--shadow-2); }
+  .sample-cap { margin: 0 0 18px; color: var(--muted); font-size: 0.9375rem; font-weight: 600; }
+  .sample-tag { display: inline-block; margin: 0 0 12px; padding: 3px 12px; border-radius: 99px; background: var(--sunk); color: var(--ink-soft); font-size: 0.875rem; font-weight: 700; }
+  .sample-q { margin: 0 0 20px; color: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.9rem); line-height: 1.2; letter-spacing: -0.01em; }
+  .sample-options { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .sample-options li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; padding: 14px 18px; border: 1.5px solid var(--hairline); border-radius: var(--radius-m); color: var(--ink); font-weight: 600; }
+  .sample-options .is-answer { border-color: var(--success); background: color-mix(in srgb, var(--success) 10%, var(--surface)); }
+  .sample-mark { color: var(--success); font-size: 0.875rem; font-weight: 800; }
+  .sample-why { margin: 18px 0 0; color: var(--ink-soft); font-size: 0.975rem; }
+  .sample-why span { display: block; margin-top: 4px; color: var(--muted); font-size: 0.9rem; }
+  @media (min-width: 1000px) { .teaser-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(48px, 7vw, 120px); } }
+</style>

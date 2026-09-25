@@ -21,6 +21,19 @@ Choices made during a run without stopping to ask. Each is a recommendation; say
 | 2026-09-25 | Header navigation now has "Practice test" and "Support". |
 | 2026-09-25 | Facts used by pages live in `src/data/au/facts.ts` (check date, Home Affairs links, 20 / 15 / 5 / 45), each tied to `docs/facts.md`. Run 3 extends it. |
 | 2026-09-25 | `check:paid-leak` ignores a sentence that is also a free question's text: p4-093 and p4-095 (paid) share their explanation, a booklet quote, with p4-049 and p4-020 (free). Their questions, and any text unique to paid questions, are still checked. |
+| 2026-09-25 | Home headline: "Get ready for the Australian citizenship test." (plain, has the search words, promises nothing). Title and meta description as in `docs/keywords.md`. |
+| 2026-09-25 | Home hero: headline, lead, one gold button ("Take the free practice test") and a "Coming soon to iPhone" badge that is not a link; on the right the gold map, the sparkle, a quiet star field and one floating phone. The whole hero fits the first screen at 1280, 1440 and 1920. |
+| 2026-09-25 | Phone screens are labelled frames (brand gradient, the screen's name, a caption and "App screenshot coming at launch") in named slots in `src/assets/screens/`; captions are built from the export. On launch day a real screenshot goes in each slot. |
+| 2026-09-25 | "The rule that decides a pass" is the page's big typographic moment: 15 of 20 and 5 of 5 set very large, the values number in ochre (values colour). |
+| 2026-09-25 | The numbers section is set as large lines of text (476 practice questions, 33 lessons, 159 flashcards, 94 values questions), not a grid of stat tiles, and says that Premium unlocks all of it. |
+| 2026-09-25 | Privacy cards: "No account", "Your progress stays on your phone", "No ads, no tracking", each matching the Privacy Policy; the section says everything works offline except buying Premium and links the policy. |
+| 2026-09-25 | Free vs Premium is a table of features only, no prices ("You'll see the price in the App Store before you buy"). Free column from the app's free tier: Part 1 lessons, questions and flashcards, 20 values questions, one full mock, mistakes on free questions. |
+| 2026-09-25 | The practice test teaser shows one real free question (p1-001) with its answer, explanation and booklet page, so it is a true sample, not a mock-up. |
+| 2026-09-25 | No guides section on the home page yet (guides arrive in Run 3). The 404 page links the practice test instead of the Privacy Policy. |
+| 2026-09-25 | The export also records the app's mock-test format (20 questions, 45 minutes) from its `test-config.json`, used in the story captions. |
+| 2026-09-25 | `npm run screenshots` scrolls through each page before the full-page capture (needed for Phase 6's scroll effects). |
+| 2026-09-25 | Astro's anonymous usage telemetry is turned off in every npm script (`ASTRO_TELEMETRY_DISABLED=1`, as CI already did): it sent data from the build machine and made local builds hang for up to a minute when the network was slow. |
+| 2026-09-25 | `check:lighthouse` runs the installed `lhci` directly instead of through `npx`, which could hang contacting the npm registry on a slow network. |
 
 ## Decided
 
