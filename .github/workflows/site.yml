@@ -1,0 +1,70 @@
+# Builds and checks the site on every push and pull request.
+# Deploys to GitHub Pages from main only, and only once Pages uses GitHub Actions
+# (repo variable PAGES_ACTIONS=true), or when started by hand.
+# After every deploy it checks that the legal pages still return 200 (docs/rules.md, rule 1).
+name: Site
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+      - if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && (github.event_name == 'workflow_dispatch' || vars.PAGES_ACTIONS == 'true')
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
+
+  legal-urls:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Legal pages return 200
+        run: |
+          base=$(node -e "import('./site.config.mjs').then(m => console.log(m.DEPLOY_URL))")
+          fail=0
+          for p in "" privacy/ terms/ support/; do
+            code=000
+            for try in 1 2 3 4 5 6; do
+              code=$(curl -s -o /dev/null -w "%{http_code}" -L "${base}${p}?check=${GITHUB_RUN_ID}")
+              [ "$code" = 200 ] && break
+              sleep 10
+            done
+            [ "$code" = 200 ] || { echo "::error::${base}${p} returned ${code}"; fail=1; }
+          done
+          exit $fail

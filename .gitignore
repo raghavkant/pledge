@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.astro/
+screenshots/
+.lighthouseci/
+.DS_Store
