@@ -6,7 +6,13 @@
 
 1. **`/privacy/`, `/terms/` and `/support/` must return 200 at every moment**, at exactly these URLs, including while the deploy setup changes. After every deploy, CI fetches them and fails loudly if one isn't 200.
 2. **Their text never changes without the owner's approval.** `check:legal` compares the text of each page's `<main>` with `tests/legal-baseline/`. A baseline change goes in the same commit as the approved text change, with a line in `docs/decisions.md`.
-3. If a legal URL ever stops returning 200: **roll back first** (re-run the last good deploy, or switch Pages back to branch `main` `/`), then report.
+3. If a legal URL ever stops returning 200: **roll back first**, then report. In this order:
+   1. **Re-run the last good deploy:** Actions → "Site" → the last green run on `main` → "Re-run all jobs" (or `gh run rerun <run-id>`).
+   2. **If that isn't enough, switch Pages back to the branch** (the old root files on `main` are the rollback copies). Switching alone does **not** publish anything; the rehearsal on 2026-09-25 showed you must also request a build:
+      - `gh api -X PUT repos/raghavkant/pledge/pages -f build_type=legacy -f "source[branch]=main" -f "source[path]=/"`
+      - `gh api -X POST repos/raghavkant/pledge/pages/builds`
+      - wait about 60 seconds, then check the four URLs.
+   3. To go back to Actions later: `gh api -X PUT repos/raghavkant/pledge/pages -f build_type=workflow`, then `gh workflow run site.yml --ref main`.
 
 ## Content and honesty
 
