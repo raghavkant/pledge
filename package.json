@@ -5,9 +5,27 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build --silent",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "check": "npm run -s build && node scripts/check-free-tier.mjs && node scripts/check-legal.mjs",
+    "check:types": "astro check --minimumSeverity warning > .astro-check.log 2>&1 && echo '✓ types: astro check passed' || (cat .astro-check.log; exit 1)",
+    "check:links": "node scripts/check-links.mjs",
+    "check:a11y": "node scripts/check-a11y.mjs",
+    "check:lighthouse": "node scripts/check-lighthouse.mjs",
+    "check:budgets": "node scripts/check-budgets.mjs",
+    "check:paid-leak": "node scripts/check-paid-leak.mjs",
+    "check:ci": "npm run -s check && npm run -s check:types && npm run -s check:budgets && npm run -s check:links && npm run -s check:a11y && npm run -s check:lighthouse",
+    "check:full": "npm run -s check:ci && npm run -s check:paid-leak && npm run -s screenshots",
+    "screenshots": "node scripts/screenshots.mjs"
   },
   "dependencies": {
     "astro": "7.3.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@axe-core/playwright": "4.13.0",
+    "@lhci/cli": "0.15.1",
+    "linkinator": "8.1.0",
+    "playwright": "1.63.0",
+    "typescript": "6.0.3"
   }
 }

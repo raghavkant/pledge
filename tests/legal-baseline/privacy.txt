@@ -1,0 +1,50 @@
+Privacy Policy
+Last updated: 25 September 2026
+Pledge (“the app”) is a study app for the Australian citizenship test. It is made by Raghav Kant, an individual developer based in India (“I” or “me”). This policy explains what happens to your information when you use the app.
+The short version
+There is no account, no ads, no analytics and no tracking.
+Your study progress stays on your phone. I can’t see it.
+If you buy Premium, Apple handles the payment. RevenueCat, a subscription service, keeps a record of the purchase under a random ID, not your name or email.
+1. Information that stays on your phone
+The app saves these things on your phone only. They are never sent to me or to anyone else:
+your answers, scores, mistakes and mock test results
+your practice readiness history and the days you studied
+your settings: test date (or how soon your test is), how confident you feel, daily study time, reminder time, reading voice and appearance
+whether you have finished onboarding and whether the app has asked for a rating
+whether you have Premium, and when you first opened the app (for the welcome offer)
+Deleting the app deletes all of this. Settings → Reset progress clears your study progress. Your phone’s own backups (for example iCloud Backup) may include this information. Those backups are handled by Apple under your phone’s backup settings.
+2. Buying Premium
+Apple
+Payments are made through the App Store and handled by Apple under Apple’s Privacy Policy [link: https://www.apple.com/legal/privacy/]. I never see your name, email address, Apple ID or payment details.
+RevenueCat
+The app uses RevenueCat, Inc. (United States) to show prices, process purchases and restores, and check whether you have Premium. When the app contacts RevenueCat, it sends:
+A random ID created when the app first starts. It is not linked to your name, email address or Apple ID.
+Purchase details from Apple (Apple’s receipt): which plan you bought, its price and currency, the App Store country, purchase and renewal dates, and whether a free trial was used.
+Basic technical details: device type, iOS version, app version and when the app last checked in.
+Like any internet service, RevenueCat’s servers also receive your internet (IP) address when the app connects. The app does not ask RevenueCat to collect advertising IDs or other device identifiers.
+RevenueCat processes this information on my behalf and stores it in the United States. See RevenueCat’s Privacy Policy [link: https://www.revenuecat.com/privacy/]. I use it to give you Premium and to see overall numbers, such as how many people subscribe.
+The app only contacts RevenueCat to load prices, buy, restore and check Premium. Everything else works offline.
+3. Study reminders
+Reminders are scheduled on your phone. No server is involved. The app only asks for permission to send notifications if you turn reminders on.
+4. Listen
+Listen reads lessons aloud with the voices built into your phone. The text is not sent anywhere.
+5. Ratings
+The app may show Apple’s standard rating prompt once. Apple handles your rating.
+6. What Pledge does not collect
+No account or login, name, email address, phone number, location, contacts, photos, camera, microphone, advertising ID, browsing history, health or financial information. The app contains no advertising, analytics or crash-reporting tools.
+7. Information Apple shares with developers
+If you have chosen in your iPhone settings to share analytics with app developers, Apple may give me anonymous, combined statistics and crash reports. These do not identify you.
+8. Children
+Pledge is made for adults preparing for the Australian citizenship test. It is not directed at children.
+9. Your choices and rights
+To delete your study progress: use Settings → Reset progress, or delete the app.
+To ask about or delete your purchase record at RevenueCat: email me with the order ID from Apple’s purchase receipt email, so I can find the record. Apple keeps its own purchase records, which you can manage with Apple.
+Wherever you live, you can ask me what information about you is held and ask for it to be corrected or deleted. I will answer within 30 days.
+10. Security
+Information on your phone is protected by your phone’s own security. The app talks to RevenueCat over encrypted (HTTPS) connections.
+11. This website
+This website is hosted by GitHub Pages. GitHub may keep visitors’ IP addresses in its server logs (see the GitHub Privacy Statement [link: https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement]). This website uses no cookies, scripts or analytics.
+12. Changes to this policy
+If this policy changes, I will update it here and change the date at the top. Important changes will also be mentioned in the app’s update notes.
+13. Contact
+Questions or requests: pledge.citizenship.help@gmail.com [link: mailto:pledge.citizenship.help@gmail.com]

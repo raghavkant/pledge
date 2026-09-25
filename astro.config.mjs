@@ -8,5 +8,4 @@ export default defineConfig({
   trailingSlash: 'always',
   build: { format: 'directory' },
   devToolbar: { enabled: false },
-  telemetry: false,
 });

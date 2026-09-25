@@ -4,3 +4,4 @@ dist/
 screenshots/
 .lighthouseci/
 .DS_Store
+.astro-check.log

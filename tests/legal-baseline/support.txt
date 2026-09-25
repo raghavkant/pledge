@@ -1,0 +1,17 @@
+Support
+Need help? Email pledge.citizenship.help@gmail.com [link: mailto:pledge.citizenship.help@gmail.com]. Please say which iPhone and iOS version you use.
+I bought Premium but it’s locked
+Open Settings in the app (the gear on Today) and tap Restore purchases. Use the same Apple ID you bought with, and make sure you’re online.
+How do I cancel my subscription?
+On your iPhone, open Settings → your name → Subscriptions → Pledge, and tap Cancel. Cancel at least 24 hours before it renews. Premium stays on until the end of the period you’ve paid for.
+Can I get a refund?
+Apple handles all payments and refunds. Ask Apple at reportaproblem.apple.com [link: https://reportaproblem.apple.com/].
+Will my progress move to a new phone?
+Pledge has no account, so progress is kept only on your phone. Moving to a new iPhone from a backup (iCloud or your computer) may bring it with you. Premium comes back with Restore purchases.
+Reminders don’t arrive
+Check that notifications are allowed for Pledge in your iPhone’s Settings → Notifications, and that reminders are on in the app’s Settings.
+The Listen voice sounds robotic
+Download a better voice in your iPhone’s Settings → Accessibility → Spoken Content → Voices (choose an “Enhanced” English voice), then pick it in the app’s Settings → Reading voice.
+Is Pledge from the government?
+No. Pledge is an independent study app. It is not affiliated with or endorsed by the Australian Government. Its practice questions are original, written from the booklet Australian Citizenship: Our Common Bond.
+Privacy Policy [link: ~/privacy/] Terms of Use [link: ~/terms/]
