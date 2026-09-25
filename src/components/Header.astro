@@ -3,7 +3,10 @@ import { url } from '../lib/url';
 
 interface Props { path: string }
 const { path } = Astro.props;
-const links = [{ path: 'support/', label: 'Support' }];
+const links = [
+  { path: 'australia/practice-test/', label: 'Practice test' },
+  { path: 'support/', label: 'Support' },
+];
 ---
 <header class="site-header">
   <div class="container">

@@ -96,6 +96,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 img, svg { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
 a { color: var(--accent); }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 6px; }
 .night :focus-visible, .site-header :focus-visible { outline-color: var(--gold); }
@@ -219,6 +220,15 @@ a { color: var(--accent); }
 }
 
 /* ---------- Buttons, pills, cards ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 26px; border: 0; border-radius: var(--radius-s);
+  font: inherit; font-size: 1.0625rem; font-weight: 700; line-height: 1.2; text-decoration: none; cursor: pointer;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-quiet { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 1.5px var(--hairline); }
+.btn-small { min-height: 44px; padding: 0 16px; font-size: 0.9375rem; background: var(--sunk); color: var(--ink); }
+@media (prefers-color-scheme: dark) { .btn-primary { color: #0F1220; } }
 .pill {
   display: inline-flex; align-items: center; gap: 10px; min-height: 36px; padding: 0 16px;
   border: 1px solid rgba(246, 244, 239, 0.28); border-radius: 999px;
@@ -295,6 +305,9 @@ a { color: var(--accent); }
   .prose nav.links a { transition: transform var(--spring-press-ms) var(--spring-press); }
   .prose nav.links a:hover { transform: translateY(-2px); }
   .toc a:hover { color: var(--ink); border-left-color: var(--accent); }
+  .btn { transition: transform var(--spring-press-ms) var(--spring-press); }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: scale(0.98); transition-duration: 120ms; }
   .app-icon img { transition: transform 900ms var(--ease-out); }
   .app-icon:hover img { transform: perspective(900px) rotateX(4deg) rotateY(-6deg) translateY(-4px); }
 }

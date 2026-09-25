@@ -21,6 +21,9 @@ const freeValues = new Set(JSON.parse(await readFile(FREE_VALUES, 'utf8')));
 const isFree = (q) => (q.part === 1 && !q.isValues) || (q.isValues && freeValues.has(q.id));
 const norm = (s) => s.toLowerCase().replace(/[’‘]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, ' ').trim();
 const paid = bank.filter((q) => !isFree(q));
+// A few explanations quote the same booklet sentence in a free and a paid question. That sentence is
+// free content, so only text that belongs to paid questions alone counts as a leak.
+const freeText = new Set(bank.filter(isFree).flatMap((q) => [norm(q.question), norm(q.explanation || '')]));
 
 // Everything the site ships, as one normalised string (HTML tags removed, JSON left as is).
 let shipped = '';
@@ -33,7 +36,7 @@ for (const { file, rel } of await builtFiles()) {
 const leaks = [];
 for (const q of paid) {
   for (const text of [q.question, q.explanation]) {
-    if (text && text.length >= 25 && shipped.includes(norm(text))) {
+    if (text && text.length >= 25 && !freeText.has(norm(text)) && shipped.includes(norm(text))) {
       leaks.push(`${q.id}: "${text.slice(0, 70)}${text.length > 70 ? '…' : ''}"`);
       break;
     }

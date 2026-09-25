@@ -13,6 +13,14 @@ Choices made during a run without stopping to ask. Each is a recommendation; say
 | 2026-09-25 | Exported files are sorted by id and carry no timestamp, so re-running the export with unchanged app content gives identical files. `check:export` (local, in `check:full`) fails if the committed export is out of date. |
 | 2026-09-25 | `check:free-tier` now needs the export to exist, with exactly 125 Part 1 and 20 values questions, each with a question, options, a valid answer, an explanation and a booklet source. |
 | 2026-09-25 | From Run 2, only `main` is pushed to GitHub; each phase still has its own local branch and one commit, so GitHub keeps no stale branches. |
+| 2026-09-25 | Practice test: pick an answer, then press "Check answer" (not instant on tap), so keyboard users can move through the options with the arrow keys without answering by accident. |
+| 2026-09-25 | Practice test questions load from a small first-party file (`/australia/practice-test/questions.json`, 12 KB gzipped) as soon as the page opens, so the page itself stays light. |
+| 2026-09-25 | In the practice test, when the optional timer runs out, unanswered questions count as not correct. The page says this is how this practice test works, not a rule of the real test. |
+| 2026-09-25 | Practice test page: a side column on desktop repeats the pass rules with the Home Affairs check date, and links the free Home Affairs practice test and the booklet PDF. |
+| 2026-09-25 | The results screen shows an app card (no price): what is free in the app and that Premium unlocks the rest, with "Coming soon to iPhone". Numbers come from the export. |
+| 2026-09-25 | Header navigation now has "Practice test" and "Support". |
+| 2026-09-25 | Facts used by pages live in `src/data/au/facts.ts` (check date, Home Affairs links, 20 / 15 / 5 / 45), each tied to `docs/facts.md`. Run 3 extends it. |
+| 2026-09-25 | `check:paid-leak` ignores a sentence that is also a free question's text: p4-093 and p4-095 (paid) share their explanation, a booklet quote, with p4-049 and p4-020 (free). Their questions, and any text unique to paid questions, are still checked. |
 
 ## Decided
 
