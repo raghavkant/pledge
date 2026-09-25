@@ -1,0 +1,46 @@
+---
+// A legal page in the site design. The text comes unchanged from src/content/legal/<page>.html
+// (docs/rules.md, rules 1–2). This layout only adds structure: the night hero around the title,
+// ids on the h2 headings, and an "On this page" list built from those headings, which
+// check:legal ignores and verifies separately.
+import Base from './Base.astro';
+
+interface Props {
+  html: string;
+  title: string;
+  description: string;
+  path: string;
+}
+const { html, title, description, path } = Astro.props;
+
+const h1 = html.match(/<h1>[\s\S]*?<\/h1>/)?.[0] ?? '';
+const updated = html.match(/<p class="updated">[\s\S]*?<\/p>/)?.[0] ?? '';
+let body = html.replace(h1, '').replace(updated, '').trim();
+
+const plain = (s: string) => s.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').trim();
+const slug = (s: string) => plain(s).toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const toc: { id: string; text: string }[] = [];
+body = body.replace(/<h2>([\s\S]*?)<\/h2>/g, (_, inner: string) => {
+  const id = slug(inner);
+  toc.push({ id, text: plain(inner) });
+  return `<h2 id="${id}">${inner}</h2>`;
+});
+---
+<Base title={title} description={description} path={path}>
+  <main id="main" class="legal">
+    <header class="night page-hero">
+      <div class="container" set:html={h1 + updated} />
+    </header>
+    <div class="container reading">
+      {toc.length > 2 && (
+        <nav class="toc" aria-labelledby="toc-title" data-legal-toc>
+          <p id="toc-title">On this page</p>
+          <ol>
+            {toc.map((t) => <li><a href={`#${t.id}`}>{t.text}</a></li>)}
+          </ol>
+        </nav>
+      )}
+      <div class="prose" set:html={body} />
+    </div>
+  </main>
+</Base>

@@ -1,0 +1,6 @@
+---
+// Legal page: text from src/content/legal/terms.html, unchanged (docs/rules.md, rules 1–2).
+import Legal from '../layouts/Legal.astro';
+import html from '../content/legal/terms.html?raw';
+---
+<Legal html={html} title="Terms of Use · Pledge" description="The terms for using Pledge and Pledge Premium." path="terms/" />

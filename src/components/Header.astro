@@ -1,0 +1,22 @@
+---
+import { url } from '../lib/url';
+
+interface Props { path: string }
+const { path } = Astro.props;
+const links = [{ path: 'support/', label: 'Support' }];
+---
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href={url()} aria-label="Pledge home">
+      <img src={url('mark.svg')} alt="" width="30" height="30" />
+      <span>Pledge</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        {links.map((l) => (
+          <li><a href={url(l.path)} aria-current={path === l.path ? 'page' : undefined}>{l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

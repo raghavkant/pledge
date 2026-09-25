@@ -1,6 +1,6 @@
 # Phases
 
-**Current:** Run 1 (phases 0–4), started 2026-09-25. See `docs/progress-log.md` for the latest step.
+**Current:** Run 1 (phases 0–4) finished 2026-09-25. Next: Run 2 (phases 5–8). See `docs/progress-log.md` for the latest step.
 
 The owner prefers **fewer, longer runs** (2026-09-25). Each phase inside a run still gets its own branch (`phase-N-name`) and one commit, merged into `main` and pushed only when `npm run check:full` passes, with a line in `docs/progress-log.md`. Inside a run, don't stop to ask: pick the recommendation and log it under "Decisions for Raghav to review" in `docs/decisions.md`. The only reason to stop early is a legal URL (`/privacy/`, `/terms/`, `/support/`) not returning 200: roll back, then stop and report.
 
@@ -14,7 +14,7 @@ Every phase ends with something the owner can open, and with screenshots reviewe
 - [x] **Phase 1. Deploy with GitHub Actions.** Rehearse the switch on a throwaway repo with a `curl` loop. Add Astro; the first build outputs today's site byte for byte (`public/`); keep the old root files on `main` as the rollback. Workflow builds on every push; deploys when started by hand or once the repo variable `PAGES_ACTIONS=true` is set. Switch Pages to Actions, deploy at once, confirm the legal pages byte for byte, then set the variable. *Visible:* the same site, deployed by Actions.
 - [x] **Phase 2. Quality tools.** `npm run check` / `check:full`: build, `check:legal` (text baseline), `check:free-tier`, `check:paid-leak` (local), internal links, axe (light + dark), Lighthouse mobile, budgets, screenshots at 4 sizes × light/dark. CI runs them; after every deploy CI fetches the four URLs. *Visible:* screenshots and a Lighthouse report.
 - [x] **Phase 3. Privacy wording.** The approved §11 sentence about first-party scripts, in the built page and the rollback copy; baseline updated; app-project change list updated. *Visible:* the updated Privacy page.
-- [ ] **Phase 4. Design system.** Tokens, self-hosted fonts, layout with header and footer (disclaimer, CC BY, "General information, not migration advice."), `url()` helper, `site.config.mjs`, 404, favicon and manifest, desktop editorial layout; legal pages and the interim home page moved into the new layout with their text unchanged. *Visible:* restyled legal pages and the 404 page, on phone and desktop.
+- [x] **Phase 4. Design system.** Tokens, self-hosted fonts, layout with header and footer (disclaimer, CC BY, "General information, not migration advice."), `url()` helper, `site.config.mjs`, 404, favicon and manifest, desktop editorial layout; legal pages and the interim home page moved into the new layout with their text unchanged. *Visible:* restyled legal pages and the 404 page, on phone and desktop.
 
 ## Run 2: home page and practice test (phases 5–8)
 

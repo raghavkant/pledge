@@ -1,0 +1,52 @@
+---
+// Interim home page (Run 1): the old home page's content in the new design.
+// Run 2 replaces it with the full "Night to morning" home page (docs/design.md §5).
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/url';
+
+const links = [
+  { path: 'support/', title: 'Support', text: 'Help with purchases, subscriptions, reminders and your progress.' },
+  { path: 'privacy/', title: 'Privacy Policy', text: 'No account, no ads, no tracking. What happens to your information.' },
+  { path: 'terms/', title: 'Terms of Use', text: 'The terms for using Pledge and Pledge Premium.' },
+];
+---
+<Base
+  title="Pledge: Citizenship Test AU"
+  description="Pledge helps you prepare for the Australian citizenship test."
+  path=""
+>
+  <main id="main">
+    <section class="night home-hero" aria-labelledby="home-title">
+      <div class="container">
+        <div>
+          <p class="pill">Coming soon to iPhone</p>
+          <h1 id="home-title">Pledge: Citizenship Test AU</h1>
+          <p class="lead">Pledge is an iPhone app that helps you prepare for the Australian citizenship test, with practice questions, mock tests and lessons based on the booklet <em>Australian Citizenship: Our Common Bond</em>.</p>
+          <p class="lead">It works offline, has no account and no ads, and keeps your progress on your phone.</p>
+          <p class="fine">Independent study app. Not affiliated with the Australian Government.</p>
+        </div>
+        <div class="app-icon">
+          <img src={url('icon-large.svg')} alt="The Pledge app icon: a gold map of Australia with a small ivory sparkle on deep blue." width="440" height="440" />
+        </div>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="help-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="help-title">Help and legal</h2>
+          <p>Everything about using Pledge, your privacy and your subscription.</p>
+        </div>
+        <ul class="cards">
+          {links.map((l) => (
+            <li>
+              <a class="card" href={url(l.path)}>
+                <span class="card-title">{l.title}</span>
+                <p>{l.text}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </main>
+</Base>

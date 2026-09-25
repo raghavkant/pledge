@@ -1,0 +1,6 @@
+---
+// Legal page: text from src/content/legal/privacy.html, unchanged (docs/rules.md, rules 1–2).
+import Legal from '../layouts/Legal.astro';
+import html from '../content/legal/privacy.html?raw';
+---
+<Legal html={html} title="Privacy Policy · Pledge" description="What Pledge does with your information." path="privacy/" />
