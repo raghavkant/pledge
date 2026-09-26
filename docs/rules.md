@@ -35,7 +35,7 @@
 
 ## Code and workflow
 
-14. **Never touch the app project** (`~/Desktop/citizenship test`): read-only, no edits, no commits, no `git`. List needed app changes in `docs/app-project-changes.md`.
+14. **Never touch the app project** (`~/Developer/citizenship-test`): read-only, no edits, no commits, no `git`. List needed app changes in `docs/app-project-changes.md`.
 15. **The deploy URL lives only in `site.config.mjs`.** Every internal link goes through `url()`.
 16. **No new packages without asking first** and explaining why.
 17. **One branch and one commit per phase.** Merge into `main` and push only when `npm run check:full` passes. Add a line to `docs/progress-log.md`.

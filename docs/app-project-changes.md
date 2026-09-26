@@ -1,6 +1,6 @@
 # Changes for the app project
 
-This website repo is now the single source of truth for the legal pages. Claude never edits the app project (`~/Desktop/citizenship test`); these are the changes for you to make there yourself. Line numbers were checked on 2026-09-25.
+This website repo is now the single source of truth for the legal pages. Claude never edits the app project (`~/Developer/citizenship-test`); these are the changes for you to make there yourself. Line numbers were checked on 2026-09-25.
 
 ## Now: this repo becomes the legal pages' source
 

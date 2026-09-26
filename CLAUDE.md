@@ -7,7 +7,7 @@ The public website for **Pledge**, an iPhone app that helps people prepare for t
 - the marketing site (home page, free practice test, plain-English guides under `/australia/`, room for `/uk/` and others later), and
 - the **single source of truth** for the app's legal pages: `/privacy/`, `/terms/` and `/support/`. The app links to these URLs; they must return 200 at every moment.
 
-Built with Astro (static output), deployed by GitHub Actions. The app project lives at `~/Desktop/citizenship test` and is **read-only** for this repo.
+Built with Astro (static output), deployed by GitHub Actions. The app project lives at `~/Developer/citizenship-test` and is **read-only** for this repo.
 
 ## Before any task
 
@@ -29,7 +29,7 @@ Read `docs/requirements.md`, `docs/rules.md`, `docs/design.md`, `docs/phases.md`
 - Run only the relevant checks while working (`npm run check`), then the full set once before each commit (`npm run check:full`).
 - Keep command output quiet and show only failures.
 - Background or sub-agents are **read-only** unless the owner says otherwise for that task, and **never commit**.
-- **Never touch the app project** (`~/Desktop/citizenship test`): no edits, no commits, no `git` there. The only access is reading, by `npm run export:questions` and `check:paid-leak`. Changes the app needs go in `docs/app-project-changes.md` for the owner.
+- **Never touch the app project** (`~/Developer/citizenship-test`): no edits, no commits, no `git` there. The only access is reading, by `npm run export:questions` and `check:paid-leak`. Changes the app needs go in `docs/app-project-changes.md` for the owner.
 - One branch per phase (`phase-N-name`), one commit per phase; merge into `main` and push only when the checks pass.
 - After each phase, add a line to `docs/progress-log.md`.
 - Every internal link goes through the `url()` helper (`src/lib/url.ts`); the deploy URL lives only in `site.config.mjs`.

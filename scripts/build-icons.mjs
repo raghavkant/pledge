@@ -9,7 +9,7 @@ import { join } from 'node:path';
 import { homedir, tmpdir } from 'node:os';
 import { ROOT } from './lib.mjs';
 
-const APP = process.env.PLEDGE_APP_DIR || join(homedir(), 'Desktop', 'citizenship test');
+const APP = process.env.PLEDGE_APP_DIR || join(homedir(), 'Developer', 'citizenship-test');
 const svg = readFileSync(join(APP, 'assets', 'brand', 'pledge-icon.svg'), 'utf8');
 const png1024 = join(APP, 'assets', 'brand', 'pledge-icon-1024.png');
 const out = (p) => join(ROOT, p);
