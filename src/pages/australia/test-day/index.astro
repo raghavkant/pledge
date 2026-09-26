@@ -1,0 +1,66 @@
+---
+import Guide from '../../../layouts/Guide.astro';
+import { url } from '../../../lib/url';
+import { SOURCES, TEST } from '../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../data/au/guides';
+---
+<Guide
+  title="Citizenship Test Day: Your Appointment and What to Bring"
+  description="How the appointment letter works, what ID to bring, what happens at the centre, the rules and the Assisted Test."
+  path="australia/test-day/"
+  h1="Citizenship test day: your appointment and what to bring"
+  answer="Bring photo ID (such as a passport or an Australian driver licence) and your appointment letter, printed or on your phone. Arrive 10 minutes early. Home Affairs confirms your identity, then you sit the test on your own on a computer or tablet, and your result appears on the screen."
+  sources={['test']}
+  related={[GUIDES.format, GUIDES.failed, PRACTICE]}
+>
+  <h2 id="appointment-letter">Your appointment letter</h2>
+  <p>If you need to sit the test, <a href={SOURCES.test}>Home Affairs</a> sends you a letter:</p>
+  <blockquote><p>“we will send you a letter with the date, time and place of your appointment. The wait time for an appointment may vary.”</p><cite>Home Affairs, Learn about the citizenship test</cite></blockquote>
+  <p>To reschedule, “follow the instructions in your appointment letter.”</p>
+  <p>Appointments are held at departmental offices in most Australian capital cities and at some Services Australia (Centrelink) offices. If you applied from outside Australia, Home Affairs invites you to a test appointment after you return to Australia.</p>
+
+  <h2 id="what-to-bring">What to bring</h2>
+  <ul>
+    <li><strong>Photo ID.</strong> Home Affairs gives these examples: an Australian driver licence, a passport, or an Australian issued proof of age card.</li>
+    <li><strong>Your appointment letter</strong>, “either as a printed hard copy or displayed on your phone”.</li>
+    <li>Any other documents Home Affairs asked you to bring.</li>
+  </ul>
+  <p>Two things to know:</p>
+  <blockquote><p>“We will not accept certified copies or electronic images of your photo ID.”</p><p>“If you do not bring a photo ID, your appointment will be changed to a later date.”</p><cite>Home Affairs, Learn about the citizenship test</cite></blockquote>
+  <p>If something has changed since you applied, such as your address or your name, attach your new documents to your application in ImmiAccount before the appointment.</p>
+
+  <h2 id="at-the-centre">At the centre</h2>
+  <p>“Arrive 10 minutes before your appointment time.” At your appointment Home Affairs will discuss your citizenship application, confirm your identity and take your photo. You sit the test after your identity is confirmed.</p>
+  <ul>
+    <li>Children are not permitted in the test centre, and there is no childcare, so arrange care before you go.</li>
+    <li>You must not bring study materials into the testing area. Staff tell you where to put your belongings.</li>
+  </ul>
+
+  <h2 id="the-test">Sitting the test</h2>
+  <p>You use a computer or tablet, and you have {TEST.minutes} minutes for {TEST.questions} questions. “You must sit the test on your own. You cannot bring anyone with you to help you during the test.”</p>
+  <p>A Test Facilitator can support you by:</p>
+  <ul>
+    <li>showing you how to use the computer or tablet, or using it for you,</li>
+    <li>giving you headphones to listen to the questions,</li>
+    <li>reading the test questions aloud,</li>
+    <li>selecting your answers if you say them.</li>
+  </ul>
+  <p>Some people can sit an <a href={url(GUIDES.who.path) + '#assisted-test'}>Assisted Test</a> with 90 minutes. You need to ask for it in your application.</p>
+
+  <h2 id="rules">The rules</h2>
+  <p>During the test you must not:</p>
+  <ul>
+    <li>use mobile phones or other electronic devices, such as laptops, cameras, smart watches or smart glasses,</li>
+    <li>talk to other people, other than the Test Facilitator,</li>
+    <li>use books, notes or any other materials,</li>
+    <li>copy answers from another person.</li>
+  </ul>
+  <p>You must also finish within the time: {TEST.minutes} minutes for the standard test, 90 minutes for the Assisted Test. Home Affairs warns: “If you do not follow the rules, we may decide that you have not successfully completed the test and refuse your application.”</p>
+
+  <h2 id="after">After the test</h2>
+  <p>“Your result will be displayed on the screen after you complete the test.” Home Affairs keeps processing your application and writes to you if it needs more information or when it makes a decision.</p>
+  <ul>
+    <li><strong>If you pass</strong> and your application is approved, you must attend a citizenship ceremony. Home Affairs sends an invitation letter “about four weeks before the ceremony”, and “Wait times for citizenship ceremonies can vary.”</li>
+    <li><strong>If you don’t pass</strong>, your visa is not affected and Home Affairs books another appointment at no extra cost. See <a href={url(GUIDES.failed.path)}>what happens next</a>.</li>
+  </ul>
+</Guide>

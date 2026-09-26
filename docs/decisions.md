@@ -48,6 +48,9 @@ Choices made during a run without stopping to ask. Each is a recommendation; say
 | 2026-09-26 | Guides quote Home Affairs word for word for every rule, and never use the word "official" (even though Home Affairs' own sentence about its practice test does; we paraphrase that one out). |
 | 2026-09-26 | The Part 2–4 booklet guides (Phase 11) will be written from the booklet itself (text extracted from the Home Affairs PDF), not from the app's lessons, because those lessons are Premium in the app. |
 | 2026-09-26 | `docs/run-2-summary.md` is committed with Phase 9 (it was written while Phase 6's checks were running). |
+| 2026-09-26 | Test day guide (`/australia/test-day/`): letter and rescheduling, where, what to bring (with the two warnings: no certified copies or photos of ID; no photo ID means a later date), at the centre, the Test Facilitator, the rules, and after the test. |
+| 2026-09-26 | FAQ (`/australia/faq/`): nine questions (fee, residence, pass mark, result, after passing, attempts, language, practice test, "Is Pledge endorsed by Home Affairs?"), kept in `src/data/au/faq.ts` for reuse in structured data. The fee is quoted only from Form 1298i ($595, concession $85), never from the conflicting AUD285 block, with "check the current form before you apply". |
+| 2026-09-26 | "Is Pledge endorsed by Home Affairs?" answers "No", quotes the Department's statement about paid apps in full, lists the four free Home Affairs resources with the booklet's own line "All of the information you need to sit the Australian citizenship test is in this book.", and then says plainly what Pledge adds and what is free. |
 
 ## Decided
 

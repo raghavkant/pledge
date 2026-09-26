@@ -50,6 +50,7 @@ Every fact about the real test that the site states must be in this file, with a
 | Assisted Test request | "We may offer you an Assisted Test if you: asked for it in your application, and have completed at least 400 hours of English language tuition under the Adult Migrant English Program (AMEP) or have a permanent or temporary physical or cognitive impairment that prevents you from sitting the Standard Test"; "We need evidence from your registered health practitioner" | `test` |
 | Breaking the rules | "If you do not follow the rules, we may decide that you have not successfully completed the test and refuse your application." | `test` |
 | While you wait | "While you wait for your next appointment, you should prepare for the test." | `test` |
+| Booklet is enough | "All of the information you need to sit the Australian citizenship test is in this book. You are not required to purchase or obtain other citizenship packages from any individuals or organisations in order to pass the citizenship test." (copyright page) | `booklet` |
 | Practice test purpose | "The citizenship practice test is designed to look and feel like the official test." | `prepare` |
 | Practice test | "It is a sample test only. The questions will be different on the day of the test." | `prepare` |
 | Paid apps | "The Department does not endorse or recommend any external courses that claim to help you prepare for the citizenship test, including paid external apps." | `prepare`, `hub` |
