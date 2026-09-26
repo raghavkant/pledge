@@ -1,0 +1,61 @@
+---
+import Guide from '../../layouts/Guide.astro';
+import { url } from '../../lib/url';
+import { SOURCES, TEST } from '../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../data/au/guides';
+
+const groups = [
+  { title: 'The test', items: [GUIDES.format, GUIDES.values, GUIDES.who] },
+  { title: 'Your appointment', items: [GUIDES.testDay, GUIDES.failed, GUIDES.faq] },
+  { title: 'The booklet', items: [GUIDES.ocb, GUIDES.part1, GUIDES.part2, GUIDES.part3] },
+];
+---
+<Guide
+  title="Australian Citizenship Test 2026: How It Works"
+  description="The test in plain English: 20 questions, 45 minutes, 15 to pass and all 5 values questions right. Checked against Home Affairs."
+  path="australia/"
+  h1="The Australian citizenship test, in plain English"
+  answer={`${TEST.questions} multiple choice questions in ${TEST.minutes} minutes, in English, at an appointment. To pass you need at least ${TEST.passMark} of ${TEST.questions} and all ${TEST.valuesQuestions} Australian values questions right. Every question is based on the free booklet Our Common Bond.`}
+  sources={['test', 'prepare', 'booklet']}
+  related={[PRACTICE, GUIDES.format, GUIDES.values]}
+>
+  <h2 id="guides">Guides</h2>
+  <p>Short answers first, with Home Affairs quotes and the date we checked them.</p>
+  {groups.map((g) => (
+    <section class="hub-group" aria-labelledby={`hub-${g.title.toLowerCase().replace(/\s+/g, '-')}`}>
+      <h3 id={`hub-${g.title.toLowerCase().replace(/\s+/g, '-')}`}>{g.title}</h3>
+      <ul class="cards hub-cards">
+        {g.items.map((i) => (
+          <li><a class="card" href={url(i.path)}><span class="card-title">{i.title}</span><p>{i.blurb}</p></a></li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <h2 id="practise">Practise for free</h2>
+  <ul>
+    <li><a href={url(PRACTICE.path)}>Pledge’s free practice test</a>: {TEST.questions} questions, marked with both pass rules.</li>
+    <li><a href={url(GUIDES.values.path) + '#drill'}>Free values drill</a>: 20 values questions with the booklet page for each.</li>
+  </ul>
+
+  <h2 id="free-resources">Free resources from Home Affairs</h2>
+  <p>You don’t need to pay for anything to prepare. Home Affairs says:</p>
+  <blockquote><p>“The Department does not endorse or recommend any external courses that claim to help you prepare for the citizenship test, including paid external apps.”</p><cite>Home Affairs, Prepare for the citizenship test</cite></blockquote>
+  <p>Pledge is one of those external apps: it is independent and not endorsed by Home Affairs. The free Home Affairs resources are:</p>
+  <ul>
+    <li>the booklet <a href={SOURCES.booklet}><em>Australian Citizenship: Our Common Bond</em></a>, in English and 40 community languages,</li>
+    <li>the <em>Our Common Bond</em> podcast,</li>
+    <li>the <a href={SOURCES.practice}>Home Affairs practice test</a>,</li>
+    <li>the AMEPOnline citizenship modules, for people learning English.</li>
+  </ul>
+  <p>What Pledge adds, if you want it: practice questions and lessons written from the booklet with the page for every answer, mock tests marked with both pass rules, and an iPhone app that works offline. <a href={url(GUIDES.faq.path) + '#endorsed'}>More on this</a>.</p>
+</Guide>
+
+<style is:global>
+  .hub-group { margin-top: 1.6em; }
+  .hub-group h3 { margin-bottom: 0.8em; }
+  .prose .hub-cards { grid-template-columns: minmax(0, 1fr); padding: 0; }
+  @media (min-width: 760px) { .prose .hub-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .prose .hub-cards li { margin: 0; padding: 0; }
+  .prose .hub-cards .card { text-decoration: none; }
+</style>
