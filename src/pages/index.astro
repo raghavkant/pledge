@@ -4,11 +4,14 @@
 // Motion (§7): CSS for the hero and the sky; src/scripts/home.ts for tilt, the story and the count-up.
 import Base from '../layouts/Base.astro';
 import Phone from '../components/home/Phone.astro';
-import { url } from '../lib/url';
+import { url, absoluteUrl } from '../lib/url';
 import brand from '../lib/brand-paths.json';
 import stats from '../data/au/app-stats.json';
 import free from '../data/au/free-questions.json';
 import { CHECKED, SOURCES, TEST } from '../data/au/facts';
+import { GUIDES } from '../data/au/guides';
+
+const homeGuides = [GUIDES.format, GUIDES.values, GUIDES.testDay, GUIDES.ocb];
 
 // The practice test teaser shows one real free question, with its answer and booklet page.
 const sample = free.questions.find((q) => q.id === 'p1-001')!;
@@ -63,6 +66,7 @@ const steps = [
   title="Pledge: Australian Citizenship Test Practice App"
   description="Practise for the Australian citizenship test in the real format: 20 questions, 45 minutes and the values rule. Free practice test online."
   path=""
+  schema={{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Pledge', url: absoluteUrl(''), inLanguage: 'en-AU', description: 'An independent study app and free guides for the Australian citizenship test.' }}
 >
   <main id="main" class="home">
     <!-- Hero: the night sky, the gold map and a floating phone -->
@@ -230,6 +234,20 @@ const steps = [
           </ul>
           <p class="sample-why">{sample.explanation} <span><em>Our Common Bond</em>, {sampleSource[0]}, page {sampleSource[2]?.replace(/^p\.\s*/, '')}</span></p>
         </figure>
+      </div>
+    </section>
+
+    <!-- Guides -->
+    <section class="guides" aria-labelledby="guides-title">
+      <div class="container">
+        <h2 id="guides-title" class="home-h2">Understand the test</h2>
+        <p class="guides-lead">Plain-English guides, each quoting Home Affairs with the date we checked.</p>
+        <ul class="guide-links">
+          {homeGuides.map((g) => (
+            <li><a href={url(g.path)}><span class="guide-link-title">{g.title}</span><span class="guide-link-blurb">{g.blurb}</span></a></li>
+          ))}
+        </ul>
+        <p class="guides-all"><a href={url('australia/')}>All guides and free Home Affairs resources</a></p>
       </div>
     </section>
   </main>
@@ -449,5 +467,18 @@ const steps = [
   .sample-mark { color: var(--success); font-size: 0.875rem; font-weight: 800; }
   .sample-why { margin: 18px 0 0; color: var(--ink-soft); font-size: 0.975rem; }
   .sample-why span { display: block; margin-top: 4px; color: var(--muted); font-size: 0.9rem; }
+  /* ---------- Guides ---------- */
+  .guides { padding: clamp(72px, 9vw, 140px) 0; }
+  .guides-lead { max-width: 30rem; margin: 16px 0 0; }
+  .guide-links { display: grid; gap: 0; margin: clamp(28px, 4vw, 48px) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--hairline); }
+  .guide-links a { display: grid; gap: 4px; padding: 20px 0; border-bottom: 1px solid var(--hairline); color: var(--ink); text-decoration: none; }
+  .guide-link-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.3rem, 1.1rem + 0.7vw, 1.75rem); line-height: 1.15; letter-spacing: -0.015em; }
+  .guide-link-blurb { color: var(--muted); font-size: 1rem; }
+  .guides-all { margin: 24px 0 0; font-weight: 700; }
+  @media (min-width: 900px) {
+    .guide-links { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(32px, 5vw, 80px); }
+    .guide-links a { padding: 26px 0; }
+  }
+  @media (hover: hover) and (pointer: fine) { .guide-links a:hover .guide-link-title { color: var(--accent); } }
   @media (min-width: 1000px) { .teaser-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(48px, 7vw, 120px); } }
 </style>

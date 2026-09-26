@@ -21,3 +21,5 @@ Page-limited runs while working (`index` = the home page only): `node scripts/ch
 Legal text baseline: `node scripts/check-legal.mjs --update` rewrites `tests/legal-baseline/`. Only for a text change the owner approved, recorded in `docs/decisions.md`.
 
 Question export: `npm run export:questions` reads the app project **read-only** and writes `src/data/au/free-questions.json` (Part 1 + the 20 free values questions), `free-values-ids.json` (the allow-list) and `app-stats.json` (content counts for the home page). Run it when the app's content changes, then commit the three files.
+
+Share images: after adding or renaming a page, run `npm run build && node scripts/build-og.mjs`, then commit `public/og/`.

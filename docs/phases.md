@@ -29,7 +29,7 @@ Every phase ends with something the owner can open, and with screenshots reviewe
 - [x] **Phase 10.** Test day and FAQ (including "Is Pledge endorsed by Home Affairs?"), facts re-checked first.
 - [x] **Phase 11.** Our Common Bond hub and Parts 1–3 (sample questions on Part 1 only).
 - [x] **Phase 12.** Values questions page with the free values drill.
-- [ ] **Phase 13.** `/australia/` hub (with the Home Affairs statement and free resources), About page, structured data, sitemap, Open Graph images, internal linking.
+- [x] **Phase 13.** `/australia/` hub (with the Home Affairs statement and free resources), About page, structured data, sitemap, Open Graph images, internal linking.
 - [ ] **Phase 14.** Full audit; the owner sets up Search Console and Bing.
 
 ## Separate small steps

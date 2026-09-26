@@ -3,7 +3,7 @@
 // quiet side column on desktop (On this page, the Home Affairs check date, sources). Every fact in a guide
 // comes from docs/facts.md (docs/rules.md, rule 5).
 import Base from './Base.astro';
-import { url } from '../lib/url';
+import { url, absoluteUrl } from '../lib/url';
 import { CHECKED, SOURCES } from '../data/au/facts';
 import type { GuideLink } from '../data/au/guides';
 
@@ -29,14 +29,38 @@ interface Props {
   related?: GuideLink[];
   /** "booklet" for guides that summarise Our Common Bond rather than Home Affairs web pages. */
   kind?: 'rules' | 'booklet';
+  /** Questions and plain-text answers for FAQPage structured data (the FAQ page only). */
+  faq?: { q: string; a: string }[];
 }
-const { title, description, path, h1, answer, sources, related = [], kind = 'rules' } = Astro.props;
+const { title, description, path, h1, answer, sources, related = [], kind = 'rules', faq } = Astro.props;
+
+// Structured data: the guide as an Article, its place in the site as a breadcrumb trail, and (FAQ page) FAQPage.
+const author = { '@type': 'Person', name: 'Raghav Kant', url: absoluteUrl('about/') };
+const crumbs = [{ name: 'Pledge', path: '' }, { name: 'Australian citizenship test', path: 'australia/' }];
+if (path.startsWith('australia/our-common-bond/part-')) crumbs.push({ name: 'Our Common Bond', path: 'australia/our-common-bond/' });
+if (path !== 'australia/' && path !== 'about/') crumbs.push({ name: h1, path });
+if (path === 'about/') crumbs.splice(1, 1, { name: 'About Pledge', path });
+const schema: object[] = [
+  {
+    '@context': 'https://schema.org', '@type': 'Article', headline: h1, description, inLanguage: 'en-AU',
+    datePublished: '2026-09-26', dateModified: CHECKED.iso, author, publisher: author,
+    mainEntityOfPage: absoluteUrl(path), image: absoluteUrl(`og/${path.replace(/\/$/, '').replace(/[/.]/g, '-')}.jpg`),
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: absoluteUrl(c.path) })),
+  },
+];
+if (faq) schema.push({
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+});
 
 // "On this page" from the guide's h2 headings (each needs an id).
 const body = await Astro.slots.render('default');
 const toc = [...body.matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => ({ id: m[1], text: m[2].replace(/<[^>]+>/g, '') }));
 ---
-<Base title={title} description={description} path={path}>
+<Base title={title} description={description} path={path} schema={schema}>
   <main id="main" class="guide">
     <header class="night page-hero guide-hero">
       <div class="container">
