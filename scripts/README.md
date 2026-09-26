@@ -16,7 +16,7 @@ Each check prints one line when it passes and details only when it fails.
 | `npm run check:ci` | Everything CI runs | local, CI |
 | `npm run check:full` | `check:ci` + export + paid-leak + screenshots. Run once before each commit. | local |
 
-Page-limited runs while working: `node scripts/check-a11y.mjs privacy/`, `node scripts/check-lighthouse.mjs --verbose privacy/`, `node scripts/screenshots.mjs privacy/`.
+Page-limited runs while working (`index` = the home page only): `node scripts/check-a11y.mjs privacy/`, `node scripts/check-lighthouse.mjs --verbose privacy/`, `node scripts/screenshots.mjs privacy/`.
 
 Legal text baseline: `node scripts/check-legal.mjs --update` rewrites `tests/legal-baseline/`. Only for a text change the owner approved, recorded in `docs/decisions.md`.
 
