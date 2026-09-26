@@ -7,7 +7,7 @@ import { join } from 'node:path';
 import { homedir } from 'node:os';
 import { builtFiles, ok, fail } from './lib.mjs';
 
-const APP = process.env.PLEDGE_APP_DIR || join(homedir(), 'Desktop', 'citizenship test');
+const APP = process.env.PLEDGE_APP_DIR || join(homedir(), 'Developer', 'citizenship-test');
 const BANK = join(APP, 'content', 'au', 'questions.json');
 const FREE_VALUES = join(APP, 'content', 'au', 'free-values.json');
 

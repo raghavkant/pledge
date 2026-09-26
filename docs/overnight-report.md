@@ -1,5 +1,7 @@
 # Overnight report: Runs 2 and 3
 
+> **Superseded 2026-09-26:** the paths below (`~/pledge-work`, `~/Desktop/pledge-website`) no longer exist. This repo now lives at `~/Developer/pledge-website` and the app project at `~/Developer/citizenship-test`. See `docs/decisions.md`.
+
 Written 26 September 2026, at the end of the unattended run. Everything below is live at <https://raghavkant.github.io/pledge/>. Every phase was merged into `main` only after all checks passed (Lighthouse in GitHub's CI), and `/privacy/`, `/terms/` and `/support/` returned 200 after every deploy.
 
 ## Read this first: your Mac

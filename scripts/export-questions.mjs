@@ -11,7 +11,7 @@ import { join } from 'node:path';
 import { homedir } from 'node:os';
 import { ROOT, ok, fail } from './lib.mjs';
 
-const APP = process.env.PLEDGE_APP_DIR || join(homedir(), 'Desktop', 'citizenship test');
+const APP = process.env.PLEDGE_APP_DIR || join(homedir(), 'Developer', 'citizenship-test');
 const SRC = join(APP, 'content', 'au');
 const OUT = join(ROOT, 'src', 'data', 'au');
 const check = process.argv.includes('--check');
