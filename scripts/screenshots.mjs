@@ -14,7 +14,8 @@ const motion = process.argv.includes('--motion');
 if (!only.length) await rm(OUT, { recursive: true, force: true });
 await mkdir(OUT, { recursive: true });
 const server = await serve();
-const pages = (await builtPages()).filter((p) => !only.length || only.some((o) => p.path.startsWith(o)));
+const match = (p, o) => (o === 'index' ? p.path === '' : p.path.startsWith(o)); // "index" = the home page only
+const pages = (await builtPages()).filter((p) => !only.length || only.some((o) => match(p, o)));
 const browser = await chromium.launch();
 
 // Scroll down the page and back, as a reader would, so everything below the first screen is painted
@@ -47,7 +48,7 @@ for (const scheme of ['light', 'dark']) {
       await scrollThrough(page);
       await page.waitForTimeout(motion ? 2500 : 150);
       const slug = (p.path.replace(/\/$/, '').replace(/[/.]/g, '_') || 'home');
-      await page.screenshot({ path: join(OUT, `${slug}--${name}--${scheme}.png`), fullPage: true });
+      await page.screenshot({ path: join(OUT, `${slug}--${name}--${scheme}.png`), fullPage: true, timeout: 120_000 });
       count++;
     }
     await context.close();

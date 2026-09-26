@@ -32,8 +32,17 @@ Choices made during a run without stopping to ask. Each is a recommendation; say
 | 2026-09-25 | No guides section on the home page yet (guides arrive in Run 3). The 404 page links the practice test instead of the Privacy Policy. |
 | 2026-09-25 | The export also records the app's mock-test format (20 questions, 45 minutes) from its `test-config.json`, used in the story captions. |
 | 2026-09-25 | `npm run screenshots` scrolls through each page before the full-page capture (needed for Phase 6's scroll effects). |
-| 2026-09-25 | Astro's anonymous usage telemetry is turned off in every npm script (`ASTRO_TELEMETRY_DISABLED=1`, as CI already did): it sent data from the build machine and made local builds hang for up to a minute when the network was slow. |
-| 2026-09-25 | `check:lighthouse` runs the installed `lhci` directly instead of through `npx`, which could hang contacting the npm registry on a slow network. |
+| 2026-09-25 | Astro's anonymous usage telemetry is turned off in every npm script (`ASTRO_TELEMETRY_DISABLED=1`, as CI already did), so builds send nothing from your machine. (I first blamed it for slow local builds; the real cause was iCloud, see below.) |
+| 2026-09-25 | `check:lighthouse` runs the installed `lhci` directly instead of through `npx` (one less layer), stops a run that hangs after 20 minutes instead of waiting forever, and accepts `index` to check only the home page. |
+| 2026-09-26 | Root cause of the local hangs in Run 2: this project sits on the iCloud-synced Desktop with "Optimise Mac Storage", and macOS had offloaded over 10,000 of its files (including `node_modules`) to iCloud. Tools stalled while files downloaded, and one failed download broke Lighthouse. Downloading them back could not keep up (the disk is 95% full, so macOS kept offloading), and even `git` stalled. So from Phase 6 on I worked in a fresh clone of the GitHub repo at `~/pledge-work` (outside iCloud) and pushed from there. Your Desktop copy is behind until you run `git pull` in it; see `docs/run-2-summary.md`. Nothing on the live site was affected. |
+| 2026-09-26 | Home motion is one orchestrated moment on load: the map draws itself as one gold line (~1.3 s), fills with gold, the sparkle catches the light, the phone rises in and then floats slowly. The headline never animates (it is the LCP). |
+| 2026-09-26 | Night to morning: as the hero scrolls away, the sky warms towards dawn and the stars fade (CSS scroll-driven, only in browsers that support it; otherwise it stays still). |
+| 2026-09-26 | Desktop pointer depth: the hero phone leans a few degrees towards the pointer and the map shifts slightly the other way (fine pointer and hover only; never on touch or with reduced motion). |
+| 2026-09-26 | Scroll story (desktop ≥ 900px, with JavaScript): one sticky phone changes screen (lesson, question, mock result) as each step reaches the middle of the screen; a gold bar marks the step being read. Without JavaScript, and on phones, each step keeps its own phone. |
+| 2026-09-26 | The numbers count up once (1.2 s) when first scrolled into view, only if they start below the first screen; screen readers always get the final number; width is reserved so nothing moves. |
+| 2026-09-26 | Home page JavaScript is 0.7 KB gzipped (limit 15 KB). With reduced motion everything is shown in its final state. |
+| 2026-09-26 | Because this Mac is overloaded tonight (iCloud), local Lighthouse runs hang or score noise (a JavaScript-free page scored 78). From Phase 6, each phase branch is pushed first so GitHub's CI runs every check including Lighthouse (median of 3) on clean machines, with no deploy; only when that is green is it merged into `main`, and the branch is then deleted. All other checks still run locally before the push. |
+| 2026-09-26 | `npm run screenshots` waits up to 2 minutes per capture and accepts `index` for the home page only. |
 
 ## Decided
 
