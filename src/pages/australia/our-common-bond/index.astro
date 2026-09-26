@@ -1,0 +1,65 @@
+---
+import Guide from '../../../layouts/Guide.astro';
+import { url } from '../../../lib/url';
+import { SOURCES } from '../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../data/au/guides';
+
+const parts = [
+  { g: GUIDES.part1, n: 'Part 1', name: 'Australia and its people', pages: '7 to 16', about: 'First peoples, history from 1788, states and territories, traditions, flags and symbols.' },
+  { g: GUIDES.part2, n: 'Part 2', name: 'Australia’s democratic beliefs, rights and liberties', pages: '17 to 22', about: 'Democracy, the Rule of Law, freedoms, equality, and the responsibilities and privileges of citizens.' },
+  { g: GUIDES.part3, n: 'Part 3', name: 'Government and the law in Australia', pages: '23 to 32', about: 'Voting, the Constitution, the Head of State, Parliament, three levels of government, courts and important laws.' },
+  { g: GUIDES.values as (typeof GUIDES)[string] | undefined, n: 'Part 4', name: 'Australian values', pages: '33 to 39', about: 'The values Australians are expected to share. All 5 values questions on the test must be right to pass.' },
+];
+---
+<Guide
+  title="Our Common Bond: What's in the Testable Section"
+  description="The booklet the test is based on: its four parts, free download in English and 40 languages, and how to study it."
+  path="australia/our-common-bond/"
+  h1="Our Common Bond: the booklet the test is based on"
+  answer="Every citizenship test question is based on the booklet Australian Citizenship: Our Common Bond. Its testable section has four parts plus a glossary (pages 7 to 43). It is free from Home Affairs, in English and 40 community languages."
+  sources={['booklet', 'ocb', 'prepare']}
+  related={[GUIDES.part1, GUIDES.faq, PRACTICE]}
+  kind="booklet"
+>
+  <h2 id="what-it-is">What the booklet is</h2>
+  <p><em>Australian Citizenship: Our Common Bond</em> is published by the Department of Home Affairs. Home Affairs says: “All test questions are based on the OCB resource booklet.” The booklet itself says:</p>
+  <blockquote><p>“All of the information you need to sit the Australian citizenship test is in this book. You are not required to purchase or obtain other citizenship packages from any individuals or organisations in order to pass the citizenship test.”</p><cite>Australian Citizenship: Our Common Bond, copyright page</cite></blockquote>
+
+  <h2 id="four-parts">The four parts of the testable section</h2>
+  <ol class="parts">
+    {parts.map((p) => (
+      <li>
+        {p.g ? (
+          <a href={url(p.g.path)}><span class="part-n">{p.n}</span> <span class="part-name">{p.name}</span></a>
+        ) : (
+          <span class="part-title"><span class="part-n">{p.n}</span> <span class="part-name">{p.name}</span></span>
+        )}
+        <p>{p.about} <span class="pg">Pages {p.pages}.</span></p>
+      </li>
+    ))}
+  </ol>
+  <p>A glossary of words from the testable section starts on page 40. The rest of the booklet (the welcome, the ceremony and the Pledge) is not part of the testable section.</p>
+
+  <h2 id="download">Get the booklet free</h2>
+  <ul>
+    <li><a href={SOURCES.booklet}>Download <em>Our Common Bond</em> (PDF, English)</a> from Home Affairs.</li>
+    <li><a href={SOURCES.ocb}>Our Common Bond on the Home Affairs website</a>: the booklet is “available in 40 community languages”. The test itself is in English only.</li>
+    <li>Home Affairs also has a free <em>Our Common Bond</em> podcast, the <a href={SOURCES.practice}>practice test</a>, and the AMEPOnline citizenship modules for people learning English.</li>
+  </ul>
+
+  <h2 id="how-to-study">How to study it</h2>
+  <ol>
+    <li>Read one part at a time, in English if you can, since the test is in English.</li>
+    <li>Give Part 4, <em>Australian values</em>, extra time: to pass, every values question must be right.</li>
+    <li>Use the glossary for words you don’t know.</li>
+    <li>Test yourself with the Home Affairs practice test and our <a href={url(PRACTICE.path)}>free practice test</a>, then reread the pages for any question you got wrong.</li>
+  </ol>
+</Guide>
+
+<style>
+  .parts { list-style: none; padding: 0; display: grid; gap: 12px; }
+  .parts li { margin: 0; padding: 18px 20px; border: 1px solid var(--hairline); border-radius: var(--radius-m); background: var(--surface); }
+  .parts a, .parts .part-title { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; font-family: var(--font-display); font-weight: 600; font-size: 1.25rem; color: var(--ink); text-decoration-color: var(--hairline); }
+  .parts .part-n { color: var(--accent); }
+  .parts p { margin: 6px 0 0; font-size: 1rem; }
+</style>

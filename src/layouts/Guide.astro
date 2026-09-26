@@ -27,8 +27,10 @@ interface Props {
   answer: string;
   sources: SourceKey[];
   related?: GuideLink[];
+  /** "booklet" for guides that summarise Our Common Bond rather than Home Affairs web pages. */
+  kind?: 'rules' | 'booklet';
 }
-const { title, description, path, h1, answer, sources, related = [] } = Astro.props;
+const { title, description, path, h1, answer, sources, related = [], kind = 'rules' } = Astro.props;
 
 // "On this page" from the guide's h2 headings (each needs an id).
 const body = await Astro.slots.render('default');
@@ -40,7 +42,11 @@ const toc = [...body.matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m
       <div class="container">
         <h1>{h1}</h1>
         <p class="guide-answer">{answer}</p>
-        <p class="lead-in">Checked against Home Affairs on <time datetime={CHECKED.iso}>{CHECKED.label}</time>. General information, not migration advice.</p>
+        {kind === 'booklet' ? (
+          <p class="lead-in">Summarised from <em>Australian Citizenship: Our Common Bond</em> (Home Affairs, CC BY 4.0), downloaded <time datetime={CHECKED.iso}>{CHECKED.label}</time>. General information, not migration advice.</p>
+        ) : (
+          <p class="lead-in">Checked against Home Affairs on <time datetime={CHECKED.iso}>{CHECKED.label}</time>. General information, not migration advice.</p>
+        )}
       </div>
     </header>
     <div class="container reading">
@@ -51,7 +57,9 @@ const toc = [...body.matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m
             <ol>{toc.map((t) => <li><a href={`#${t.id}`}>{t.text}</a></li>)}</ol>
           </nav>
         )}
-        <p class="side-note">Every fact here is quoted from Home Affairs and was checked on <time datetime={CHECKED.iso}>{CHECKED.label}</time>.</p>
+        <p class="side-note">{kind === 'booklet'
+          ? 'Page numbers are the printed pages of Our Common Bond.'
+          : <Fragment>Every fact here is quoted from Home Affairs and was checked on <time datetime={CHECKED.iso}>{CHECKED.label}</time>.</Fragment>}</p>
       </aside>
       <article class="prose">
         <Fragment set:html={body} />
@@ -90,6 +98,12 @@ const toc = [...body.matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m
   @media (min-width: 760px) { .prose .related .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   .prose .related .card { text-decoration: none; }
   .prose .related li { margin: 0; padding: 0; }
+  .prose h2 .pg { display: block; margin-top: 0.3em; color: var(--muted); font-family: var(--font-body); font-size: 0.9375rem; font-weight: 600; letter-spacing: 0; }
+  .prose .pg { color: var(--muted); }
+  .prose table.plain { width: 100%; margin: 1.2em 0; border-collapse: collapse; font-size: 0.975rem; line-height: 1.45; }
+  .prose table.plain th, .prose table.plain td { padding: 10px 10px 10px 0; text-align: left; vertical-align: top; border-bottom: 1px solid var(--hairline); }
+  .prose table.plain thead th { color: var(--ink); border-bottom: 2px solid var(--ink); }
+  .prose table.plain tbody th { color: var(--ink); font-weight: 700; }
   .prose dl.facts { display: grid; gap: 0; margin: 1.4em 0; }
   .prose dl.facts > div { display: grid; grid-template-columns: minmax(5.5rem, 30%) 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--hairline); }
   .prose dl.facts > div:last-child { border-bottom: 1px solid var(--hairline); }
