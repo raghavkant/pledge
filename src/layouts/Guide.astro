@@ -1,0 +1,95 @@
+---
+// A guide page (docs/design.md §4): the answer first in the night hero, then the reading column with a
+// quiet side column on desktop (On this page, the Home Affairs check date, sources). Every fact in a guide
+// comes from docs/facts.md (docs/rules.md, rule 5).
+import Base from './Base.astro';
+import { url } from '../lib/url';
+import { CHECKED, SOURCES } from '../data/au/facts';
+import type { GuideLink } from '../data/au/guides';
+
+type SourceKey = keyof typeof SOURCES;
+const SOURCE_NAMES: Record<SourceKey, string> = {
+  test: 'Home Affairs: Learn about the citizenship test',
+  prepare: 'Home Affairs: Prepare for the citizenship test',
+  practice: 'Home Affairs: Citizenship practice test',
+  booklet: 'Home Affairs: Australian Citizenship: Our Common Bond (PDF)',
+};
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  h1: string;
+  /** The answer, in one or two plain sentences. Shown first. */
+  answer: string;
+  sources: SourceKey[];
+  related?: GuideLink[];
+}
+const { title, description, path, h1, answer, sources, related = [] } = Astro.props;
+
+// "On this page" from the guide's h2 headings (each needs an id).
+const body = await Astro.slots.render('default');
+const toc = [...body.matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => ({ id: m[1], text: m[2].replace(/<[^>]+>/g, '') }));
+---
+<Base title={title} description={description} path={path}>
+  <main id="main" class="guide">
+    <header class="night page-hero guide-hero">
+      <div class="container">
+        <h1>{h1}</h1>
+        <p class="guide-answer">{answer}</p>
+        <p class="lead-in">Checked against Home Affairs on <time datetime={CHECKED.iso}>{CHECKED.label}</time>. General information, not migration advice.</p>
+      </div>
+    </header>
+    <div class="container reading">
+      <aside class="toc guide-side" aria-label="About this guide">
+        {toc.length > 2 && (
+          <nav aria-labelledby="toc-title">
+            <p id="toc-title">On this page</p>
+            <ol>{toc.map((t) => <li><a href={`#${t.id}`}>{t.text}</a></li>)}</ol>
+          </nav>
+        )}
+        <p class="side-note">Every fact here is quoted from Home Affairs and was checked on <time datetime={CHECKED.iso}>{CHECKED.label}</time>.</p>
+      </aside>
+      <article class="prose">
+        <Fragment set:html={body} />
+        <h2 id="sources">Sources</h2>
+        <ul class="sources">
+          {sources.map((k) => <li><a href={SOURCES[k]}>{SOURCE_NAMES[k]}</a></li>)}
+        </ul>
+        <p class="advice">For advice about your own situation, contact <a href="https://immi.homeaffairs.gov.au/help-support/contact-us">Home Affairs</a> or a <a href="https://www.mara.gov.au/">registered migration agent</a>.</p>
+        {related.length > 0 && (
+          <nav class="related" aria-labelledby="related-title">
+            <h2 id="related-title">Keep reading</h2>
+            <ul class="cards">
+              {related.map((g) => (
+                <li><a class="card" href={url(g.path)}><span class="card-title">{g.title}</span><p>{g.blurb}</p></a></li>
+              ))}
+            </ul>
+          </nav>
+        )}
+      </article>
+    </div>
+  </main>
+</Base>
+
+<style is:global>
+  .guide-hero h1 { max-width: 20ch; }
+  .guide-answer { max-width: 38rem; margin: 1.3rem 0 0; color: var(--on-night); font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem); line-height: 1.5; font-weight: 600; text-wrap: pretty; }
+  .guide .lead-in { font-size: 0.9375rem; }
+  .guide-side .side-note { margin: 1.6rem 0 0; padding-top: 1rem; border-top: 1px solid var(--hairline); color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
+  .prose blockquote { margin: 1.4em 0; padding: 0.2em 0 0.2em 1.2em; border-left: 3px solid var(--gold-1); color: var(--ink); }
+  .prose blockquote p { margin: 0.4em 0; }
+  .prose blockquote cite { display: block; margin-top: 0.4em; color: var(--muted); font-size: 0.9375rem; font-style: normal; }
+  .prose .sources { padding-left: 1.2em; }
+  .prose .advice { margin-top: 1.6em; padding: 1rem 1.2rem; border-radius: var(--radius-s); background: var(--sunk); font-size: 1rem; }
+  .prose .related { margin-top: 3em; }
+  .prose .related .cards { grid-template-columns: minmax(0, 1fr); margin-top: 1rem; }
+  @media (min-width: 760px) { .prose .related .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .prose .related .card { text-decoration: none; }
+  .prose .related li { margin: 0; padding: 0; }
+  .prose dl.facts { display: grid; gap: 0; margin: 1.4em 0; }
+  .prose dl.facts > div { display: grid; grid-template-columns: minmax(5.5rem, 30%) 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid var(--hairline); }
+  .prose dl.facts > div:last-child { border-bottom: 1px solid var(--hairline); }
+  .prose dl.facts dt { color: var(--ink); font-weight: 700; }
+  .prose dl.facts dd { margin: 0; }
+</style>

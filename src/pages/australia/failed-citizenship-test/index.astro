@@ -1,0 +1,48 @@
+---
+import Guide from '../../../layouts/Guide.astro';
+import { url } from '../../../lib/url';
+import { SOURCES, TEST } from '../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../data/au/guides';
+---
+<Guide
+  title="Failed the Australian Citizenship Test? What Happens Next"
+  description="Your visa isn't affected, the next appointment is free, and after three appointments your application may be refused. Sources inside."
+  path="australia/failed-citizenship-test/"
+  h1="Didn’t pass the citizenship test? What happens next"
+  answer="Your visa is not affected and you can keep living in Australia. Home Affairs books another test appointment for you at no extra cost. If you do not pass after three appointments, your application may be refused."
+  sources={['test', 'prepare']}
+  related={[GUIDES.format, PRACTICE, GUIDES.who]}
+>
+  <h2 id="your-visa">Your visa and your life in Australia</h2>
+  <p>Not passing the test does not change your visa. <a href={SOURCES.test}>Home Affairs</a> says:</p>
+  <blockquote><p>“This will not affect your visa.”</p><p>“You can continue living in Australia.”</p><cite>Home Affairs, Learn about the citizenship test</cite></blockquote>
+  <p>Home Affairs also keeps processing your citizenship application after the test.</p>
+
+  <h2 id="next-appointment">Your next appointment</h2>
+  <p>You don’t need to book or pay for another test yourself:</p>
+  <blockquote><p>“We will book another appointment for you at no extra cost.”</p><cite>Home Affairs, Learn about the citizenship test</cite></blockquote>
+  <p>Home Affairs sends you a letter with the date, time and place of each appointment. To change an appointment, follow the instructions in your appointment letter.</p>
+
+  <h2 id="three-appointments">The three-appointment rule</h2>
+  <p>There is a limit. Home Affairs says:</p>
+  <blockquote><p>“If you do not pass the test after three appointments, we may refuse your application.”</p><cite>Home Affairs, Learn about the citizenship test</cite></blockquote>
+  <p>So use the time before your next appointment well. Home Affairs says that while you wait, “you should prepare for the test”.</p>
+
+  <h2 id="why">Why people don’t pass</h2>
+  <p>To pass, you need both of these on the same test:</p>
+  <ul>
+    <li>at least {TEST.passMark} of the {TEST.questions} questions correct, and</li>
+    <li><strong>all {TEST.valuesQuestions}</strong> of the Australian values questions correct.</li>
+  </ul>
+  <p>The second rule is easy to miss. A score of {TEST.questions - 1} out of {TEST.questions} is not a pass if one of the wrong answers is a values question. Your result is shown on the screen when you finish.</p>
+
+  <h2 id="prepare">How to prepare for next time</h2>
+  <p>All test questions are based on the booklet <em>Australian Citizenship: Our Common Bond</em>, and the test is in English only. Home Affairs suggests these free resources:</p>
+  <ul>
+    <li>the booklet <a href={SOURCES.booklet}><em>Our Common Bond</em></a>, also available in 40 community languages,</li>
+    <li>the <em>Our Common Bond</em> podcast,</li>
+    <li>the <a href={SOURCES.practice}>Home Affairs practice test</a>,</li>
+    <li>the AMEPOnline citizenship modules, for people learning English.</li>
+  </ul>
+  <p>Pay extra attention to Part 4 of the booklet, <em>Australian values</em>: every values question has to be right. You can also try our <a href={url(PRACTICE.path)}>free practice test</a>, which is marked with both pass rules.</p>
+</Guide>

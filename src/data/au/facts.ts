@@ -1,6 +1,6 @@
 // Facts about the real test, each verified in docs/facts.md (quote, source, date checked).
 // Change a value here only after re-checking it there (docs/rules.md, rule 5).
-export const CHECKED = { iso: '2026-09-25', label: '25 September 2026' };
+export const CHECKED = { iso: '2026-09-26', label: '26 September 2026' };
 
 export const SOURCES = {
   test: 'https://immi.homeaffairs.gov.au/citizenship/test-and-interview/learn-about-citizenship-interview-and-test/learn-about-citizenship-test',
