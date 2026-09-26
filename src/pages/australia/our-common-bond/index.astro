@@ -8,7 +8,7 @@ const parts = [
   { g: GUIDES.part1, n: 'Part 1', name: 'Australia and its people', pages: '7 to 16', about: 'First peoples, history from 1788, states and territories, traditions, flags and symbols.' },
   { g: GUIDES.part2, n: 'Part 2', name: 'Australia’s democratic beliefs, rights and liberties', pages: '17 to 22', about: 'Democracy, the Rule of Law, freedoms, equality, and the responsibilities and privileges of citizens.' },
   { g: GUIDES.part3, n: 'Part 3', name: 'Government and the law in Australia', pages: '23 to 32', about: 'Voting, the Constitution, the Head of State, Parliament, three levels of government, courts and important laws.' },
-  { g: GUIDES.values as (typeof GUIDES)[string] | undefined, n: 'Part 4', name: 'Australian values', pages: '33 to 39', about: 'The values Australians are expected to share. All 5 values questions on the test must be right to pass.' },
+  { g: GUIDES.values, n: 'Part 4', name: 'Australian values', pages: '33 to 39', about: 'The values Australians are expected to share. All 5 values questions on the test must be right to pass.' },
 ];
 ---
 <Guide
@@ -18,7 +18,7 @@ const parts = [
   h1="Our Common Bond: the booklet the test is based on"
   answer="Every citizenship test question is based on the booklet Australian Citizenship: Our Common Bond. Its testable section has four parts plus a glossary (pages 7 to 43). It is free from Home Affairs, in English and 40 community languages."
   sources={['booklet', 'ocb', 'prepare']}
-  related={[GUIDES.part1, GUIDES.faq, PRACTICE]}
+  related={[GUIDES.part1, GUIDES.values, PRACTICE]}
   kind="booklet"
 >
   <h2 id="what-it-is">What the booklet is</h2>

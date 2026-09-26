@@ -1,14 +1,16 @@
-// The free practice test (docs/requirements.md §4). Runs only in the browser: it stores nothing and
-// sends nothing (Privacy Policy §11). The question pool is this site's own questions.json.
+// The free practice test (docs/requirements.md §4) and the free values drill (mode "values": all 20 free
+// values questions, no pass rules or timer). Runs only in the browser: it stores nothing and sends nothing
+// (Privacy Policy §11). The question pool is this site's own questions.json.
 type Question = { id: string; v: 0 | 1; q: string; o: string[]; a: number; e: string; s: string };
 type Asked = Question & { order: string[]; answer: number; chosen: number | null };
 
-const TOTAL = 20;
+let TOTAL = 20;
 const VALUES = 5;
 const PASS_MARK = 15;
 const MINUTES = 45;
 
 const root = document.querySelector<HTMLElement>('[data-quiz]')!;
+const DRILL = root.dataset.mode === 'values';
 const $ = <T extends HTMLElement = HTMLElement>(sel: string, scope: ParentNode = root) => scope.querySelector<T>(sel)!;
 const views = {
   intro: $('[data-view="intro"]'),
@@ -51,6 +53,14 @@ function show(name: keyof typeof views) {
 }
 
 function newTest(): Asked[] {
+  if (DRILL) {
+    const values = shuffle(pool!.filter((q) => q.v));
+    TOTAL = values.length;
+    return values.map((q) => {
+      const order = shuffle(q.o);
+      return { ...q, order, answer: order.indexOf(q.o[q.a]), chosen: null };
+    });
+  }
   const part1 = shuffle(pool!.filter((q) => !q.v)).slice(0, TOTAL - VALUES);
   const values = shuffle(pool!.filter((q) => q.v)).slice(0, VALUES);
   return shuffle([...part1, ...values]).map((q) => {
@@ -97,6 +107,7 @@ function check() {
   q.chosen = Number(picked.value);
   const right = q.chosen === q.answer;
   const labels = [...root.querySelectorAll<HTMLElement>('.quiz-option')];
+  for (const label of labels) label.classList.remove('is-selected');
   const mark = (i: number, cls: string, text: string) => {
     labels[i].classList.add(cls);
     labels[i].querySelector('.quiz-option-mark')!.textContent = text;
@@ -133,6 +144,14 @@ function finish(timeUp: boolean) {
   const valuesMet = values === VALUES;
 
   $('[data-timeup]').hidden = !timeUp;
+  if (DRILL) {
+    const missed = TOTAL - correct;
+    $('[data-result-title]').textContent = missed === 0 ? 'Every values question right' : `${missed} ${missed === 1 ? 'question' : 'questions'} to review`;
+    $('[data-result-text]').textContent =
+      correct === TOTAL
+        ? `On the real test, all ${VALUES} values questions must be right. Keep Part 4 of the booklet fresh before your test.`
+        : `On the real test, all ${VALUES} values questions must be right. Read the booklet pages for the ones you missed below, then try again.`;
+  } else {
   $('[data-result-title]').textContent = totalMet && valuesMet ? 'You met both pass rules' : 'Not a pass yet';
   const rule = (name: string, met: boolean, value: string) => {
     const li = $(`[data-rule="${name}"]`);
@@ -149,6 +168,7 @@ function finish(timeUp: boolean) {
         : valuesMet
           ? `All ${VALUES} values questions were right. You need at least ${PASS_MARK} of ${TOTAL} overall: check the booklet pages in your answers below.`
           : `You need at least ${PASS_MARK} of ${TOTAL} and all ${VALUES} values questions right. Your answers below show the booklet page for each question.`;
+  }
 
   $('[data-review]').replaceChildren(
     ...test.map((q) => {
@@ -181,7 +201,7 @@ function finish(timeUp: boolean) {
     summary.className = 'visually-hidden';
     title.after(summary);
   }
-  summary.textContent = `You got ${correct} of ${TOTAL} correct, and ${values} of ${VALUES} values questions.`;
+  summary.textContent = DRILL ? `You got ${correct} of ${TOTAL} right.` : `You got ${correct} of ${TOTAL} correct, and ${values} of ${VALUES} values questions.`;
   countUp(score, correct);
   title.focus();
   title.scrollIntoView({ block: 'start', behavior: reduced() ? 'auto' : 'smooth' });
@@ -244,7 +264,7 @@ async function begin() {
   test = newTest();
   index = 0;
   renderQuestion();
-  const timed = $<HTMLInputElement>('[data-timer-choice]').checked;
+  const timed = !DRILL && !!root.querySelector<HTMLInputElement>('[data-timer-choice]')?.checked;
   stopTimer();
   if (timed) startTimer();
   show('question');
@@ -258,7 +278,10 @@ $('[data-form]').addEventListener('submit', (e) => {
   else check();
 });
 root.addEventListener('change', (e) => {
-  if ((e.target as HTMLInputElement).name === 'answer') $('[data-hint]').hidden = true;
+  const input = e.target as HTMLInputElement;
+  if (input.name !== 'answer') return;
+  $('[data-hint]').hidden = true;
+  for (const label of root.querySelectorAll('.quiz-option')) label.classList.toggle('is-selected', label.contains(input));
 });
 $('[data-start]').addEventListener('click', begin);
 $('[data-restart]').addEventListener('click', begin);

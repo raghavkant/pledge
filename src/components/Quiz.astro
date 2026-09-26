@@ -1,0 +1,253 @@
+---
+// The quiz used by the free practice test (mode "test": 15 Part 1 + 5 values, both pass rules, optional
+// timer) and the free values drill (mode "values": all 20 free values questions). The page passes its
+// own "How it works" content as the default slot. Script: src/scripts/practice-test.ts. Stores nothing.
+import { url } from '../lib/url';
+import { SOURCES, TEST } from '../data/au/facts';
+import stats from '../data/au/app-stats.json';
+
+interface Props { mode: 'test' | 'values' }
+const { mode } = Astro.props;
+const src = url('australia/practice-test/questions.json');
+const total = mode === 'values' ? stats.free.valuesQuestions : TEST.questions;
+---
+<div class="quiz quiz-main" data-quiz data-mode={mode} data-src={src}>
+        <section class="quiz-panel" data-view="intro" aria-label={mode === 'values' ? 'About the values drill' : 'About the practice test'}>
+          <slot />
+
+          <noscript><p class="quiz-note quiz-note-strong">The {mode === 'values' ? 'values drill' : 'practice test'} needs JavaScript. You can still read <a href={SOURCES.booklet}><em>Our Common Bond</em></a> or try the <a href={SOURCES.practice}>Home Affairs practice test</a>.</p></noscript>
+
+          <div class="quiz-start" data-needs-js hidden>
+            {mode === 'test' && (
+              <label class="quiz-check">
+                <input type="checkbox" data-timer-choice />
+                <span>Add a {TEST.minutes}-minute timer, like the real test. You can pause it.</span>
+              </label>
+            )}
+            <button type="button" class="btn btn-primary" data-start>{mode === 'values' ? 'Start the values drill' : 'Start the practice test'}</button>
+            <p class="quiz-loading" data-load-error hidden role="alert">The questions didn’t load. Check your connection and reload the page.</p>
+          </div>
+        </section>
+
+        <section class="quiz-panel quiz-question" data-view="question" hidden aria-label="Practice question">
+          <div class="quiz-top">
+            <p class="quiz-count" data-count>Question 1 of {total}</p>
+            <div class="quiz-timer" data-timer hidden>
+              <span class="quiz-time" role="timer" aria-label="Time left" data-time>45:00</span>
+              <button type="button" class="btn btn-small" data-pause aria-pressed="false">Pause</button>
+            </div>
+          </div>
+          <div class="quiz-progress" aria-hidden="true"><span data-progress></span></div>
+          <form data-form novalidate>
+            <fieldset data-fieldset>
+              <legend tabindex="-1" data-legend>
+                <span class="quiz-tag" data-tag></span>
+                <span class="quiz-q" data-question></span>
+              </legend>
+              <div class="quiz-options" data-options></div>
+            </fieldset>
+            <p class="quiz-hint" data-hint role="alert" hidden>Choose an answer first.</p>
+            <div class="quiz-feedback" data-feedback tabindex="-1" hidden>
+              <p class="quiz-verdict" data-verdict></p>
+              <p data-explanation></p>
+              <p class="quiz-source" data-source></p>
+            </div>
+            <div class="quiz-actions">
+              <button type="submit" class="btn btn-primary" data-submit>Check answer</button>
+            </div>
+          </form>
+          <p class="visually-hidden" aria-live="polite" data-announce></p>
+        </section>
+
+        <section class="quiz-panel quiz-results" data-view="results" hidden aria-labelledby="result-title">
+          <p class="quiz-timeup" data-timeup hidden>Time’s up. Questions you didn’t answer count as not correct.</p>
+          <h2 id="result-title" tabindex="-1" data-result-title></h2>
+          <p class="quiz-score" aria-hidden="true"><span class="quiz-score-num" data-score>0</span><span class="quiz-score-of"> of {total}</span></p>
+          {mode === 'test' && (
+          <ul class="quiz-rules">
+            <li data-rule="total">
+              <span class="quiz-rule-mark" aria-hidden="true"></span>
+              <span><span class="quiz-rule-name">At least {TEST.passMark} of {TEST.questions} correct</span>
+              <span class="quiz-rule-value" data-rule-value></span></span>
+            </li>
+            <li data-rule="values">
+              <span class="quiz-rule-mark" aria-hidden="true"></span>
+              <span><span class="quiz-rule-name">All {TEST.valuesQuestions} values questions correct</span>
+              <span class="quiz-rule-value" data-rule-value></span></span>
+            </li>
+          </ul>
+          )}
+          <p class="quiz-result-text" data-result-text></p>
+          <div class="quiz-actions">
+            <button type="button" class="btn btn-primary" data-restart>{mode === 'values' ? 'Start the drill again' : 'Take a new practice test'}</button>
+            <a class="btn btn-quiet" href="#review-title">Review your answers</a>
+          </div>
+
+          <aside class="app-card" aria-labelledby="app-card-title">
+            <img src={url('icon-large.svg')} alt="" width="72" height="72" />
+            <div>
+              <h3 id="app-card-title">Practise all four parts in Pledge</h3>
+              <p>Pledge is an iPhone app with {stats.questions} practice questions from all four parts, {stats.lessons} lessons and mock tests in the real format. Free in the app: Part 1 lessons and questions, {stats.free.valuesQuestions} values questions and one full mock test. Premium unlocks everything else.</p>
+              <p class="app-card-soon">Coming soon to iPhone</p>
+            </div>
+          </aside>
+
+          <h3 id="review-title" class="quiz-review-title" tabindex="-1">Your answers</h3>
+          <ol class="quiz-review" data-review></ol>
+        </section>
+      </div>
+
+
+<script>
+  import '../scripts/practice-test';
+</script>
+
+<style is:global>
+  /* Inside a guide's .prose column, undo the reading styles the quiz doesn't want. */
+  .prose .quiz ul, .prose .quiz ol { padding-left: 0; margin: 0; }
+  .prose .quiz li { margin: 0; padding-left: 0; }
+  .prose .quiz .quiz-points { padding-left: 1.2em; }
+  .prose .quiz .quiz-points li { margin: 0.5em 0; padding-left: 0.2em; }
+  .prose .quiz h2 { margin: 0 0 1rem; scroll-margin-top: 24px; }
+  .prose .quiz p { margin-bottom: 0; }
+  .prose .quiz .quiz-review li { padding: 18px 0 18px 3rem; }
+
+  .quiz-layout { display: grid; gap: clamp(40px, 5vw, 72px); grid-template-columns: minmax(0, 1fr); padding-block: clamp(4px, 1vw, 16px) clamp(72px, 9vw, 136px); }
+  @media (min-width: 1100px) {
+    .quiz-layout { grid-template-columns: minmax(0, 46rem) minmax(0, 1fr) 19rem; }
+    .quiz-main { grid-column: 1; }
+    .quiz-side { grid-column: 3; align-self: start; position: sticky; top: 32px; }
+  }
+
+  .quiz-panel {
+    padding: clamp(24px, 4vw, 48px);
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-l);
+    box-shadow: var(--shadow-1);
+  }
+  .quiz-panel h2 { margin: 0 0 1rem; color: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: clamp(1.6rem, 1.3rem + 1vw, 2.1rem); line-height: 1.15; letter-spacing: -0.015em; }
+  .quiz-points { margin: 0; padding-left: 1.2em; }
+  .quiz-points li { margin: 0.5em 0; padding-left: 0.2em; }
+  .quiz-points li::marker { color: var(--accent); }
+  .quiz-points strong { color: var(--ink); }
+  .quiz-note { margin: 1.4rem 0 0; padding: 1rem 1.2rem; border-radius: var(--radius-s); background: var(--sunk); color: var(--ink-soft); font-size: 0.975rem; line-height: 1.6; }
+  .quiz-start { display: grid; gap: 20px; justify-items: start; margin-top: 1.8rem; }
+  .quiz-check { display: flex; gap: 12px; align-items: flex-start; min-height: 48px; padding-top: 12px; cursor: pointer; color: var(--ink-soft); }
+  .quiz-check input { flex: none; width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--accent); }
+  .quiz-loading { margin: 0; color: var(--danger); font-weight: 700; }
+
+  /* Question */
+  .quiz-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; min-height: 48px; }
+  .quiz-count { margin: 0; color: var(--muted); font-weight: 700; font-size: 0.975rem; }
+  .quiz-timer { display: flex; align-items: center; gap: 12px; }
+  .quiz-time { color: var(--ink); font-weight: 800; font-variant-numeric: tabular-nums; font-size: 1.05rem; }
+  .quiz-timer.is-paused .quiz-time { color: var(--muted); }
+  .quiz-progress { height: 6px; margin: 14px 0 clamp(24px, 3vw, 36px); border-radius: 99px; background: var(--sunk); overflow: hidden; }
+  .quiz-progress span { display: block; height: 100%; border-radius: inherit; background: var(--accent); transform-origin: left; transform: scaleX(0); transition: transform 500ms var(--ease-out); }
+  .quiz-question fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+  .quiz-question legend { display: block; width: 100%; padding: 0; margin-bottom: 24px; }
+  .quiz-question legend:focus { outline: none; }
+  .quiz-question legend:focus-visible { outline: 3px solid var(--focus); outline-offset: 6px; }
+  .quiz-tag { display: inline-block; margin-bottom: 12px; padding: 3px 12px; border-radius: 99px; background: var(--sunk); color: var(--ink-soft); font-size: 0.875rem; font-weight: 700; }
+  .quiz-tag.is-values { background: color-mix(in srgb, var(--ochre) 18%, transparent); color: var(--ink); }
+  .quiz-q { display: block; color: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: clamp(1.45rem, 1.2rem + 1vw, 2rem); line-height: 1.22; letter-spacing: -0.01em; text-wrap: pretty; }
+  .quiz-options { display: grid; gap: 12px; }
+  .quiz-option {
+    position: relative; display: flex; align-items: center; gap: 16px; min-height: 64px; padding: 14px 18px;
+    border: 1.5px solid var(--hairline); border-radius: var(--radius-m); background: var(--bg);
+    color: var(--ink); font-weight: 600; line-height: 1.4; cursor: pointer;
+  }
+  .quiz-option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+  .quiz-radio { flex: none; width: 22px; height: 22px; border: 2px solid var(--muted); border-radius: 50%; display: grid; place-items: center; }
+  .quiz-radio::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); transform: scale(0); transition: transform 240ms var(--ease-out); }
+  /* The selected answer is marked by the script (.is-selected), not :has(), so the right/wrong styles below
+     apply the moment the answer is checked (Chrome was slow to re-evaluate :has() when the question locked). */
+  .quiz-option.is-selected { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
+  .quiz-option.is-selected .quiz-radio { border-color: var(--accent); }
+  .quiz-option.is-selected .quiz-radio::after { transform: scale(1); }
+  .quiz-option:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 3px; }
+  .quiz-option-label { flex: 1; }
+  .quiz-option-mark { display: block; font-size: 0.875rem; font-weight: 800; }
+  .quiz-option-mark:empty { display: none; }
+  .quiz-option.is-right { border-color: var(--success); background: color-mix(in srgb, var(--success) 10%, var(--surface)); }
+  .quiz-option.is-right .quiz-radio { border-color: var(--success); background: var(--success); }
+  .quiz-option.is-right .quiz-radio::after { background: var(--surface); transform: scale(0.45); }
+  .quiz-option.is-right .quiz-option-mark { color: var(--success); }
+  .quiz-option.is-wrong { border-color: var(--danger); background: color-mix(in srgb, var(--danger) 8%, var(--surface)); }
+  .quiz-option.is-wrong .quiz-radio { border-color: var(--danger); }
+  .quiz-option.is-wrong .quiz-radio::after { background: var(--danger); }
+  .quiz-option.is-wrong .quiz-option-mark { color: var(--danger); }
+  fieldset:disabled .quiz-option { cursor: default; }
+  fieldset:disabled .quiz-option:not(.is-right, .is-wrong) { opacity: 0.6; }
+  .quiz-hint { margin: 16px 0 0; color: var(--danger); font-weight: 700; }
+  .quiz-feedback { margin-top: 20px; padding: 18px 20px; border-radius: var(--radius-m); background: var(--sunk); border-left: 4px solid var(--muted); }
+  .quiz-feedback:focus { outline: none; }
+  .quiz-feedback:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+  .quiz-feedback.is-right { border-left-color: var(--success); }
+  .quiz-feedback.is-wrong { border-left-color: var(--danger); }
+  .quiz-feedback p { margin: 0.35em 0 0; }
+  .quiz-verdict { color: var(--ink); font-weight: 800; font-size: 1.1rem; }
+  .quiz-feedback .quiz-verdict { margin-top: 0; }
+  .quiz-source { color: var(--muted); font-size: 0.925rem; }
+  .quiz-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+  /* Feedback motion (docs/design.md §7): right = spring pop, wrong = gentle shake. Off with reduced motion. */
+  @media (prefers-reduced-motion: no-preference) {
+    .quiz-option.pop { animation: quiz-pop var(--spring-pop-ms) var(--spring-pop); }
+    .quiz-option.shake { animation: quiz-shake 450ms var(--ease-out); }
+  }
+  @keyframes quiz-pop { 0% { transform: scale(1); } 30% { transform: scale(1.03); } 100% { transform: scale(1); } }
+  @keyframes quiz-shake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-5px); } 80% { transform: translateX(3px); } }
+
+  /* Results */
+  .quiz-timeup { margin: 0 0 12px; font-weight: 700; color: var(--ink); }
+  .quiz-results h2:focus { outline: none; }
+  .quiz-score { margin: 0.2rem 0 1.2rem; color: var(--ink); font-family: var(--font-display); font-weight: 600; line-height: 1; letter-spacing: -0.03em; }
+  .quiz-score-num { display: inline-block; min-width: 1.2ch; font-size: clamp(4.5rem, 3rem + 6vw, 7.5rem); font-variant-numeric: tabular-nums; }
+  .quiz-score-of { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.2rem); color: var(--muted); }
+  .quiz-rules { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .quiz-rules li { display: flex; gap: 14px; align-items: center; padding: 14px 16px; border-radius: var(--radius-s); background: var(--sunk); }
+  .quiz-rule-name { display: block; color: var(--ink); font-weight: 700; }
+  .quiz-rule-value { display: block; color: var(--muted); font-size: 0.95rem; }
+  .quiz-rule-mark { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 0.95rem; }
+  .quiz-rules .is-met .quiz-rule-mark { background: var(--success); }
+  .quiz-rules .is-met .quiz-rule-mark::before { content: '✓'; }
+  .quiz-rules .is-missed .quiz-rule-mark { background: var(--danger); }
+  .quiz-rules .is-missed .quiz-rule-mark::before { content: '✕'; }
+  @media (prefers-color-scheme: dark) { .quiz-rule-mark { color: #0F1220; } }
+  .quiz-result-text { margin: 1.2rem 0 0; }
+
+  .app-card { display: flex; gap: 20px; align-items: flex-start; margin-top: clamp(32px, 4vw, 48px); padding: clamp(20px, 3vw, 28px); border-radius: var(--radius-m); color: var(--on-night-soft); background: linear-gradient(160deg, var(--night-0), var(--night-mid)); }
+  .app-card img { flex: none; width: 64px; height: 64px; border-radius: 22.4%; box-shadow: 0 0 0 1px rgba(246, 244, 239, 0.12); }
+  .app-card h3 { margin: 0 0 0.4rem; color: var(--on-night); font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; line-height: 1.2; }
+  .app-card p { margin: 0; font-size: 0.975rem; line-height: 1.6; }
+  .app-card .app-card-soon { display: inline-flex; margin-top: 12px; padding: 4px 14px; border: 1px solid rgba(246, 244, 239, 0.3); border-radius: 99px; color: var(--on-night); font-weight: 700; font-size: 0.9rem; }
+
+  .quiz-review-title { margin: clamp(36px, 5vw, 56px) 0 12px; color: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; scroll-margin-top: 24px; }
+  .quiz-review-title:focus { outline: none; }
+  .quiz-review { margin: 0; padding: 0; list-style: none; counter-reset: review; }
+  .quiz-review li { counter-increment: review; padding: 18px 0 18px 3rem; border-top: 1px solid var(--hairline); position: relative; }
+  .quiz-review li::before { content: counter(review); position: absolute; left: 0; top: 18px; color: var(--muted); font-weight: 800; font-variant-numeric: tabular-nums; }
+  .quiz-review p { margin: 0.25em 0 0; font-size: 0.975rem; }
+  .quiz-review .rq { margin: 0; color: var(--ink); font-weight: 700; font-size: 1.02rem; }
+  .quiz-review .ok { color: var(--success); font-weight: 700; }
+  .quiz-review .no { color: var(--danger); font-weight: 700; }
+  .quiz-review .src { color: var(--muted); font-size: 0.9rem; }
+
+  /* Side column */
+  .quiz-side h2 { margin: 0 0 1rem; color: var(--ink); font-size: 1rem; font-weight: 800; }
+  .quiz-side .side-title { margin-top: 2rem; }
+  .rule-list { display: grid; gap: 0; margin: 0; }
+  .rule-list > div { display: grid; grid-template-columns: 6.2rem 1fr; gap: 12px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--hairline); }
+  .rule-list > div:last-child { border-bottom: 1px solid var(--hairline); }
+  .rule-list dt { color: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: 2rem; line-height: 1; letter-spacing: -0.02em; }
+  .rule-list dt span { font-size: 1rem; color: var(--muted); letter-spacing: 0; }
+  .rule-list dd { margin: 0; color: var(--ink-soft); font-size: 0.95rem; line-height: 1.45; }
+  .quiz-side .checked { margin: 14px 0 0; color: var(--muted); font-size: 0.9rem; }
+  .side-links { margin: 0; padding: 0; list-style: none; }
+  .side-links li + li { margin-top: 10px; }
+  .side-links a { font-weight: 600; text-underline-offset: 0.2em; }
+
+  @media (hover: hover) and (pointer: fine) {
+    fieldset:not(:disabled) .quiz-option:hover { border-color: var(--accent); }
+  }
+</style>

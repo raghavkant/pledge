@@ -63,6 +63,7 @@ const toc = [...body.matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m
       </aside>
       <article class="prose">
         <Fragment set:html={body} />
+        <slot name="tool" />
         <h2 id="sources">Sources</h2>
         <ul class="sources">
           {sources.map((k) => <li><a href={SOURCES[k]}>{SOURCE_NAMES[k]}</a></li>)}
