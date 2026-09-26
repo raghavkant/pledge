@@ -62,4 +62,4 @@ for (const p of pages) {
 }
 if (problems.length) fail(`Lighthouse limits broken`, [...problems, 'scores:', ...rows]);
 ok(`Lighthouse mobile: ${pages.length} pages within limits`);
-if (process.argv.includes('--verbose')) for (const r of rows) console.log(`  ${r}`);
+if (process.argv.includes('--verbose') || process.env.LH_VERBOSE) for (const r of rows) console.log(`  ${r}`);

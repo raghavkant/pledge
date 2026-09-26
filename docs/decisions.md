@@ -66,6 +66,9 @@ Choices made during a run without stopping to ask. Each is a recommendation; say
 | 2026-09-26 | `sitemap.xml` is generated from the page files (no new package; 404 left out), at `https://raghavkant.github.io/pledge/sitemap.xml`. No `robots.txt` yet: on github.io it would have to live at the domain root, which isn't ours; it comes on domain day as planned. |
 | 2026-09-26 | Share images (Open Graph, 1200×630 JPEG): one per page with its title, in the night-sky style with the gold map, made by `scripts/build-og.mjs` (Playwright, run by hand, outputs committed, 900 KB total). Twitter/X cards use the large image. |
 | 2026-09-26 | On phones (under 480px) the header shows Guides and Practice test; Support is in the footer of every page (and linked from the app). With three links, "Practice test" wrapped onto two lines. |
+| 2026-09-26 | Phase 14 audit written to `docs/audit-2026-09-26.md`. CI now prints each page's Lighthouse scores in its log (`LH_VERBOSE`), so scores can be read without running Lighthouse locally. |
+| 2026-09-26 | I did not touch your Desktop copy of the repo (it has my uncommitted Phase 6 work, now identical to GitHub, and git there was stalling on iCloud). Steps to bring it up to date are in `docs/overnight-report.md`. |
+| 2026-09-26 | Search Console and Bing Webmaster Tools need your Google/Microsoft accounts, so they are left for you, with steps in `docs/overnight-report.md`. Domain day and the App Store launch step were not started, as asked. |
 
 ## Decided
 
