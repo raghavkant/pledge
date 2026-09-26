@@ -1,6 +1,6 @@
 # Phases
 
-**Current:** Run 2 (phases 5–8) finished 2026-09-26 (order 7 → 8 → 5 → 6). Next: Run 3 (phases 9–14). See `docs/progress-log.md` for the latest step.
+**Current:** Run 3 (phases 9–14) in progress. Run 2 finished 2026-09-26 (order 7 → 8 → 5 → 6). See `docs/progress-log.md` for the latest step.
 
 The owner prefers **fewer, longer runs** (2026-09-25). Each phase inside a run still gets its own branch (`phase-N-name`) and one commit, merged into `main` and pushed only when `npm run check:full` passes, with a line in `docs/progress-log.md`. Inside a run, don't stop to ask: pick the recommendation and log it under "Decisions for Raghav to review" in `docs/decisions.md`. The only reason to stop early is a legal URL (`/privacy/`, `/terms/`, `/support/`) not returning 200: roll back, then stop and report.
 
@@ -25,7 +25,7 @@ Every phase ends with something the owner can open, and with screenshots reviewe
 
 ## Run 3: guides and SEO (phases 9–14)
 
-- [ ] **Phase 9.** Guide template (desktop editorial layout), facts data, and 3 early-win guides: failed test, who sits the test, test format.
+- [x] **Phase 9.** Guide template (desktop editorial layout), facts data, and 3 early-win guides: failed test, who sits the test, test format.
 - [ ] **Phase 10.** Test day and FAQ (including "Is Pledge endorsed by Home Affairs?"), facts re-checked first.
 - [ ] **Phase 11.** Our Common Bond hub and Parts 1–3 (sample questions on Part 1 only).
 - [ ] **Phase 12.** Values questions page with the free values drill.

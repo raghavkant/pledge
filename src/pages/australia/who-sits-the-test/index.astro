@@ -1,0 +1,47 @@
+---
+import Guide from '../../../layouts/Guide.astro';
+import { SOURCES, TEST } from '../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../data/au/guides';
+---
+<Guide
+  title="Who Has to Sit the Australian Citizenship Test?"
+  description="Most people aged 18 to 59 sit it. Who doesn't, what the interview is, and who can get 90 minutes."
+  path="australia/who-sits-the-test/"
+  h1="Who has to sit the citizenship test?"
+  answer="If you are aged 18 to 59 on the day Home Affairs receives your application for citizenship by conferral, you generally have to sit the test. People aged 60 or over, and some others, generally don’t."
+  sources={['test']}
+  related={[GUIDES.format, GUIDES.failed, PRACTICE]}
+>
+  <h2 id="who-sits">Who sits the test</h2>
+  <p><a href={SOURCES.test}>Home Affairs</a> says:</p>
+  <blockquote><p>“If you are aged between 18 and 59 years on the day we receive your application for citizenship by conferral, you are generally required to sit the test.”</p><cite>Home Affairs, Learn about the citizenship test</cite></blockquote>
+  <p>Your age is counted on the day your application is received, not on the day of the test. If you need to sit the test, Home Affairs sends you a letter with the date, time and place of your appointment.</p>
+
+  <h2 id="who-doesnt">Who doesn’t sit the test</h2>
+  <p>You generally do not need to sit the test if you:</p>
+  <ul>
+    <li>are aged 17 years or younger at the time you apply,</li>
+    <li>are aged 60 years or over at the time you apply,</li>
+    <li>have a permanent or enduring physical or mental incapacity,</li>
+    <li>have a permanent loss or substantial impairment of hearing, speech or sight,</li>
+    <li>are the child of a former Australian citizen who lost their Australian citizenship under specific circumstances,</li>
+    <li>were born in Papua before 16 September 1975 to an Australian citizen born in Australia (as Australia is now), or</li>
+    <li>were born in Australia and are stateless.</li>
+  </ul>
+  <p>This list follows the Home Affairs page. Whether it applies to you depends on your own situation.</p>
+
+  <h2 id="interview">The interview</h2>
+  <p>People who don’t sit the test may still be asked to an interview:</p>
+  <blockquote><p>“Applicants who do not need to sit the citizenship test may have an interview so we can confirm their identity and ask about their application.”</p><cite>Home Affairs, Learn about the citizenship test</cite></blockquote>
+
+  <h2 id="assisted-test">The Assisted Test: 90 minutes instead of {TEST.minutes}</h2>
+  <p>The standard test gives you {TEST.minutes} minutes. An Assisted Test gives you 90 minutes. Home Affairs may offer you one if you asked for it in your application, and:</p>
+  <ul>
+    <li>you have completed at least 400 hours of English language tuition under the Adult Migrant English Program (AMEP), or</li>
+    <li>you have a permanent or temporary physical or cognitive impairment that prevents you from sitting the standard test, even with support from the Test Facilitator. Home Affairs needs evidence from your registered health practitioner.</li>
+  </ul>
+  <p>Whichever test you sit, a Test Facilitator can help you use the computer or tablet, give you headphones, read the questions aloud, and select your answers if you say them.</p>
+
+  <h2 id="cost">Does the test cost extra?</h2>
+  <p>No. Home Affairs says: “There is no extra cost to sit the citizenship test. The citizenship application fee that you paid includes the test.”</p>
+</Guide>

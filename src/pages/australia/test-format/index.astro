@@ -1,0 +1,53 @@
+---
+import Guide from '../../../layouts/Guide.astro';
+import { url } from '../../../lib/url';
+import { SOURCES, TEST } from '../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../data/au/guides';
+---
+<Guide
+  title="Citizenship Test Format: Questions, Pass Mark and Time"
+  description="How many questions, how many to pass, the values rule, time limit, language, and whether it's online. Short answers with Home Affairs sources."
+  path="australia/test-format/"
+  h1="The citizenship test format"
+  answer={`${TEST.questions} multiple choice questions in ${TEST.minutes} minutes, in English, on a computer or tablet at your appointment. To pass you need at least ${TEST.passMark} of ${TEST.questions} correct and all ${TEST.valuesQuestions} Australian values questions correct.`}
+  sources={['test', 'prepare', 'practice']}
+  related={[PRACTICE, GUIDES.failed, GUIDES.who]}
+>
+  <h2 id="at-a-glance">At a glance</h2>
+  <dl class="facts">
+    <div><dt>Questions</dt><dd>{TEST.questions} multiple choice questions</dd></div>
+    <div><dt>To pass</dt><dd>At least {TEST.passMark} of {TEST.questions} correct (75%), <strong>and</strong> all {TEST.valuesQuestions} Australian values questions correct</dd></div>
+    <div><dt>Time</dt><dd>{TEST.minutes} minutes (90 minutes for the Assisted Test)</dd></div>
+    <div><dt>Language</dt><dd>English only</dd></div>
+    <div><dt>Where</dt><dd>At your appointment, on a computer or tablet</dd></div>
+    <div><dt>Cost</dt><dd>No extra cost: it is included in your application fee</dd></div>
+  </dl>
+
+  <h2 id="how-many-questions">How many questions are there?</h2>
+  <p>{TEST.questions}. <a href={SOURCES.test}>Home Affairs</a> says that to pass you must “answer {TEST.questions} multiple choice questions”, and describes them as “computer-based multiple choice questions”.</p>
+
+  <h2 id="how-many-to-pass">How many do you need to get right?</h2>
+  <p>You must “achieve an overall mark of at least 15/20 (75%)” <strong>and</strong> “answer 5/5 (100%) of the Australian values questions correctly”. Both rules apply at the same time: {TEST.questions - 1} out of {TEST.questions} is not a pass if the wrong answer is a values question.</p>
+
+  <h2 id="how-long">How long do you have?</h2>
+  <p>“You will have 45 minutes to complete the test.” If you sit an Assisted Test, you have 90 minutes. See <a href={url(GUIDES.who.path)}>who can have an Assisted Test</a>.</p>
+
+  <h2 id="language">Is the test only in English?</h2>
+  <p>Yes. Home Affairs says: “The test is conducted in English only.” The booklet you study from is available in 40 community languages, but the test itself is in English.</p>
+
+  <h2 id="online">Can you do the test online at home?</h2>
+  <p>No. You sit it at an appointment, at a departmental office in most Australian capital cities or at some Services Australia (Centrelink) offices. Home Affairs says: “You will use a computer or tablet device to take the test. Your result will be displayed on the screen after you complete the test.”</p>
+
+  <h2 id="topics">What are the questions about?</h2>
+  <p>“All test questions are based on the OCB resource booklet”, <em>Australian Citizenship: Our Common Bond</em>. The topics are:</p>
+  <ul>
+    <li>Australia and its people,</li>
+    <li>Australia’s democratic beliefs, rights and liberties,</li>
+    <li>government and the law in Australia,</li>
+    <li>Australian values.</li>
+  </ul>
+
+  <h2 id="practice-test">Is the real test the same as the practice test?</h2>
+  <p>No. About its practice test, Home Affairs says: “It is a sample test only. The questions will be different on the day of the test.” The <a href={SOURCES.practice}>Home Affairs practice test</a> site also says that during the test you can answer the questions in any order, and skip questions and come back to them later if you are unsure.</p>
+  <p>Our <a href={url(PRACTICE.path)}>free practice test</a> uses Pledge’s own questions from Part 1 and the values part of the booklet, marked with both pass rules.</p>
+</Guide>

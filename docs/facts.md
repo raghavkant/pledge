@@ -2,9 +2,9 @@
 
 Every fact about the real test that the site states must be in this file, with a Home Affairs quote, the page URL and the date it was checked. Pages link the source and show "Checked against Home Affairs on <date>".
 
-- **Checked:** 2026-09-25, by downloading each page (Home Affairs blocks some automated fetchers; `curl` with a normal browser user agent works) and quoting its text.
+- **Checked:** 2026-09-26 (first check 2026-09-25), by downloading each page (Home Affairs blocks some automated fetchers; `curl` with a normal browser user agent works) and matching every quote below against its text; the fee form PDF's text was extracted and checked too. All quotes were still present.
 - **Re-check:** at least every 90 days, before any phase that writes about the fact, and **every 1 July** for fees (they are indexed then).
-- Home Affairs pages don't show a "last updated" date in their text, so we record our own check date.
+- Home Affairs pages show a "Last updated" date at the bottom (on 2026-09-26: `test` 21/09/2026, `prepare` 23/02/2026). We record our own check date as well; much of the `test` page's text sits in expandable sections.
 
 ## Sources
 
@@ -19,7 +19,7 @@ Every fact about the real test that the site states must be in this file, with a
 | `fees` | https://immi.homeaffairs.gov.au/form-listing/forms/1298i.pdf (Form 1298i, "Design date 07/26") |
 | `booklet` | https://immi.homeaffairs.gov.au/citizenship-subsite/files/our-common-bond-testable.pdf |
 
-## Verified (checked 2026-09-25)
+## Verified (checked 2026-09-26)
 
 | Fact | Quote | Source |
 |---|---|---|
@@ -40,6 +40,17 @@ Every fact about the real test that the site states must be in this file, with a
 | Failing | "This will not affect your visa." "You can continue living in Australia." "We will book another appointment for you at no extra cost." "If you do not pass the test after three appointments, we may refuse your application." | `test` |
 | After passing | ceremony invitation "about four weeks before the ceremony"; "Wait times for citizenship ceremonies can vary." | `test` |
 | Language | "The test is conducted in English only. All test questions are based on the OCB resource booklet." | `prepare` |
+| Computer-based | "The test takes 45 minutes and includes 20 computer-based multiple choice questions." (video transcript) | `test` |
+| Interview instead | "Applicants who do not need to sit the citizenship test may have an interview so we can confirm their identity and ask about their application." | `test` |
+| Other exemptions | also: "are the child of a former Australian citizen who lost their Australian citizenship under specific circumstances", "were born in Papua before 16 September 1975 to an Australian citizen born in Australia (as Australia is now)", "were born in Australia and are stateless" | `test` |
+| No photo ID | "If you do not bring a photo ID, your appointment will be changed to a later date." | `test` |
+| Applying from outside Australia | "If you lodge your application from outside Australia, we will invite you to attend a test appointment after you return to Australia." | `test` |
+| At the appointment | "discuss your citizenship application", "confirm your identity", "take your photo"; "You will sit the citizenship test after we have confirmed your identity." | `test` |
+| On your own | "You must sit the test on your own. You cannot bring anyone with you to help you during the test." A Test Facilitator can show you how to use the computer or tablet, use it for you, give you headphones, read the questions aloud and select your answers if you respond verbally. | `test` |
+| Assisted Test request | "We may offer you an Assisted Test if you: asked for it in your application, and have completed at least 400 hours of English language tuition under the Adult Migrant English Program (AMEP) or have a permanent or temporary physical or cognitive impairment that prevents you from sitting the Standard Test"; "We need evidence from your registered health practitioner" | `test` |
+| Breaking the rules | "If you do not follow the rules, we may decide that you have not successfully completed the test and refuse your application." | `test` |
+| While you wait | "While you wait for your next appointment, you should prepare for the test." | `test` |
+| Practice test purpose | "The citizenship practice test is designed to look and feel like the official test." | `prepare` |
 | Practice test | "It is a sample test only. The questions will be different on the day of the test." | `prepare` |
 | Paid apps | "The Department does not endorse or recommend any external courses that claim to help you prepare for the citizenship test, including paid external apps." | `prepare`, `hub` |
 | Only Home Affairs resources | "You should only use test resources available on the Home Affairs website." (video transcript) | `test` |

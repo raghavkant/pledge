@@ -43,6 +43,11 @@ Choices made during a run without stopping to ask. Each is a recommendation; say
 | 2026-09-26 | Home page JavaScript is 0.7 KB gzipped (limit 15 KB). With reduced motion everything is shown in its final state. |
 | 2026-09-26 | Because this Mac is overloaded tonight (iCloud), local Lighthouse runs hang or score noise (a JavaScript-free page scored 78). From Phase 6, each phase branch is pushed first so GitHub's CI runs every check including Lighthouse (median of 3) on clean machines, with no deploy; only when that is green is it merged into `main`, and the branch is then deleted. All other checks still run locally before the push. |
 | 2026-09-26 | `npm run screenshots` waits up to 2 minutes per capture and accepts `index` for the home page only. |
+| 2026-09-26 | Run 3 started with a full re-check of every Home Affairs fact (all 54 quotes still present; fees $595/$85 on Form 1298i "Design date 07/26"). `docs/facts.md` now shows 2026-09-26, notes the pages' own "Last updated" dates, and adds newly verified quotes (the interview, other exemptions, photo ID, support during the test, Assisted Test eligibility, breaking the rules). Pages now say "Checked against Home Affairs on 26 September 2026". |
+| 2026-09-26 | Guide layout: the answer comes first, in large text in the night hero, with the check date and "General information, not migration advice." under it; then the reading column with Home Affairs quotes set as block quotes, a Sources list, a line pointing to Home Affairs or a registered migration agent (MARA) for personal advice, and "Keep reading" links. On desktop a side column holds "On this page" and the check note. |
+| 2026-09-26 | Guides quote Home Affairs word for word for every rule, and never use the word "official" (even though Home Affairs' own sentence about its practice test does; we paraphrase that one out). |
+| 2026-09-26 | The Part 2–4 booklet guides (Phase 11) will be written from the booklet itself (text extracted from the Home Affairs PDF), not from the app's lessons, because those lessons are Premium in the app. |
+| 2026-09-26 | `docs/run-2-summary.md` is committed with Phase 9 (it was written while Phase 6's checks were running). |
 
 ## Decided
 
