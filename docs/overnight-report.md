@@ -10,7 +10,7 @@ What I did: from Phase 6 on, I worked in a fresh clone of your GitHub repo at **
 
 What to do:
 1. **Easiest:** keep working in `~/pledge-work`. It is the same repo and fully up to date.
-2. **To bring the Desktop copy up to date instead:** it is on the branch `phase-6-home-motion` with uncommitted Phase 6 changes that are already on GitHub. In Terminal: `cd ~/Desktop/pledge-website && git stash && git switch main && git pull`. (The stash just keeps those duplicate changes aside; you can drop it later with `git stash drop`.)
+2. **To bring the Desktop copy up to date instead:** it is on the branch `phase-6-home-motion` with uncommitted Phase 6 changes that are already on GitHub. In Terminal: `cd ~/Desktop/pledge-website && git stash -u && git switch main && git pull --ff-only`. (`-u` also sets aside a new file, `src/scripts/home.ts`, that would otherwise block the pull. The stash just keeps those duplicate changes aside; drop it later with `git stash drop`.) It may be slow while iCloud downloads files.
 3. **Lasting fix (your choice):** free some disk space, and either move projects out of Desktop/Documents (for example to `~/Projects/`) or turn off "Optimise Mac Storage" (System Settings → your name → iCloud → Drive).
 4. Two leftover folders you can delete: `~/pledge-deps` and `~/pledge-phase6-save` (a safety copy of Phase 6, now on GitHub).
 

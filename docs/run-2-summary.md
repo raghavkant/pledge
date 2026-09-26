@@ -40,7 +40,7 @@ What I did: from Phase 6, I worked in a fresh clone of your GitHub repo at `~/pl
 
 What I'd suggest (your choice):
 - **Simplest:** keep working in `~/pledge-work`. It is the same repo, fully up to date.
-- **Or** bring the Desktop copy up to date with `git pull` in it (slow while iCloud catches up), and free some disk space so macOS stops offloading.
+- **Or** bring the Desktop copy up to date: `cd ~/Desktop/pledge-website && git stash -u && git switch main && git pull --ff-only` (slow while iCloud catches up; details in `docs/overnight-report.md`), and free some disk space so macOS stops offloading.
 - **Lasting fix:** move the project out of Desktop/Documents (for example to `~/Projects/pledge-website`), or turn off "Optimise Mac Storage" (System Settings → your name → iCloud → Drive). The app project on the Desktop has the same exposure.
 
 ## What to look at in your browser
