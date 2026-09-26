@@ -1,0 +1,50 @@
+---
+import Guide from '../../../layouts/Guide.astro';
+import Quiz from '../../../components/Quiz.astro';
+import { url } from '../../../lib/url';
+import { SOURCES, TEST } from '../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../data/au/guides';
+import stats from '../../../data/au/app-stats.json';
+---
+<Guide
+  title="Australian Values Questions: The Rule That Decides a Pass"
+  description="Why all 5 values questions must be right, what Part 4 of Our Common Bond covers, and 20 free values practice questions."
+  path="australia/values-questions/"
+  h1="Australian values questions: the rule that decides a pass"
+  answer={`The test includes ${TEST.valuesQuestions} questions on Australian values, and to pass you must answer all ${TEST.valuesQuestions} correctly, as well as getting at least ${TEST.passMark} of ${TEST.questions} overall. The values are in Part 4 of Our Common Bond (pages 33 to 39). Below: what Part 4 covers, and a free drill of ${stats.free.valuesQuestions} values questions.`}
+  sources={['test', 'prepare', 'conferral', 'booklet']}
+  related={[GUIDES.ocb, PRACTICE, GUIDES.format]}
+  kind="booklet"
+>
+  <h2 id="the-rule">The rule</h2>
+  <p><a href={SOURCES.test}>Home Affairs</a> says that to pass you must:</p>
+  <blockquote><p>“answer 5/5 (100%) of the Australian values questions correctly”</p><p>“achieve an overall mark of at least 15/20 (75%)”</p><cite>Home Affairs, Learn about the citizenship test</cite></blockquote>
+  <p>Both must be true on the same test. That is why a high score can still fail: if one wrong answer is a values question, it is not a pass. Home Affairs puts it the same way on the citizenship page: “If you score 75% or more on the citizenship test, and answer all 5 questions on Australian values correctly, then you meet the knowledge requirement.”</p>
+
+  <h2 id="part-4">What Part 4 covers <span class="pg">pages 33 to 39</span></h2>
+  <p>Part 4 says Australian values are based on <strong>freedom, respect, fairness and equality of opportunity</strong> (page 34). Its key points, in plain English:</p>
+  <ul>
+    <li><strong>The Rule of Law</strong> (page 34): everyone is equal before the law and no one is above it. Obey the law even if no one is watching; Australian laws apply to everyone in Australia, whatever their background.</li>
+    <li><strong>Parliamentary democracy</strong> (page 34): laws are made by parliaments the people elect, and voting is compulsory.</li>
+    <li><strong>Freedom of speech</strong> (page 35): you can say and write what you think within the law, and protest peacefully. Promoting violence against a person or group is never acceptable, and making false allegations or encouraging others to break the law is illegal.</li>
+    <li><strong>Freedom of association</strong> (page 35): you are free to join or leave any legal group, and no one can force you to join or leave.</li>
+    <li><strong>Freedom of religion</strong> (page 35): there is no national religion. Religious laws have no legal status, and Australian law must be followed where they differ. Polygamy and forced marriage are against the law.</li>
+    <li><strong>Equality under the law</strong> (page 36): equal rights whatever a person’s gender, sexual orientation, age, disability, religion, race or origin. Two people can marry each other, including two men or two women. Men and women have equal rights; violence against a spouse or partner is a crime; either partner may apply for a divorce.</li>
+    <li><strong>A ‘fair go’</strong> (page 36): success should come from hard work and talent, and jobs should go to the person with the best skills and experience.</li>
+    <li><strong>Mutual respect and tolerance</strong> (page 37): violence of any kind, including verbal and physical abuse, is illegal. The age of consent is 16 or 17 depending on the state or territory. Support lawful police actions. Racism has no place in Australia.</li>
+    <li><strong>Our community</strong> (page 38): contribute and support yourself and your family when you can; ‘mateship’ means helping each other; try to learn English, the national language; report suspected serious crime and child abuse; online abuse is not accepted.</li>
+    <li><strong>Loyalty to Australia</strong> (page 38): dual citizens in Australia must follow all Australian laws, and some laws apply to Australians overseas too.</li>
+  </ul>
+  <p>Part 2 of the booklet (<a href={url(GUIDES.part2.path)}>our summary</a>) covers many of the same beliefs, rights and liberties.</p>
+
+  <h2 id="drill">Free values drill</h2>
+  <p>All {stats.free.valuesQuestions} of Pledge’s free values questions, written from Part 4, in a random order, with the answer and the booklet page after each one. These are not questions from the real test.</p>
+  <Quiz mode="values" slot="tool">
+    <h2 id="drill-intro" class="quiz-intro-title">How the drill works</h2>
+    <ul class="quiz-points">
+      <li>All {stats.free.valuesQuestions} free values questions, in a random order, with the answers shuffled.</li>
+      <li>After each one you see the right answer, why, and the booklet page.</li>
+      <li>Nothing is saved. Reloading the page starts again.</li>
+    </ul>
+  </Quiz>
+</Guide>

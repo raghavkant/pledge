@@ -11,6 +11,7 @@ export const GUIDES: Record<string, GuideLink> = {
   part1: { path: 'australia/our-common-bond/part-1/', title: 'Part 1: Australia and its people', blurb: 'First peoples, history, states and territories, and national symbols, with free practice questions.' },
   part2: { path: 'australia/our-common-bond/part-2/', title: 'Part 2: Beliefs, rights and liberties', blurb: 'Democracy, the Rule of Law, freedoms, equality, and what citizens must do and can do.' },
   part3: { path: 'australia/our-common-bond/part-3/', title: 'Part 3: Government and the law', blurb: 'Voting, the Constitution, Parliament, the three levels of government, courts and important laws.' },
+  values: { path: 'australia/values-questions/', title: 'Australian values questions', blurb: 'The rule that decides a pass, what Part 4 covers, and a free drill of 20 values questions.' },
   failed: { path: 'australia/failed-citizenship-test/', title: 'If you don’t pass', blurb: 'Your visa, your next appointment, and the three-appointment rule.' },
 };
 
