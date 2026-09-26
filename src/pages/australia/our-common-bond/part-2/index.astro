@@ -1,0 +1,67 @@
+---
+import Guide from '../../../../layouts/Guide.astro';
+import { url } from '../../../../lib/url';
+import { SOURCES } from '../../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../../data/au/guides';
+---
+<Guide
+  title="Our Common Bond Part 2: Beliefs, Rights and Liberties"
+  description="Key facts from Part 2 in plain English with booklet page numbers."
+  path="australia/our-common-bond/part-2/"
+  h1="Part 2: Australia’s democratic beliefs, rights and liberties"
+  answer="Part 2 of Our Common Bond (pages 17 to 22) explains Australia’s democratic beliefs, the freedoms and equalities Australians share, and the responsibilities and privileges of citizenship. Here are its key facts in plain English, with the booklet page for each."
+  sources={['booklet', 'prepare']}
+  related={[GUIDES.part3, GUIDES.part1, GUIDES.ocb]}
+  kind="booklet"
+>
+  <p>This is a summary to help you study, not a replacement for the booklet. Read the <a href={SOURCES.booklet}>full booklet from Home Affairs</a> too. At the citizenship ceremony you pledge to share Australia’s democratic beliefs and respect its rights and liberties.</p>
+
+  <h2 id="beliefs">Our democratic beliefs <span class="pg">page 18</span></h2>
+  <ul>
+    <li><strong>Parliamentary democracy.</strong> The government’s power comes from the people: citizens vote for representatives in parliament, who must answer to the people through elections.</li>
+    <li><strong>The Rule of Law.</strong> All Australians are equal under the law. No person, group or religious rule is above the law, including government, community and religious leaders, business people and the police.</li>
+    <li><strong>Living peacefully.</strong> Change should come through discussion, peaceful persuasion and the democratic process. Australians reject violence as a way to change a person’s mind or the law.</li>
+    <li><strong>Respect for all individuals.</strong> Everyone is expected to treat others with dignity and respect, whatever their race, country of origin, gender, sexual orientation, marital status, age, disability, heritage, culture, politics, wealth or religion.</li>
+  </ul>
+
+  <h2 id="freedoms">Our freedoms <span class="pg">page 19</span></h2>
+  <ul>
+    <li><strong>Freedom of speech and expression.</strong> People can say and write what they think, criticise the government, protest peacefully and campaign to change laws, as long as they obey Australian laws and respect others’ freedom too.</li>
+    <li><strong>Freedom of association.</strong> People are free to join any legal organisation, such as a political party, trade union, or religious, cultural or social group, and free not to join. Gatherings must be peaceful and must not injure anyone or damage property.</li>
+    <li><strong>Freedom of religion.</strong> Australia has a Judaeo-Christian heritage but no national religion; the government is secular. People may follow any religion, or none. Where Australian law and a religious practice conflict, Australian law prevails.</li>
+  </ul>
+
+  <h2 id="equalities">Our equalities <span class="pg">page 20</span></h2>
+  <ul>
+    <li><strong>Gender equality.</strong> Men and women have equal rights. Discriminating against someone because of their gender is against the law.</li>
+    <li><strong>A ‘fair go’.</strong> What someone achieves should come from their talents, work and effort, not their wealth or background. There are no formal class distinctions.</li>
+  </ul>
+
+  <h2 id="responsibilities">Responsibilities of citizens <span class="pg">pages 20 to 21</span></h2>
+  <p>As an Australian citizen you must:</p>
+  <ul>
+    <li><strong>obey the laws of Australia,</strong></li>
+    <li><strong>vote</strong> in federal and state or territory elections, and in a referendum (a vote to change the Constitution). Voting is compulsory for citizens aged 18 or over in federal and state or territory elections,</li>
+    <li><strong>defend Australia</strong> should the need arise (service in the Defence Force itself is voluntary),</li>
+    <li><strong>serve on a jury</strong> if called to do so (citizens aged 18 or over on the electoral roll).</li>
+  </ul>
+
+  <h2 id="privileges">Privileges of citizens <span class="pg">pages 20 and 22</span></h2>
+  <p>As an Australian citizen you can:</p>
+  <ul>
+    <li>vote in federal and state or territory elections, and in a referendum,</li>
+    <li>apply for children born overseas to become Australian citizens by descent,</li>
+    <li>apply for a job in the Australian Public Service or the Australian Defence Force,</li>
+    <li>seek election to parliament (if you are 18 or over and not a dual citizen),</li>
+    <li>apply for an Australian passport and re-enter Australia freely,</li>
+    <li>ask Australian Government staff for help (consular assistance) while overseas.</li>
+  </ul>
+
+  <h2 id="participating">Participating in society <span class="pg">page 22</span></h2>
+  <ul>
+    <li>Citizens are encouraged to take part: join community organisations, volunteer, join arts or cultural groups, and take part in political life.</li>
+    <li>Paying tax is required by law. The Australian Taxation Office (ATO) collects it, and taxes pay for services such as healthcare, education, defence, roads and railways, and social security.</li>
+  </ul>
+
+  <p>Pledge’s free practice questions cover Part 1 and the values questions. For the whole booklet, the <a href={SOURCES.practice}>Home Affairs practice test</a> is free, and the <a href={url(PRACTICE.path)}>Pledge practice test</a> is marked with both pass rules.</p>
+</Guide>

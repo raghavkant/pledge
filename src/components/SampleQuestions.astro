@@ -1,0 +1,37 @@
+---
+// Free Part 1 practice questions from the export, answer hidden until "Show the answer" (works without
+// JavaScript). Only Part 1 ids are accepted here (docs/rules.md, rule 4: sample questions on Part 1 only).
+import data from '../data/au/free-questions.json';
+
+interface Props { ids: string[] }
+const { ids } = Astro.props;
+const questions = ids.map((id) => {
+  const q = data.questions.find((x) => x.id === id);
+  if (!q || q.part !== 1 || q.isValues) throw new Error(`${id} is not a free Part 1 question`);
+  return q;
+});
+const page = (source: string) => source.split(' › ')[2]?.replace(/^p\.\s*/, '');
+---
+<ol class="samples">
+  {questions.map((q) => (
+    <li class="sample-card">
+      <p class="sample-q">{q.question}</p>
+      <ul class="sample-opts">{q.options.map((o) => <li>{o}</li>)}</ul>
+      <details>
+        <summary>Show the answer</summary>
+        <p><strong>{q.options[q.answerIndex]}</strong>. {q.explanation} <span class="sample-page">Booklet page {page(q.source)}.</span></p>
+      </details>
+    </li>
+  ))}
+</ol>
+
+<style is:global>
+  .prose .samples { list-style: none; padding: 0; display: grid; gap: 16px; margin: 1.4em 0; counter-reset: s; }
+  .prose .sample-card { margin: 0; padding: 20px 22px; border: 1px solid var(--hairline); border-radius: var(--radius-m); background: var(--surface); }
+  .prose .sample-q { margin: 0 0 12px; color: var(--ink); font-weight: 700; }
+  .prose .sample-opts { margin: 0 0 12px; padding-left: 1.2em; list-style: lower-alpha; }
+  .prose .sample-opts li { margin: 0.2em 0; }
+  .prose details summary { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 700; cursor: pointer; }
+  .prose details p { margin: 6px 0 0; }
+  .prose .sample-page { color: var(--muted); }
+</style>

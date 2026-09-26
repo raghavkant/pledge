@@ -51,6 +51,10 @@ Choices made during a run without stopping to ask. Each is a recommendation; say
 | 2026-09-26 | Test day guide (`/australia/test-day/`): letter and rescheduling, where, what to bring (with the two warnings: no certified copies or photos of ID; no photo ID means a later date), at the centre, the Test Facilitator, the rules, and after the test. |
 | 2026-09-26 | FAQ (`/australia/faq/`): nine questions (fee, residence, pass mark, result, after passing, attempts, language, practice test, "Is Pledge endorsed by Home Affairs?"), kept in `src/data/au/faq.ts` for reuse in structured data. The fee is quoted only from Form 1298i ($595, concession $85), never from the conflicting AUD285 block, with "check the current form before you apply". |
 | 2026-09-26 | "Is Pledge endorsed by Home Affairs?" answers "No", quotes the Department's statement about paid apps in full, lists the four free Home Affairs resources with the booklet's own line "All of the information you need to sit the Australian citizenship test is in this book.", and then says plainly what Pledge adds and what is free. |
+| 2026-09-26 | Booklet guides (`/australia/our-common-bond/` and Parts 1–3) summarise *Our Common Bond* in plain English section by section, each heading with its printed page numbers, written from the booklet PDF (CC BY 4.0, credited in the hero and footer), never from the app's Premium lessons. Each says it is a study summary, not a replacement for the booklet, and links the free PDF. |
+| 2026-09-26 | Part 1 has five free practice questions from the export (p1-001, p1-013, p1-026, p1-041, p1-109) with "Show the answer" (works without JavaScript). A component refuses any id that isn't a free Part 1 question. p1-091 was skipped because its wording contains "official". Parts 2 and 3 have no sample questions. |
+| 2026-09-26 | The booklet hub quotes the booklet's own line that everything needed for the test is in it and no other package is required, and lists the free Home Affairs resources. |
+| 2026-09-26 | Until Phase 12's values page exists, Part 4 on the hub is shown without a link; Phase 12 links it. |
 
 ## Decided
 

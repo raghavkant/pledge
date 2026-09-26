@@ -1,0 +1,91 @@
+---
+import Guide from '../../../../layouts/Guide.astro';
+import SampleQuestions from '../../../../components/SampleQuestions.astro';
+import { url } from '../../../../lib/url';
+import { SOURCES } from '../../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../../data/au/guides';
+---
+<Guide
+  title="Our Common Bond Part 1: Australia and Its People"
+  description="Key facts from Part 1 in plain English, with free practice questions and booklet page numbers."
+  path="australia/our-common-bond/part-1/"
+  h1="Part 1: Australia and its people"
+  answer="Part 1 of Our Common Bond (pages 7 to 16) covers Australia’s first peoples, its history from 1788 to today, the states and territories, and the traditions and symbols that are distinctly Australian. Here are its key facts in plain English, with the booklet page for each."
+  sources={['booklet', 'prepare']}
+  related={[GUIDES.part2, GUIDES.ocb, PRACTICE]}
+  kind="booklet"
+>
+  <p>This is a summary to help you study, not a replacement for the booklet. Read the <a href={SOURCES.booklet}>full booklet from Home Affairs</a> too: the test is based on it.</p>
+
+  <h2 id="first-peoples">Aboriginal and Torres Strait Islander peoples <span class="pg">page 8</span></h2>
+  <ul>
+    <li>Australia’s first inhabitants are the Aboriginal and Torres Strait Islander peoples. They have the oldest continuous cultures and traditions in the world.</li>
+    <li>Aboriginal people are from mainland Australia and Tasmania. The archaeological record shows they arrived between 65,000 and 40,000 years ago.</li>
+    <li>Torres Strait Islander people are from the islands between the northern tip of Queensland and Papua New Guinea.</li>
+    <li>They have a deep connection with the land, expressed in stories, art and dance. Indigenous cultures are diverse and an important part of Australia’s national identity.</li>
+  </ul>
+
+  <h2 id="european-settlement">Early days of European settlement <span class="pg">page 8</span></h2>
+  <ul>
+    <li>European settlement began when the first 11 convict ships, the <strong>First Fleet</strong>, arrived from Great Britain on <strong>26 January 1788</strong>.</li>
+    <li>British jails were full, so convicts were sent to the new colony of New South Wales. Its first Governor was <strong>Captain Arthur Phillip</strong>.</li>
+    <li>Early free settlers came from Great Britain and Ireland. This heritage has had a major influence on Australia’s history, culture and politics.</li>
+    <li>A <strong>gold rush</strong> began in <strong>1851</strong> in New South Wales and Victoria. Chinese people arriving then were the first large group of migrants not from Europe. In 10 years the population more than doubled.</li>
+  </ul>
+
+  <h2 id="nation">The nation of Australia <span class="pg">page 9</span></h2>
+  <ul>
+    <li>In <strong>1901</strong> the colonies united into a federation of states called the <strong>Commonwealth of Australia</strong>. The national parliament, government and High Court were set up under the new Constitution.</li>
+    <li>In 1901 the population was about four million, not counting Aboriginal and Torres Strait Islander peoples. They were only included in population estimates after the <strong>1967 Referendum</strong>.</li>
+    <li>After <strong>World War II</strong>, large numbers of Europeans came to build a new life. Today people come from all over the world.</li>
+    <li>Australia’s national language is <strong>English</strong>. Other languages are valued too, including more than 100 distinct Aboriginal and Torres Strait Islander languages.</li>
+  </ul>
+
+  <h2 id="states">States and territories <span class="pg">pages 10 to 11</span></h2>
+  <p>There are six states and two mainland territories. <strong>Canberra</strong> is the national capital.</p>
+  <table class="plain">
+    <caption class="visually-hidden">States and territories with their capital cities</caption>
+    <thead><tr><th scope="col">State or territory</th><th scope="col">Capital</th><th scope="col">Worth remembering</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">New South Wales</th><td>Sydney</td><td>First British colony; Sydney is the largest city</td></tr>
+      <tr><th scope="row">Victoria</th><td>Melbourne</td><td>Smallest mainland state</td></tr>
+      <tr><th scope="row">Queensland</th><td>Brisbane</td><td>Second largest state; Great Barrier Reef</td></tr>
+      <tr><th scope="row">Western Australia</th><td>Perth</td><td>Largest state</td></tr>
+      <tr><th scope="row">South Australia</th><td>Adelaide</td><td>Barossa Valley, Flinders Ranges</td></tr>
+      <tr><th scope="row">Tasmania</th><td>Hobart</td><td>Smallest state, across Bass Strait</td></tr>
+      <tr><th scope="row">Australian Capital Territory</th><td>Canberra</td><td>Parliament House, High Court</td></tr>
+      <tr><th scope="row">Northern Territory</th><td>Darwin</td><td>Uluru, Kata Tjuta, Kings Canyon</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="traditions">Traditions <span class="pg">page 12</span></h2>
+  <ul>
+    <li>A <strong>Welcome to Country</strong> is performed by an Aboriginal or Torres Strait Islander custodian of the local region to welcome visitors. It can include songs, dances, smoking ceremonies or speeches, and usually opens an event.</li>
+    <li>An <strong>Acknowledgement of Country</strong> recognises that a gathering is on Aboriginal or Torres Strait Islander land and pays respect to Traditional Custodians, particularly Elders past and present. Anyone can deliver one.</li>
+  </ul>
+
+  <h2 id="important-days">Important days <span class="pg">page 13</span></h2>
+  <ul>
+    <li><strong>Australia Day, 26 January</strong>: the anniversary of the First Fleet’s arrival in 1788, and a public holiday everywhere. The Prime Minister announces the Australian of the Year Awards in Canberra.</li>
+    <li><strong>Anzac Day, 25 April</strong>: named after the Australian and New Zealand Army Corps, which landed at Gallipoli in Türkiye on 25 April 1915, during World War I. We remember all Australians who served and died in wars, conflicts and peacekeeping.</li>
+  </ul>
+
+  <h2 id="flags">Flags <span class="pg">page 14</span></h2>
+  <ul>
+    <li><strong>The Australian National Flag</strong> is blue, white and red: the Union Jack (top left, for British settlement and inherited laws and institutions), the seven-pointed Commonwealth Star (six states plus one point for the territories) and the Southern Cross.</li>
+    <li><strong>The Australian Aboriginal Flag</strong> is black, red and yellow: black for Aboriginal peoples, red for the earth, and a yellow circle for the sun.</li>
+    <li><strong>The Torres Strait Islander Flag</strong> is green, blue, black and white: green for the land, blue for the sea, black for the people, a white dancer’s headdress, and a white star whose points are the island groups (white symbolises peace).</li>
+  </ul>
+
+  <h2 id="symbols">Symbols and the anthem <span class="pg">pages 15 to 16</span></h2>
+  <ul>
+    <li>The <strong>Commonwealth Coat of Arms</strong> represents national unity: a shield for the six states and federation, held by a kangaroo and an emu, a gold Commonwealth Star above, and golden wattle behind.</li>
+    <li>The national flower is the <strong>golden wattle</strong>, which flowers in spring. The national colours are <strong>green and gold</strong>. The national gemstone is the <strong>opal</strong>.</li>
+    <li>The national anthem is <strong>‘Advance Australia Fair’</strong>, sung at citizenship ceremonies and major sporting events.</li>
+  </ul>
+
+  <h2 id="practice">Practise Part 1</h2>
+  <p>Five free practice questions from Pledge, written from Part 1. These are not questions from the real test.</p>
+  <SampleQuestions ids={['p1-001', 'p1-013', 'p1-026', 'p1-041', 'p1-109']} />
+  <p>For 20 questions marked with both pass rules, take the <a href={url(PRACTICE.path)}>free practice test</a>.</p>
+</Guide>
