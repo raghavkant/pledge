@@ -1,0 +1,23 @@
+---
+import Guide from '../../../layouts/Guide.astro';
+import { url } from '../../../lib/url';
+import { SOURCES, TEST, FEES } from '../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../data/au/guides';
+import { FAQ } from '../../../data/au/faq';
+---
+<Guide
+  title="Australian Citizenship Test FAQ: Fees, Eligibility, Results"
+  description="The fee, the residence requirement, when you get your result and what happens after you pass. Home Affairs sources."
+  path="australia/faq/"
+  h1="Citizenship test questions, answered"
+  answer={`Short answers to the questions people ask most, each quoted from Home Affairs. The application fee is $${FEES.general} (it includes the test), you need at least ${TEST.passMark} of ${TEST.questions} and all ${TEST.valuesQuestions} values questions right, and your result appears on the screen when you finish.`}
+  sources={['test', 'prepare', 'conferral', 'fees']}
+  related={[GUIDES.format, GUIDES.testDay, PRACTICE]}
+>
+  {FAQ.map((item) => (
+    <Fragment>
+      <h2 id={item.id}>{item.q}</h2>
+      <Fragment set:html={item.html} />
+    </Fragment>
+  ))}
+</Guide>
