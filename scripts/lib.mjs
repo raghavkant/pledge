@@ -4,6 +4,7 @@ import { readFile, readdir, stat } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join, extname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { homedir } from 'node:os';
 import { BASE, DEPLOY_URL } from '../site.config.mjs';
 
 export const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -94,6 +95,21 @@ export function textOf(html) {
     .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n))
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+/**
+ * The app project (read-only, docs/rules.md rule 14): PLEDGE_APP_DIR, else the first of ~/Developer/citizenship-test
+ * and ~/Desktop/Developer/citizenship-test that exists. Returns null only in CI, where the app project isn't
+ * available; on this Mac a missing app project fails loudly, so a check can never pass by silently skipping.
+ */
+export function appDir() {
+  const tries = process.env.PLEDGE_APP_DIR
+    ? [process.env.PLEDGE_APP_DIR]
+    : [join(homedir(), 'Developer', 'citizenship-test'), join(homedir(), 'Desktop', 'Developer', 'citizenship-test')];
+  const found = tries.find((d) => existsSync(join(d, 'content', 'au', 'questions.json')));
+  if (found) return found;
+  if (process.env.CI) return null;
+  fail('app project not found (set PLEDGE_APP_DIR to its folder)', tries);
 }
 
 export function ok(msg) { console.log(`✓ ${msg}`); }

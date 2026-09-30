@@ -8,17 +8,16 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { homedir } from 'node:os';
-import { ROOT, ok, fail } from './lib.mjs';
+import { ROOT, appDir, ok, fail } from './lib.mjs';
 
-const APP = process.env.PLEDGE_APP_DIR || join(homedir(), 'Developer', 'citizenship-test');
-const SRC = join(APP, 'content', 'au');
+const APP = appDir();
+const SRC = APP && join(APP, 'content', 'au');
 const OUT = join(ROOT, 'src', 'data', 'au');
 const check = process.argv.includes('--check');
 
-if (!existsSync(join(SRC, 'questions.json'))) {
-  if (check) { ok(`export: check skipped (app project not found at ${APP})`); process.exit(0); }
-  fail(`app project not found at ${APP}`);
+if (!APP) {
+  if (check) { ok('export: check skipped in CI (the app project is only on the owner\'s Mac)'); process.exit(0); }
+  fail('app project not found');
 }
 
 const read = async (name) => JSON.parse(await readFile(join(SRC, name), 'utf8'));
