@@ -3,7 +3,7 @@
 // Everything on the page is complete without it.
 const calm = matchMedia('(prefers-reduced-motion: reduce)');
 
-// Desktop pointer depth: the phone and map lean a little towards the pointer (fine pointer only).
+// Desktop pointer depth: the map beside the practice test shifts a little with the pointer (fine pointer only).
 const hero = document.querySelector<HTMLElement>('.hero');
 const visual = document.querySelector<HTMLElement>('.hero-visual');
 if (hero && visual && matchMedia('(hover: hover) and (pointer: fine)').matches) {
@@ -45,7 +45,7 @@ if (story && 'IntersectionObserver' in window) {
 
 // Numbers count up once when they come into view (never with reduced motion). Their width is
 // reserved in CSS, so nothing moves.
-const counts = [...document.querySelectorAll<HTMLElement>('[data-count]')];
+const counts = [...document.querySelectorAll<HTMLElement>('.count-n[data-count]')];
 if (counts.length && !calm.matches && 'IntersectionObserver' in window) {
   const section = counts[0].closest('section')!;
   if (section.getBoundingClientRect().top > innerHeight) {

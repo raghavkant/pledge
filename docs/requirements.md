@@ -18,10 +18,10 @@ Trailing slash on every URL. Countries live in their own folder.
 
 | URL | Page | Built in |
 |---|---|---|
-| `/` | Home: the Pledge app page (Direction A "Night to morning") | Run 2 |
+| `/` | Home: the free practice test in the hero, then the Pledge app (Direction A "Night to morning") | Run 2; test moved here in the SEO sprint (2026-10-01) |
 | `/privacy/`, `/terms/`, `/support/` | Legal pages. **URLs and text never change without approval.** | exist; restyled in Run 1 |
 | `/404.html` | Page not found | Run 1 |
-| `/australia/practice-test/` | Free 20-question practice test | Run 2 |
+| `/australia/practice-test/` | Redirects to `/#practice-test` (instant meta refresh + canonical; not in the sitemap). Its `questions.json` stays at this address | Run 2; redirect since 2026-10-01 |
 | `/australia/` | Hub: how the test works, links to every guide, free Home Affairs resources | Run 3 |
 | `/australia/test-format/`, `/test-day/`, `/failed-citizenship-test/`, `/who-sits-the-test/`, `/faq/` | Guides | Run 3 |
 | `/australia/values-questions/` | Values rule, Part 4, free values drill | Run 3 |
@@ -32,11 +32,13 @@ Titles, meta descriptions and search targets for each page: `docs/keywords.md`.
 
 ## 4. The free practice test
 
+- Lives in the home page's hero (`/#practice-test`) since 2026-10-01. It opens on a fixed first question already in the page (p1-027), so it works at once with no layout shift; the other 19 are drawn in the browser, from a pool that loads when the page is idle or at the first touch. Nothing scrolls or takes focus until the reader presses a button.
+
 - 20 questions: 15 from Part 1 and 5 from the fixed set of 20 free values questions, shuffled, options shuffled.
 - The page says plainly that the real test covers all four parts.
 - Marked with the real pass rules from `docs/facts.md`: at least 15 of 20 **and** all 5 values questions right.
 - App-style feedback: green pulse when right, gentle shake when wrong, explanation with the booklet reference, score count-up on results. Reduced motion: no pulse, no shake.
-- Optional timer, off by default, with pause (WCAG 2.2.1).
+- Optional timer, off by default, with pause (WCAG 2.2.1): an "Add a 45-minute timer" button above the question.
 - No storage: a reload starts a new test.
 - Questions are exported read-only from the app project into `src/data/au/free-questions.json` (committed).
 

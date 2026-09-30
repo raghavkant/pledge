@@ -1,18 +1,30 @@
 ---
 // The quiz used by the free practice test (mode "test": 15 Part 1 + 5 values, both pass rules, optional
-// timer) and the free values drill (mode "values": all 20 free values questions). The page passes its
-// own "How it works" content as the default slot. Script: src/scripts/practice-test.ts. Stores nothing.
+// timer) and the free values drill (mode "values": all 20 free values questions). Script:
+// src/scripts/practice-test.ts. Stores nothing.
+// Test mode starts on a fixed first question rendered here, so the home page shows a real question at once
+// (no layout shift, nothing stolen on load); the rest of the test is drawn in the browser. Values mode starts
+// with the page's own "How it works" content (the default slot) and a Start button.
 import { url } from '../lib/url';
 import { SOURCES, TEST } from '../data/au/facts';
 import stats from '../data/au/app-stats.json';
+import data from '../data/au/free-questions.json';
 
-interface Props { mode: 'test' | 'values' }
-const { mode } = Astro.props;
+interface Props { mode: 'test' | 'values'; first?: string }
+const { mode, first } = Astro.props;
 const src = url('australia/practice-test/questions.json');
 const total = mode === 'values' ? stats.free.valuesQuestions : TEST.questions;
+
+// The fixed first question: a free Part 1 question (never values, never one that says "official").
+const q1 = mode === 'test' && first ? data.questions.find((q) => q.id === first) : undefined;
+if (mode === 'test' && first && (!q1 || q1.part !== 1 || q1.isValues || /official/i.test(JSON.stringify(q1)))) {
+  throw new Error(`${first} can't be the first question: it must be a free Part 1 question without "official"`);
+}
+const q1Data = q1 && { id: q1.id, v: 0, q: q1.question, o: q1.options, a: q1.answerIndex, e: q1.explanation, s: q1.source };
 ---
-<div class="quiz quiz-main" data-quiz data-mode={mode} data-src={src}>
-        <section class="quiz-panel" data-view="intro" aria-label={mode === 'values' ? 'About the values drill' : 'About the practice test'}>
+<div class="quiz quiz-main" data-quiz data-mode={mode} data-src={src} data-first={q1?.id}>
+        {q1Data && <script type="application/json" data-first-json set:html={JSON.stringify(q1Data).replace(/</g, '\\u003c')} />}
+        <section class="quiz-panel" data-view="intro" hidden={!!q1} aria-label={mode === 'values' ? 'About the values drill' : 'About the practice test'}>
           <slot />
 
           <noscript><p class="quiz-note quiz-note-strong">The {mode === 'values' ? 'values drill' : 'practice test'} needs JavaScript. You can still read <a href={SOURCES.booklet}><em>Our Common Bond</em></a> or try the <a href={SOURCES.practice}>Home Affairs practice test</a>.</p></noscript>
@@ -29,11 +41,12 @@ const total = mode === 'values' ? stats.free.valuesQuestions : TEST.questions;
           </div>
         </section>
 
-        <section class="quiz-panel quiz-question" data-view="question" hidden aria-label="Practice question">
+        <section class="quiz-panel quiz-question" data-view="question" hidden={!q1} aria-label="Practice question">
           <div class="quiz-top">
-            <p class="quiz-count" data-count>Question 1 of {total}</p>
+            <p class="quiz-count" data-qcount>Question 1 of {total}</p>
+            {mode === 'test' && <button type="button" class="btn btn-small quiz-timer-add" data-timer-add><span>Add a <span class="t-long">{TEST.minutes}-minute </span>timer</span></button>}
             <div class="quiz-timer" data-timer hidden>
-              <span class="quiz-time" role="timer" aria-label="Time left" data-time>45:00</span>
+              <span class="quiz-time" role="timer" aria-label="Time left" data-time>{TEST.minutes}:00</span>
               <button type="button" class="btn btn-small" data-pause aria-pressed="false">Pause</button>
             </div>
           </div>
@@ -41,12 +54,17 @@ const total = mode === 'values' ? stats.free.valuesQuestions : TEST.questions;
           <form data-form novalidate>
             <fieldset data-fieldset>
               <legend tabindex="-1" data-legend>
-                <span class="quiz-tag" data-tag></span>
-                <span class="quiz-q" data-question></span>
+                <span class="quiz-tag" data-tag>{q1 && 'Part 1: Australia and its people'}</span>
+                <span class="quiz-q" data-question>{q1?.question}</span>
               </legend>
-              <div class="quiz-options" data-options></div>
+              <div class="quiz-options" data-options>
+                {q1?.options.map((text, i) => (
+                  <label class="quiz-option"><input type="radio" name="answer" value={i} /><span class="quiz-radio" aria-hidden="true"></span><span class="quiz-option-label"><span>{text}</span><span class="quiz-option-mark"></span></span></label>
+                ))}
+              </div>
             </fieldset>
             <p class="quiz-hint" data-hint role="alert" hidden>Choose an answer first.</p>
+            <p class="quiz-hint" data-next-error role="alert" hidden>The next questions didn’t load. Check your connection, then press the button again.</p>
             <div class="quiz-feedback" data-feedback tabindex="-1" hidden>
               <p class="quiz-verdict" data-verdict></p>
               <p data-explanation></p>
@@ -56,6 +74,7 @@ const total = mode === 'values' ? stats.free.valuesQuestions : TEST.questions;
               <button type="submit" class="btn btn-primary" data-submit>Check answer</button>
             </div>
           </form>
+          {q1 && <noscript><p class="quiz-note quiz-note-strong">Checking answers needs JavaScript. The answer: <strong>{q1.options[q1.answerIndex]}</strong>. {q1.explanation}</p></noscript>}
           <p class="visually-hidden" aria-live="polite" data-announce></p>
         </section>
 
@@ -137,6 +156,7 @@ const total = mode === 'values' ? stats.free.valuesQuestions : TEST.questions;
 
   /* Question */
   .quiz-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; min-height: 48px; }
+  .quiz-timer-add { font-size: 0.9375rem; }
   .quiz-count { margin: 0; color: var(--muted); font-weight: 700; font-size: 0.975rem; }
   .quiz-timer { display: flex; align-items: center; gap: 12px; }
   .quiz-time { color: var(--ink); font-weight: 800; font-variant-numeric: tabular-nums; font-size: 1.05rem; }

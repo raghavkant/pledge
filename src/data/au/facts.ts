@@ -1,6 +1,9 @@
 // Facts about the real test, each verified in docs/facts.md (quote, source, date checked).
 // Change a value here only after re-checking it there (docs/rules.md, rule 5).
 export const CHECKED = { iso: '2026-10-01', label: '1 October 2026' };
+/** The year in page titles ("… 2026"): the year of the latest fact check, so it can't run ahead of the facts.
+ * scripts/check-year.mjs warns from 1 January until the facts are re-checked in the new year. */
+export const YEAR = CHECKED.iso.slice(0, 4);
 
 export const SOURCES = {
   test: 'https://immi.homeaffairs.gov.au/citizenship/test-and-interview/learn-about-citizenship-interview-and-test/learn-about-citizenship-test',

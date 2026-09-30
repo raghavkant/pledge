@@ -6,7 +6,7 @@ import { builtPages, serve, ok, fail } from './lib.mjs';
 
 const external = process.argv.includes('--external');
 const server = await serve();
-const pages = await builtPages();
+const pages = await builtPages({ redirects: true });
 const checker = new LinkChecker();
 const result = await checker.check({
   path: pages.filter((p) => p.path !== '404.html').map((p) => server.base + p.path),

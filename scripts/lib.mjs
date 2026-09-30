@@ -11,8 +11,12 @@ export const ROOT = fileURLToPath(new URL('..', import.meta.url));
 export const DIST = join(ROOT, 'dist');
 export { BASE, DEPLOY_URL };
 
-/** Every built HTML file, as { file, path } where path is the URL path under BASE (e.g. "privacy/"). */
-export async function builtPages() {
+/**
+ * Every built HTML file, as { file, path } where path is the URL path under BASE (e.g. "privacy/").
+ * Redirect pages (an instant meta refresh, e.g. /australia/practice-test/) are left out unless
+ * { redirects: true }: a browser leaves them at once, so axe, Lighthouse and screenshots can't test them.
+ */
+export async function builtPages({ redirects = false } = {}) {
   if (!existsSync(DIST)) fail('dist/ is missing: run `npm run build` first.');
   const out = [];
   async function walk(dir) {
@@ -27,7 +31,14 @@ export async function builtPages() {
     }
   }
   await walk(DIST);
-  return out.sort((a, b) => a.path.localeCompare(b.path));
+  const kept = [];
+  for (const p of out) if (redirects || !isRedirect(await readFile(p.file, 'utf8'))) kept.push(p);
+  return kept.sort((a, b) => a.path.localeCompare(b.path));
+}
+
+/** A page that only redirects (instant meta refresh). */
+export function isRedirect(html) {
+  return /<meta\s+http-equiv="refresh"\s+content="0;/i.test(html);
 }
 
 /** Every built file (any type), with its path relative to dist/. */
