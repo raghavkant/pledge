@@ -1,20 +1,20 @@
 // check:paid-leak (local only): no paid question's text appears anywhere in the built site.
-// Reads the app project's question bank READ-ONLY (never writes there). Skips with a message when the
-// app project isn't on this machine (for example in CI), because check:free-tier still runs there.
+// Reads the app project's question bank READ-ONLY (never writes there). Skips only in CI, where the app project
+// isn't available (check:free-tier still runs there); on this Mac a missing app project fails (lib.mjs, appDir).
 import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { homedir } from 'node:os';
-import { builtFiles, ok, fail } from './lib.mjs';
+import { builtFiles, appDir, ok, fail } from './lib.mjs';
 
-const APP = process.env.PLEDGE_APP_DIR || join(homedir(), 'Developer', 'citizenship-test');
+const APP = appDir();
+if (!APP) {
+  ok('paid-leak: skipped in CI (the app project is only on the owner\'s Mac)');
+  process.exit(0);
+}
 const BANK = join(APP, 'content', 'au', 'questions.json');
 const FREE_VALUES = join(APP, 'content', 'au', 'free-values.json');
 
-if (!existsSync(BANK) || !existsSync(FREE_VALUES)) {
-  ok(`paid-leak: skipped (app project not found at ${APP})`);
-  process.exit(0);
-}
+if (!existsSync(FREE_VALUES)) fail(`free-values.json missing in ${APP}`);
 
 const bank = JSON.parse(await readFile(BANK, 'utf8'));
 const freeValues = new Set(JSON.parse(await readFile(FREE_VALUES, 'utf8')));

@@ -1,6 +1,6 @@
 {
-  "contentVersion": "0.6.0",
-  "bookletCheckedDate": "2026-09-23",
+  "contentVersion": "0.7.0",
+  "bookletCheckedDate": "2026-09-28",
   "questions": [
     {
       "id": "p1-001",
@@ -74,7 +74,7 @@
         "Since the First Fleet arrived in 1788"
       ],
       "answerIndex": 0,
-      "explanation": "The booklet says Aboriginal and Torres Strait Islander peoples have been here for approximately 65,000 years. The archaeological record puts the arrival of Aboriginal peoples between 65,000 and 40,000 years ago.",
+      "explanation": "The archaeological record indicates Aboriginal peoples arrived in Australia up to about 65,000 years ago, matching the booklet’s description elsewhere of approximately 65,000 years.",
       "source": "Part 1 › Aboriginal and Torres Strait Islander peoples › p. 8"
     },
     {
@@ -457,7 +457,7 @@
       "part": 1,
       "topic": "The nation of Australia",
       "isValues": false,
-      "question": "About how many distinct Aboriginal and Torres Strait Islander languages are there?",
+      "question": "At least how many distinct Aboriginal and Torres Strait Islander languages are there?",
       "options": [
         "More than 100",
         "About 10",
@@ -1747,7 +1747,7 @@
       "part": 1,
       "topic": "Australia’s symbols",
       "isValues": false,
-      "question": "Australia’s national colours of green and gold come from:",
+      "question": "Australia’s national colours, green and gold, are the colours of which plant?",
       "options": [
         "The opal",
         "The golden wattle",
@@ -1885,7 +1885,7 @@
       "question": "According to the booklet, Australian values are based on which ideas?",
       "options": [
         "Wealth, social class, gender and ethnicity",
-        "Religious law, family status and personal wealth",
+        "Religious law, family status and how wealthy you are",
         "Freedom, respect, fairness and equality of opportunity"
       ],
       "answerIndex": 2,
@@ -1904,33 +1904,18 @@
         "Only a warning, the first time"
       ],
       "answerIndex": 1,
-      "explanation": "Everybody should obey the law and not break it at any time, otherwise they will face penalties. Not knowing the law is no excuse.",
+      "explanation": "Everybody should obey the law and not break it at any time, otherwise they will face penalties.",
       "source": "Part 4 › Commitment to the Rule of Law › p. 34"
-    },
-    {
-      "id": "p4-010",
-      "part": 4,
-      "topic": "Parliamentary democracy",
-      "isValues": true,
-      "question": "Why does the power of the government come from the Australian people?",
-      "options": [
-        "Citizens vote for their representatives in parliament",
-        "Citizens elect the judges and magistrates of every court",
-        "Citizens elect the Governor-General at every election"
-      ],
-      "answerIndex": 0,
-      "explanation": "The power of the government comes from the Australian people because Australian citizens vote for people to represent them in parliament.",
-      "source": "Part 4 › Parliamentary democracy › p. 34"
     },
     {
       "id": "p4-015",
       "part": 4,
       "topic": "Freedom of speech",
       "isValues": true,
-      "question": "Is it legal in Australia to make false allegations about another person?",
+      "question": "According to the booklet, is it legal to make false allegations about another person?",
       "options": [
         "Yes, under freedom of speech",
-        "Yes, if it is only said in private",
+        "Yes, if it is said politely",
         "No, it is illegal"
       ],
       "answerIndex": 2,
@@ -1946,7 +1931,7 @@
       "options": [
         "Only the freedom to report the government’s views",
         "No freedom, unless the government approves",
-        "The same freedom of speech as people"
+        "The same freedom as individuals"
       ],
       "answerIndex": 2,
       "explanation": "People are free to say and write what they think. Newspapers, television and radio outlets have the same freedom.",
@@ -2005,7 +1990,7 @@
       "question": "A woman wants to join the Australian Defence Force. What does the booklet say?",
       "options": [
         "Only men can join the Defence Force",
-        "Men and women have equal access to join it",
+        "Both men and women can join it",
         "Women can join only if a husband agrees"
       ],
       "answerIndex": 1,
@@ -2069,7 +2054,7 @@
         "All Australians commit to following the law"
       ],
       "answerIndex": 2,
-      "explanation": "You should obey a lawful request from the police, because all Australians commit to following the law. Parliament makes the laws, and courts decide if a person is guilty.",
+      "explanation": "You should obey a lawful request from the police, because all Australians commit to following the law. Our laws are made by parliaments elected by the people.",
       "source": "Part 4 › Mutual respect and tolerance for others › p. 37"
     },
     {
@@ -2094,9 +2079,9 @@
       "isValues": true,
       "question": "In the booklet, what does ‘mateship’ mean?",
       "options": [
-        "Joining a trade union with your friends",
+        "Joining a trade union together with close friends and colleagues",
         "Helping only people from your own culture",
-        "Helping others, and receiving help, in hard times"
+        "Helping and receiving help from others, especially in hard times"
       ],
       "answerIndex": 2,
       "explanation": "Mateship means helping and receiving help from others, especially in difficult times.",
@@ -2124,8 +2109,8 @@
       "isValues": true,
       "question": "You suspect your neighbour may be planning to commit a serious crime. What should you do?",
       "options": [
-        "Report it to government authorities quickly",
-        "Say nothing, as it is a private matter",
+        "Report it to Australian government authorities as soon as possible",
+        "Say and do nothing at all, because it is a private family matter",
         "Wait until the crime has happened first"
       ],
       "answerIndex": 0,
@@ -2176,6 +2161,21 @@
       "answerIndex": 2,
       "explanation": "Our democratic institutions and shared Australian values have created our peaceful and stable society.",
       "source": "Part 4 › In conclusion › p. 39"
+    },
+    {
+      "id": "p4-088",
+      "part": 4,
+      "topic": "Parliamentary democracy",
+      "isValues": true,
+      "question": "An Australian citizen votes in every federal election. Which Australian value does this reflect?",
+      "options": [
+        "Parliamentary democracy",
+        "Freedom of religion",
+        "Compassion for those in need"
+      ],
+      "answerIndex": 0,
+      "explanation": "In a parliamentary democracy, citizens vote for people to represent them in parliament. Voting is compulsory in Australia, which shows the importance of participating in elections.",
+      "source": "Part 4 › Parliamentary democracy › p. 34"
     }
   ]
 }
