@@ -1,5 +1,7 @@
 # Keywords and search intent
 
+> **Superseded on 2026-10-01 by `docs/seo-sprint.md`**, which has Australian search volumes, the top 5 results for 19 searches and the current page and search map. The titles table below is kept up to date with that map; the notes further down are the first research from 2026-09-25.
+
 Researched 2026-09-25. **No search volumes**: there were no volume tools, so nothing here is a volume. The evidence is:
 
 - Google autocomplete with Australian settings (`gl=au`, `hl=en-AU`): shows what people type, not how often.
@@ -22,7 +24,8 @@ Researched 2026-09-25. **No search volumes**: there were no volume tools, so not
 | Head terms | "australian citizenship test", "… questions and answers", "… 2026" | `/australia/` | Later | Low early |
 | Fees, eligibility | "citizenship test application fee", "how much" | `/australia/faq/` | Mid | Medium |
 | Brand-adjacent | "australian citizenship pledge", "… words", "… 1 and 2" | `/australia/citizenship-pledge/` (later) | Later | Medium; must not look official |
-| Not targeted | "… questions pdf", "50 questions pdf" (would mean publishing a bank), anything implying real test questions | none | never | n/a |
+| Questions and PDF (owner, 2026-10-01) | "… questions", "… questions pdf", "… 50 questions", "… questions and answers" | `/australia/citizenship-test-questions/`: 50 **free-tier** questions (never the bank), said plainly to be Pledge's own and from Part 1 and values only | Sprint | Medium |
+| Not targeted | anything implying real test questions, or "all questions" | none | never | n/a |
 
 ## Page titles and descriptions
 

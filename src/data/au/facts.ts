@@ -1,6 +1,6 @@
 // Facts about the real test, each verified in docs/facts.md (quote, source, date checked).
 // Change a value here only after re-checking it there (docs/rules.md, rule 5).
-export const CHECKED = { iso: '2026-09-26', label: '26 September 2026' };
+export const CHECKED = { iso: '2026-10-01', label: '1 October 2026' };
 
 export const SOURCES = {
   test: 'https://immi.homeaffairs.gov.au/citizenship/test-and-interview/learn-about-citizenship-interview-and-test/learn-about-citizenship-test',
@@ -10,6 +10,9 @@ export const SOURCES = {
   ocb: 'https://immi.homeaffairs.gov.au/citizenship/test-and-interview/our-common-bond',
   conferral: 'https://immi.homeaffairs.gov.au/citizenship/become-a-citizen/permanent-resident',
   fees: 'https://immi.homeaffairs.gov.au/form-listing/forms/1298i.pdf',
+  locator: 'https://immi.homeaffairs.gov.au/citizenship/test-and-interview/learn-about-citizenship-interview-and-test/citizenship-test-locator',
+  ptimes: 'https://immi.homeaffairs.gov.au/citizenship/citizenship-processing-times',
+  immiaccount: 'https://online.immi.gov.au/lusc/login',
 } as const;
 
 /** "answer 20 multiple choice questions", "at least 15/20 (75%)", "5/5 (100%) of the Australian values questions", "45 minutes" (source: test). */

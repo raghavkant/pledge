@@ -2,9 +2,9 @@
 
 Every fact about the real test that the site states must be in this file, with a Home Affairs quote, the page URL and the date it was checked. Pages link the source and show "Checked against Home Affairs on <date>".
 
-- **Checked:** 2026-09-26 (first check 2026-09-25), by downloading each page (Home Affairs blocks some automated fetchers; `curl` with a normal browser user agent works) and matching every quote below against its text; the fee form PDF's text was extracted and checked too. All quotes were still present.
+- **Checked:** 2026-10-01 (earlier checks 2026-09-25 and 2026-09-26), by downloading each page (Home Affairs blocks some automated fetchers; `curl` with a normal browser user agent works) and matching every quote below against its text; the fee form PDF's text was extracted and checked too. All quotes were still present.
 - **Re-check:** at least every 90 days, before any phase that writes about the fact, and **every 1 July** for fees (they are indexed then).
-- Home Affairs pages show a "Last updated" date at the bottom (on 2026-09-26: `test` 21/09/2026, `prepare` 23/02/2026). We record our own check date as well; much of the `test` page's text sits in expandable sections.
+- Home Affairs pages show a "Last updated" date at the bottom (on 2026-10-01: `test` 30/09/2026, `conferral` 30/09/2026, `hub` 4/05/2026, `prepare` 23/02/2026, `ocb` 15/11/2024, `locator` 23/09/2024, `ptimes` 20/04/2026). The `test` page changed on 30 September 2026; every quote below was still on it word for word on 1 October 2026. We record our own check date as well; much of the `test` page's text sits in expandable sections.
 
 ## Sources
 
@@ -18,8 +18,11 @@ Every fact about the real test that the site states must be in this file, with a
 | `conferral` | https://immi.homeaffairs.gov.au/citizenship/become-a-citizen/permanent-resident |
 | `fees` | https://immi.homeaffairs.gov.au/form-listing/forms/1298i.pdf (Form 1298i, "Design date 07/26") |
 | `booklet` | https://immi.homeaffairs.gov.au/citizenship-subsite/files/our-common-bond-testable.pdf |
+| `locator` | https://immi.homeaffairs.gov.au/citizenship/test-and-interview/learn-about-citizenship-interview-and-test/citizenship-test-locator |
+| `ptimes` | https://immi.homeaffairs.gov.au/citizenship/citizenship-processing-times |
+| `immiaccount` | https://online.immi.gov.au/lusc/login (the ImmiAccount sign-in that the `test` and `conferral` pages link to) |
 
-## Verified (checked 2026-09-26)
+## Verified (checked 2026-10-01)
 
 | Fact | Quote | Source |
 |---|---|---|
@@ -62,6 +65,19 @@ Every fact about the real test that the site states must be in this file, with a
 | Fee | Form 1300t, general eligibility: **$595**; concession fee **$85** (Pensioner Concession Card holders only) | `fees` |
 | Residence | 4 years living in Australia on a valid visa immediately before applying; a permanent visa for the last 12 months; not absent more than 12 months in total in the 4 years, including no more than 90 days in the 12 months before applying | `conferral` |
 | Knowledge requirement | "If you score 75% or more on the citizenship test, and answer all 5 questions on Australian values correctly, then you meet the knowledge requirement." | `conferral` |
+| Invitation | "When we receive your application you will be invited to attend a citizenship appointment. We will send you a letter with the date, place and time of your appointment. Appointment waiting times will vary between test centres." | `locator` |
+| Test centres | "Citizenship tests are held at departmental offices and at some regional locations by officers of Services Australia." "To find the testing centre closest to you, enter your residential address in the box below." | `locator` |
+| Wait time | "The wait time for an appointment may vary." (links the `ptimes` page) | `test` |
+| Processing times page | "We update the information every month." (the numbers themselves change; we link the page and never quote them) | `ptimes` |
+| Rescheduling (full) | "If you need to reschedule your appointment, follow the instructions in your appointment letter." | `test` |
+| Where you sit it | "If you lodge your application in Australia, you will attend your test appointment in Australia." "In exceptional circumstances we may arrange for you to attend a test appointment at an Australian Embassy or Consulate" | `test` |
+| Documents before the appointment | "Before attending your appointment ensure that you have attached all documents to your application in ImmiAccount"; "In addition, bring any other documents we have requested you to provide for your appointment."; "If your circumstances have changed since you lodged your application (such as a change of address or name change), attach your new documents to your application through ImmiAccount" | `test` |
+| No childcare | "Arrange for childcare before attending your appointment" | `test` |
+| Applying | "Apply and pay online in ImmiAccount"; "You can apply online in ImmiAccount if you are aged 18 to 59 and not eligible for a concession"; "You can apply from in or outside of Australia." | `conferral` |
+| What the test shows | "Passing the citizenship test will show you have:" "a basic knowledge of the English language", "an understanding of what it means to become an Australian citizen", "an adequate knowledge of Australia and the responsibilities and privileges of citizenship", "an understanding and commitment to Australian values based on freedom, respect and equality" | `test` |
+| What it assesses | "The Australian citizenship test will assess your English language skills and what you know about Australia and Australian citizenship." (video transcript) | `test` |
+| The booklet is enough | "The testable section includes all the information you need to pass the test." (video transcript) | `test` |
+| Improving English | "Consider enrolling into the general AMEP Program if you wish to improve your English language skills to assist you with preparing for the test." | `prepare` |
 
 ## Not verified or conflicting (do not state)
 
@@ -73,3 +89,7 @@ Every fact about the real test that the site states must be in this file, with a
 | Pass rates, failure statistics, ceremony timings | Third-party or news sources only. | Don't quote. Link the Home Affairs ceremony wait-times page. |
 | Values questions unlabelled on the real test | Third-party claim only. | Don't state. |
 | Australian Citizenship Pledge wording | Not checked. | Check on legislation.gov.au before building that page. |
+| appointments.homeaffairs.gov.au ("Citizenship Appointment Booking") | Ranks for booking searches, but the page is an empty shell that only works with JavaScript, and no Home Affairs text page links it. We couldn't confirm what it is for. | Don't link or describe it. The owner checks it (see the sprint report). |
+| "You can't book the test yourself" / "log in to ImmiAccount to pick a date" | Home Affairs says it sends a letter and that you follow the letter to reschedule. It doesn't say either of these. | Say only what Home Affairs says. |
+| Difficulty, pass rates, how many people fail | Only news and third-party sources. | Don't quote. "Is it hard?" is answered from what the test checks and the rules. |
+| Processing and appointment wait times (numbers) | They change every month. | Link the `ptimes` page; don't quote numbers. |
