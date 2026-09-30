@@ -1,53 +1,23 @@
 ---
-// Free practice test (docs/requirements.md §4): 15 Part 1 + 5 free values questions, shuffled,
-// marked with both real pass rules (docs/facts.md). The quiz is src/scripts/practice-test.ts;
-// without JavaScript the page still explains the test. Nothing is stored or sent.
-import Base from '../../../layouts/Base.astro';
-import Quiz from '../../../components/Quiz.astro';
-import { url } from '../../../lib/url';
-import { CHECKED, SOURCES, TEST } from '../../../data/au/facts';
-import stats from '../../../data/au/app-stats.json';
+// The free practice test moved to the home page on 2026-10-01 (docs/seo-sprint.md), so the two pages don't
+// compete for the same searches. GitHub Pages can't send a 301, so this is an instant meta refresh, which
+// Google treats as a permanent redirect, plus a canonical link to the home page. It is left out of the
+// sitemap and of the checks that open pages in a browser (scripts/lib.mjs, builtPages). The question pool
+// (questions.json) stays at this address.
+import { url, absoluteUrl } from '../../../lib/url';
 
-const part1Count = TEST.questions - TEST.valuesQuestions;
+const to = url('') + '#practice-test';
 ---
-<Base
-  title="Free Australian Citizenship Practice Test (20 Questions)"
-  description="20 free practice questions with instant answers and explanations from Our Common Bond, marked with the real pass rules. No sign-up."
-  path="australia/practice-test/"
->
-  <main id="main">
-    <section class="night page-hero" aria-labelledby="page-title">
-      <div class="container">
-        <h1 id="page-title">Free Australian citizenship practice test</h1>
-        <p class="lead-in">{TEST.questions} questions, the answer after each one, and your result marked with both pass rules. No sign-up.</p>
-      </div>
-    </section>
-
-    <div class="container quiz-layout">
-      <Quiz mode="test">
-        <h2 id="intro-title">How it works</h2>
-        <ul class="quiz-points">
-          <li><strong>{part1Count} questions from Part 1</strong> of <em>Our Common Bond</em> and <strong>{TEST.valuesQuestions} Australian values questions</strong>, in a random order.</li>
-          <li>After each question you see the right answer, why, and the booklet page to read.</li>
-          <li>Nothing is saved. Reloading the page starts a new test.</li>
-        </ul>
-        <p class="quiz-note">The real test covers all four parts of the booklet. This free set uses Part 1 and the values questions only. These are Pledge’s own practice questions, written from the booklet. They are not questions from the real test.</p>
-      </Quiz>
-
-      <aside class="quiz-side" aria-labelledby="rules-title">
-        <h2 id="rules-title">To pass the real test</h2>
-        <dl class="rule-list">
-          <div><dt>{TEST.passMark}<span> of {TEST.questions}</span></dt><dd>At least {TEST.passMark} of {TEST.questions} questions correct</dd></div>
-          <div><dt>{TEST.valuesQuestions}<span> of {TEST.valuesQuestions}</span></dt><dd>Every Australian values question correct</dd></div>
-          <div><dt>{TEST.minutes}<span> min</span></dt><dd>To answer all {TEST.questions} questions</dd></div>
-        </dl>
-        <p class="checked">Checked against <a href={SOURCES.test}>Home Affairs</a> on <time datetime={CHECKED.iso}>{CHECKED.label}</time>.</p>
-        <h2 class="side-title">Free from Home Affairs</h2>
-        <ul class="side-links">
-          <li><a href={SOURCES.practice}>The Home Affairs practice test</a></li>
-          <li><a href={SOURCES.booklet}><em>Our Common Bond</em>, the booklet the test is based on (PDF)</a></li>
-        </ul>
-      </aside>
-    </div>
-  </main>
-</Base>
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${to}`} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The free practice test has moved · Pledge</title>
+    <link rel="canonical" href={absoluteUrl('')} />
+  </head>
+  <body>
+    <p>The free practice test is now on the <a href={to}>Pledge home page</a>.</p>
+  </body>
+</html>

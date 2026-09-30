@@ -59,7 +59,10 @@ Shared rules:
 - Footer on every page: legal links, support email, the disclaimer (rule 7), "General information, not migration advice.", the CC BY credit.
 - Radius: buttons 14, cards 20, large cards 26. Touch targets ≥ 48×48.
 
-## 5. Home page (Run 2)
+## 5. Home page (Run 2; hero changed in the SEO sprint, 2026-10-01)
+
+**Since 2026-10-01** the hero is: headline "Free Australian citizenship practice test" and a short lead on the left, the gold map drawing itself in the space under them (desktop only; hidden on phones and tablets, where the header mark carries it), and the practice test itself on the right as the night's one bright card, with the honesty note under it. The floating phone left the hero; the app's story follows an "About this practice test" section. The notes below describe the Run 2 page.
+
 
 1. **Hero (night).** The headline (Fraunces) is the largest element on first load (LCP), not the map. The gold map draws itself as one gold line (the approved `stroke-dashoffset` exception, ~1.6 s, once), then fills with the gold gradient (opacity); the ivory sparkle catches the light once (transform + opacity). Calls to action and "Independent study app. Not affiliated with the Australian Government." A neutral phone floats beside it (drawn by us, 3D transform, slow float; pointer tilt on desktop only).
 2. **The rule that decides a pass:** 15 of 20 and 5 of 5.

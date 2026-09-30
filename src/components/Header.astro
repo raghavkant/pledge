@@ -5,7 +5,7 @@ interface Props { path: string }
 const { path } = Astro.props;
 const links: { path: string; label: string; wide?: boolean }[] = [
   { path: 'australia/', label: 'Guides' },
-  { path: 'australia/practice-test/', label: 'Practice test' },
+  { path: '#practice-test', label: 'Practice test' },
   { path: 'support/', label: 'Support', wide: true },
 ];
 ---

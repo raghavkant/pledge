@@ -17,4 +17,5 @@ export const GUIDES: Record<string, GuideLink> = {
   failed: { path: 'australia/failed-citizenship-test/', title: 'If you don’t pass', blurb: 'Your visa, your next appointment, and the three-appointment rule.' },
 };
 
-export const PRACTICE: GuideLink = { path: 'australia/practice-test/', title: 'Free practice test', blurb: '20 questions with the answer and the booklet page after each one.' };
+// The free practice test lives on the home page (docs/seo-sprint.md); /australia/practice-test/ redirects there.
+export const PRACTICE: GuideLink = { path: '#practice-test', title: 'Free practice test', blurb: '20 questions marked with both pass rules, with the answer and the booklet page after each one.' };

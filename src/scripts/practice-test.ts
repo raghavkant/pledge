@@ -1,6 +1,9 @@
 // The free practice test (docs/requirements.md §4) and the free values drill (mode "values": all 20 free
 // values questions, no pass rules or timer). Runs only in the browser: it stores nothing and sends nothing
 // (Privacy Policy §11). The question pool is this site's own questions.json.
+// Test mode opens on a fixed first question that is already in the page (Quiz.astro), so it works at once;
+// the other 19 questions are drawn from the pool, which loads when the page is idle or at the first touch.
+// Nothing here scrolls or moves focus until the reader presses a button.
 type Question = { id: string; v: 0 | 1; q: string; o: string[]; a: number; e: string; s: string };
 type Asked = Question & { order: string[]; answer: number; chosen: number | null };
 
@@ -20,14 +23,18 @@ const views = {
 const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 let pool: Question[] | null = null;
-// Fetched as soon as the page loads, so Start is instant. First-party file; nothing is sent.
-let loading: Promise<Question[]> = load();
+// First-party file; nothing is sent. Fetched once, when the page is idle or at the first interaction.
+let loading: Promise<Question[]> | null = null;
 function load() {
-  return fetch(root.dataset.src!).then((r) => {
+  loading ??= fetch(root.dataset.src!).then((r) => {
     if (!r.ok) throw new Error(String(r.status));
     return r.json() as Promise<Question[]>;
   });
+  loading.catch(() => { loading = null; }); // a failed load is tried again on the next press
+  return loading;
 }
+const firstJson = root.querySelector('[data-first-json]');
+const FIRST: Question | null = firstJson ? JSON.parse(firstJson.textContent!) : null;
 let test: Asked[] = [];
 let index = 0;
 let checked = false;
@@ -52,6 +59,18 @@ function show(name: keyof typeof views) {
   for (const [key, el] of Object.entries(views)) el.hidden = key !== name;
 }
 
+const ask = (q: Question, shuffleOptions = true): Asked => {
+  const order = shuffleOptions ? shuffle(q.o) : [...q.o];
+  return { ...q, order, answer: order.indexOf(q.o[q.a]), chosen: null };
+};
+
+/** The rest of a test that opened on the fixed first question: 14 more Part 1 and 5 values questions. */
+function restOfTest(first: Question): Asked[] {
+  const part1 = shuffle(pool!.filter((q) => !q.v && q.id !== first.id)).slice(0, TOTAL - VALUES - 1);
+  const values = shuffle(pool!.filter((q) => q.v)).slice(0, VALUES);
+  return shuffle([...part1, ...values]).map((q) => ask(q));
+}
+
 function newTest(): Asked[] {
   if (DRILL) {
     const values = shuffle(pool!.filter((q) => q.v));
@@ -72,7 +91,7 @@ function newTest(): Asked[] {
 function renderQuestion() {
   const q = test[index];
   checked = false;
-  $('[data-count]').textContent = `Question ${index + 1} of ${TOTAL}`;
+  $('[data-qcount]').textContent = `Question ${index + 1} of ${TOTAL}`;
   $('[data-progress]').style.transform = `scaleX(${index / TOTAL})`;
   const tag = $('[data-tag]');
   tag.textContent = q.v ? 'Australian values' : 'Part 1: Australia and its people';
@@ -129,11 +148,25 @@ function check() {
   feedback.focus();
 }
 
-function next() {
+async function next() {
   if (index === TOTAL - 1) return finish(false);
+  if (test.length < TOTAL) {
+    // Opened on the fixed first question: draw the other 19 now.
+    const error = $('[data-next-error]');
+    try {
+      pool ??= await load();
+    } catch {
+      error.hidden = false;
+      return;
+    }
+    error.hidden = true;
+    test.push(...restOfTest(test[0]));
+  }
   index++;
   renderQuestion();
-  $('[data-legend]').focus();
+  const top = views.question.getBoundingClientRect().top;
+  if (top < 0) views.question.scrollIntoView({ block: 'start', behavior: reduced() ? 'auto' : 'smooth' });
+  $('[data-legend]').focus({ preventScroll: top < 0 });
 }
 
 function finish(timeUp: boolean) {
@@ -224,8 +257,10 @@ function countUp(el: HTMLElement, to: number) {
 
 // Optional timer: off by default, with pause (WCAG 2.2.1).
 const clock = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+const timerAdd = root.querySelector<HTMLButtonElement>('[data-timer-add]');
 function startTimer() {
   timer = { left: MINUTES * 60, paused: false, id: 0 };
+  if (timerAdd) timerAdd.hidden = true;
   $('[data-timer]').hidden = false;
   $('[data-time]').textContent = clock(timer.left);
   timer.id = window.setInterval(() => {
@@ -240,7 +275,13 @@ function stopTimer() {
   if (timer) clearInterval(timer.id);
   timer = null;
   $('[data-timer]').hidden = true;
+  if (timerAdd) timerAdd.hidden = false;
 }
+timerAdd?.addEventListener('click', () => {
+  startTimer();
+  $('[data-announce]').textContent = `Timer started: ${MINUTES} minutes.`;
+  $<HTMLButtonElement>('[data-pause]').focus();
+});
 $('[data-pause]').addEventListener('click', (e) => {
   if (!timer) return;
   timer.paused = !timer.paused;
@@ -254,9 +295,8 @@ $('[data-pause]').addEventListener('click', (e) => {
 async function begin() {
   const error = $('[data-load-error]');
   try {
-    pool ??= await loading;
+    pool ??= await load();
   } catch {
-    loading = load(); // try again on the next press
     error.hidden = false;
     return;
   }
@@ -286,3 +326,13 @@ root.addEventListener('change', (e) => {
 $('[data-start]').addEventListener('click', begin);
 $('[data-restart]').addEventListener('click', begin);
 $('[data-needs-js]').hidden = false;
+
+// The first question is already on the page; the test starts with it (options in the page's order).
+if (FIRST) test = [ask(FIRST, false)];
+// Load the pool when the browser is idle, or as soon as the reader touches the quiz.
+const prefetch = () => { load().catch(() => {}); };
+root.addEventListener('pointerdown', prefetch, { once: true });
+root.addEventListener('focusin', prefetch, { once: true });
+const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(prefetch, { timeout: 4000 }) : setTimeout(prefetch, 2000));
+if (document.readyState === 'complete') idle();
+else addEventListener('load', idle, { once: true });
