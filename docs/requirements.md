@@ -26,6 +26,7 @@ Trailing slash on every URL. Countries live in their own folder.
 | `/australia/test-format/`, `/test-day/`, `/failed-citizenship-test/`, `/who-sits-the-test/`, `/faq/` | Guides | Run 3 |
 | `/australia/values-questions/` | Values rule, Part 4, free values drill | Run 3 |
 | `/australia/our-common-bond/` and `/part-1/`, `/part-2/`, `/part-3/` | Booklet guides (sample questions on Part 1 only) | Run 3 |
+| `/australia/citizenship-test-questions/` | 50 free practice questions with answers and a printable PDF | SEO sprint |
 | `/about/` | Who makes Pledge and how facts are checked | Run 3 |
 
 Titles, meta descriptions and search targets for each page: `docs/keywords.md`.

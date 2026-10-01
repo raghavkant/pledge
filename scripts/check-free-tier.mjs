@@ -3,9 +3,12 @@
 //    125 Part 1 questions (p1-NNN, not values) and the 20 allow-listed values questions, each well formed.
 // 2. The allow-list (free-values-ids.json) is exactly the values questions in the export.
 // 3. No built file mentions a Part 2, 3 or 4 question id, except the allow-listed values ids.
+// 4. The 50-questions PDF (made by scripts/build-pdf.mjs, not scanned here) was made from exactly the
+//    questions on its page, with their current text and the current fact-check date (fifty-pdf.json).
 import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
 import { ROOT, builtFiles, ok, fail } from './lib.mjs';
 
 const DATA = join(ROOT, 'src', 'data', 'au');
@@ -53,6 +56,25 @@ for (const { file, rel } of await builtFiles()) {
   scanned++;
   const hits = (await readFile(file, 'utf8')).match(idPattern) || [];
   for (const id of new Set(hits)) if (!allowIds.has(id)) problems.push(`dist/${rel} mentions paid question id ${id}`);
+}
+
+// 4. The PDF record matches the built page, the export and the fact-check date.
+const RECORD = join(DATA, 'fifty-pdf.json');
+const PAGE = join(ROOT, 'dist', 'australia', 'citizenship-test-questions', 'index.html');
+if (existsSync(PAGE)) {
+  const onPage = [...(await readFile(PAGE, 'utf8')).matchAll(/data-qid="([^"]+)"/g)].map((m) => m[1]);
+  if (!existsSync(RECORD)) problems.push('fifty-pdf.json is missing: run scripts/build-pdf.mjs');
+  else {
+    const rec = JSON.parse(await readFile(RECORD, 'utf8'));
+    const byId = new Map(questions.map((q) => [q.id, q]));
+    const hash = createHash('sha256').update(rec.ids.map((id) => JSON.stringify(byId.get(id))).join('\n')).digest('hex');
+    const checkedIso = (await readFile(join(ROOT, 'src/data/au/facts.ts'), 'utf8')).match(/CHECKED = \{ iso: '([\d-]+)'/)[1];
+    if (rec.ids.join() !== onPage.join()) problems.push('the PDF was made from different questions than the page shows: run scripts/build-pdf.mjs');
+    for (const id of rec.ids) if (!byId.has(id)) problems.push(`the PDF contains ${id}, which is not a free question`);
+    if (rec.contentHash !== hash) problems.push('a question in the PDF has changed in the export since the PDF was made: run scripts/build-pdf.mjs');
+    if (rec.checked !== checkedIso) problems.push(`the PDF says facts were checked ${rec.checked}, the site says ${checkedIso}: run scripts/build-pdf.mjs`);
+    if (!existsSync(join(ROOT, 'dist', rec.pdf))) problems.push(`dist/${rec.pdf} is missing`);
+  }
 }
 
 if (problems.length) fail('free-tier rule broken (docs/rules.md, rule 4)', problems);
