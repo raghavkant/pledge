@@ -7,6 +7,7 @@ export const GUIDES: Record<string, GuideLink> = {
   about: { path: 'about/', title: 'About Pledge', blurb: 'Who makes Pledge and how facts are checked.' },
   format: { path: 'australia/test-format/', title: 'Test format', blurb: 'How many questions, the pass mark, the time limit and the language.' },
   who: { path: 'australia/who-sits-the-test/', title: 'Who sits the test', blurb: 'Who has to sit it, who doesn’t, and who can have 90 minutes.' },
+  book: { path: 'australia/book-citizenship-test/', title: 'Booking the test', blurb: 'How the appointment letter works, rescheduling, test centres and the cost.' },
   testDay: { path: 'australia/test-day/', title: 'Test day', blurb: 'Your appointment letter, what ID to bring, what happens at the centre, and the rules.' },
   faq: { path: 'australia/faq/', title: 'Questions and answers', blurb: 'The fee, the residence requirement, your result, and whether Pledge is endorsed.' },
   ocb: { path: 'australia/our-common-bond/', title: 'Our Common Bond', blurb: 'The booklet every test question is based on: its four parts and where to get it free.' },
