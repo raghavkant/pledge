@@ -23,3 +23,5 @@ Legal text baseline: `node scripts/check-legal.mjs --update` rewrites `tests/leg
 Question export: `npm run export:questions` reads the app project **read-only** and writes `src/data/au/free-questions.json` (Part 1 + the 20 free values questions), `free-values-ids.json` (the allow-list) and `app-stats.json` (content counts for the home page). Run it when the app's content changes, then commit the three files.
 
 Share images: after adding or renaming a page, run `npm run build && node scripts/build-og.mjs`, then commit `public/og/`.
+
+50-questions PDF: after the page or its questions change (or the fact-check date moves), run `npm run build && node scripts/build-pdf.mjs && npm run build`, then commit the PDF and `src/data/au/fifty-pdf.json`. `check:free-tier` fails until you do.

@@ -1,0 +1,159 @@
+---
+// 50 free practice questions with answers (docs/seo-sprint.md: "australian citizenship test questions", "… pdf",
+// "… 50 questions"). Free tier only (docs/rules.md, rule 4): the ids are fixed in src/data/au/fifty.ts and every
+// question comes from the export. Answers sit in <details> so readers can test themselves; printing (and the PDF,
+// made by scripts/build-pdf.mjs from this page) opens them all.
+import { existsSync, statSync } from 'node:fs';
+import { join } from 'node:path';
+import Guide from '../../../layouts/Guide.astro';
+import { url, absoluteUrl } from '../../../lib/url';
+import { SOURCES, TEST, YEAR } from '../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../data/au/guides';
+import { FIFTY_IDS, FIFTY_PDF } from '../../../data/au/fifty';
+import data from '../../../data/au/free-questions.json';
+
+const questions = FIFTY_IDS.map((id) => {
+  const q = data.questions.find((x) => x.id === id);
+  if (!q || /official/i.test(JSON.stringify(q))) throw new Error(`${id} is not a usable free question`);
+  return q;
+});
+const part1 = questions.filter((q) => !q.isValues);
+const values = questions.filter((q) => q.isValues);
+
+// Part 1 in the booklet's order of topics, with the printed pages each topic's questions come from.
+const page = (source: string) => Number(source.split(' › ')[2]?.replace(/^p\.\s*/, ''));
+const pages = (list: typeof questions) => {
+  const ps = list.filter((q) => q.source.startsWith('Part')).map((q) => page(q.source)).filter(Boolean);
+  const lo = Math.min(...ps), hi = Math.max(...ps);
+  return lo === hi ? `page ${lo}` : `pages ${lo} to ${hi}`;
+};
+const topics: { topic: string; list: typeof questions; start: number }[] = [];
+for (const q of part1) {
+  const last = topics.at(-1);
+  if (last?.topic === q.topic) last.list.push(q);
+  else topics.push({ topic: q.topic, list: [q], start: 0 });
+}
+let n = 1;
+for (const t of topics) { t.start = n; n += t.list.length; }
+const valuesStart = n;
+const slug = (s: string) => s.toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const letter = (i: number) => String.fromCharCode(65 + i);
+/** "Our Common Bond, page 8", or "Our Common Bond, glossary, page 42" for a glossary entry. */
+const where = (source: string) => `Our Common Bond, ${source.startsWith('Glossary') ? 'glossary, ' : ''}page ${page(source)}.`;
+
+const pdfFile = join(process.cwd(), 'public', FIFTY_PDF);
+const pdfSize = existsSync(pdfFile) ? `${Math.round(statSync(pdfFile).size / 1024)} KB` : '';
+
+const quiz = {
+  '@context': 'https://schema.org', '@type': 'Quiz',
+  name: `50 Australian citizenship test practice questions with answers (${YEAR})`,
+  about: { '@type': 'Thing', name: 'Australian citizenship test' },
+  inLanguage: 'en-AU', isAccessibleForFree: true, educationalLevel: 'Beginner',
+  description: 'Pledge’s own practice questions written from Our Common Bond (Part 1 and Australian values), not questions from the real test.',
+  url: absoluteUrl('australia/citizenship-test-questions/'),
+  hasPart: questions.map((q) => ({
+    '@type': 'Question', eduQuestionType: 'Multiple choice', text: q.question,
+    suggestedAnswer: q.options.filter((_, i) => i !== q.answerIndex).map((o) => ({ '@type': 'Answer', text: o })),
+    acceptedAnswer: { '@type': 'Answer', text: q.options[q.answerIndex] },
+  })),
+};
+---
+<Guide
+  title={`Australian Citizenship Test: 50 Practice Questions (${YEAR})`}
+  description="50 free practice questions with answers, explanations and booklet pages, from Part 1 and Australian values. Printable PDF, no email needed."
+  path="australia/citizenship-test-questions/"
+  h1="50 Australian citizenship test practice questions, with answers"
+  answer={`${part1.length} questions from Part 1 of Our Common Bond and ${values.length} on Australian values, each with the answer and the booklet page. Free to print, no email needed. These are Pledge’s own practice questions, not questions from the real test.`}
+  sources={['test', 'prepare', 'booklet', 'practice']}
+  related={[PRACTICE, GUIDES.values, GUIDES.part1]}
+  schema={[quiz]}
+>
+  <div class="fifty-download" id="download">
+    <p class="fifty-download-title">Print or save them</p>
+    <p>All 50 questions with their answers on A4 pages{pdfSize && `, ${pdfSize}`}. Free, no email or sign-up.</p>
+    <p class="fifty-actions">
+      <a class="btn btn-primary" href={url(FIFTY_PDF)} download>Download the PDF</a>
+      <a class="btn btn-quiet" href={url(PRACTICE.path)}>Take 20 as a timed test</a>
+    </p>
+  </div>
+
+  <h2 id="about-these-questions">About these questions</h2>
+  <ul>
+    <li><strong>They are practice questions, not the real test.</strong> Pledge wrote them from the booklet <a href={SOURCES.booklet}><em>Australian Citizenship: Our Common Bond</em></a>, which Home Affairs says every test question is based on. The questions on test day will be different.</li>
+    <li><strong>They cover Part 1 and Australian values only.</strong> The real test has {TEST.questions} questions from all four parts of the booklet. Pledge’s free questions come from Part 1 and the values part; for Parts 2 and 3, read our summaries of <a href={url(GUIDES.part2.path)}>Part 2</a> and <a href={url(GUIDES.part3.path)}>Part 3</a> and try the <a href={SOURCES.practice}>Home Affairs practice test</a>.</li>
+    <li><strong>How to use them:</strong> answer each question before you open the answer. For every one you get wrong, read the booklet page it shows.</li>
+  </ul>
+  <p>To pass the real test you need at least {TEST.passMark} of {TEST.questions} correct <strong>and</strong> all {TEST.valuesQuestions} Australian values questions correct. See <a href={url(GUIDES.format.path)}>the test format and pass mark</a>.</p>
+
+  {topics.map((t) => (
+    <section aria-labelledby={slug(t.topic)}>
+      <h2 id={slug(t.topic)}>{t.topic} <span class="pg">Part 1, {pages(t.list)}</span></h2>
+      <ol class="fifty" start={t.start}>
+        {t.list.map((q) => (
+          <li class="fifty-q" data-qid={q.id}>
+            <p class="fifty-text">{q.question}</p>
+            <ol class="fifty-opts" type="A">{q.options.map((o) => <li>{o}</li>)}</ol>
+            <details>
+              <summary>Show the answer</summary>
+              <p><strong>Answer: {letter(q.answerIndex)}. {q.options[q.answerIndex]}</strong><br />{q.explanation} <span class="fifty-page">{where(q.source)}</span></p>
+            </details>
+          </li>
+        ))}
+      </ol>
+    </section>
+  ))}
+
+  <section aria-labelledby="australian-values">
+    <h2 id="australian-values">Australian values <span class="pg">Part 4, {pages(values)}</span></h2>
+    <p>On the real test every values question must be right. These {values.length} are from Pledge’s {data.questions.filter((q) => q.isValues).length} free values questions; the <a href={url(GUIDES.values.path) + '#drill'}>values drill</a> has all of them.</p>
+    <ol class="fifty" start={valuesStart}>
+      {values.map((q) => (
+        <li class="fifty-q" data-qid={q.id}>
+          <p class="fifty-text">{q.question}</p>
+          <ol class="fifty-opts" type="A">{q.options.map((o) => <li>{o}</li>)}</ol>
+          <details>
+            <summary>Show the answer</summary>
+            <p><strong>Answer: {letter(q.answerIndex)}. {q.options[q.answerIndex]}</strong><br />{q.explanation} <span class="fifty-page">{where(q.source)}</span></p>
+          </details>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <h2 id="next">What to do next</h2>
+  <ul>
+    <li>Take the <a href={url(PRACTICE.path)}>free practice test</a>: {TEST.questions} questions in a random order, marked with both pass rules, with an optional {TEST.minutes}-minute timer.</li>
+    <li>Read the whole booklet, <a href={SOURCES.booklet}><em>Our Common Bond</em></a>. It is free from Home Affairs, and our <a href={url(GUIDES.ocb.path)}>guide to the booklet</a> explains its four parts.</li>
+  </ul>
+</Guide>
+
+<script is:inline>
+  // Printing opens every answer, so a printed copy has them all. Stores and sends nothing.
+  addEventListener('beforeprint', () => { for (const d of document.querySelectorAll('.fifty details')) d.open = true; });
+</script>
+
+<style is:global>
+  .prose .fifty-download { margin: 0 0 2.2em; padding: 1.4rem 1.6rem; background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-m); box-shadow: var(--shadow-1); }
+  .prose .fifty-download p { margin: 0 0 0.6em; }
+  .prose .fifty-download-title { color: var(--ink); font-family: var(--font-display); font-size: 1.3rem; }
+  .prose .fifty-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 1rem 0 0 !important; }
+  .prose .fifty-actions .btn { text-decoration: none; }
+  .prose .fifty-actions .btn-primary { color: #fff; }
+  @media (prefers-color-scheme: dark) { .prose .fifty-actions .btn-primary { color: #0F1220; } }
+  .prose ol.fifty { margin: 1.2em 0 0; padding-left: 2.2em; }
+  .prose .fifty-q { margin: 0 0 1.1em; padding: 16px 20px 12px; border: 1px solid var(--hairline); border-radius: var(--radius-m); background: var(--surface); }
+  .prose .fifty-q::marker { color: var(--muted); font-weight: 800; }
+  .prose .fifty-text { margin: 0 0 8px; color: var(--ink); font-weight: 700; }
+  .prose .fifty-opts { margin: 0 0 4px; padding-left: 1.6em; }
+  .prose .fifty-opts li { margin: 0.15em 0; }
+  .prose .fifty-opts li::marker { color: var(--muted); font-weight: 700; }
+  .prose .fifty details summary { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 700; cursor: pointer; }
+  .prose .fifty details p { margin: 4px 0 6px; }
+  .prose .fifty-page { color: var(--muted); }
+
+  @media print {
+    .prose .fifty-download, .prose details summary { display: none; }
+    .prose .fifty-q { break-inside: avoid; border: 0; border-bottom: 1px solid #ccc; border-radius: 0; padding: 8px 0; margin: 0; background: none; }
+    .prose ol.fifty { padding-left: 1.8em; }
+  }
+</style>

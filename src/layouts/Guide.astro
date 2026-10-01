@@ -32,10 +32,12 @@ interface Props {
   related?: GuideLink[];
   /** "booklet" for guides that summarise Our Common Bond rather than Home Affairs web pages. */
   kind?: 'rules' | 'booklet';
-  /** Questions and plain-text answers for FAQPage structured data (the FAQ page only). */
+  /** Questions and plain-text answers for FAQPage structured data (pages whose visible text is questions and answers). */
   faq?: { q: string; a: string }[];
+  /** More structured data for this page (for example a Quiz), added to the Article and breadcrumbs. */
+  schema?: object[];
 }
-const { title, description, path, h1, answer, sources, related = [], kind = 'rules', faq } = Astro.props;
+const { title, description, path, h1, answer, sources, related = [], kind = 'rules', faq, schema: extra = [] } = Astro.props;
 
 // Structured data: the guide as an Article, its place in the site as a breadcrumb trail, and (FAQ page) FAQPage.
 const author = { '@type': 'Person', name: 'Raghav Kant', url: absoluteUrl('about/') };
@@ -54,6 +56,7 @@ const schema: object[] = [
     itemListElement: crumbs.map((c, i) => ({ '@type': 'ListItem', position: i + 1, name: c.name, item: absoluteUrl(c.path) })),
   },
 ];
+schema.push(...extra);
 if (faq) schema.push({
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
@@ -61,7 +64,7 @@ if (faq) schema.push({
 
 // "On this page" from the guide's h2 headings (each needs an id).
 const body = await Astro.slots.render('default');
-const toc = [...body.matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => ({ id: m[1], text: m[2].replace(/<[^>]+>/g, '') }));
+const toc = [...body.matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => ({ id: m[1], text: m[2].replace(/<span class="pg"[^>]*>[\s\S]*?<\/span>/g, '').replace(/<[^>]+>/g, '').trim() }));
 ---
 <Base title={title} description={description} path={path} schema={schema}>
   <main id="main" class="guide">
