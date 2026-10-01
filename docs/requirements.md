@@ -28,6 +28,7 @@ Trailing slash on every URL. Countries live in their own folder.
 | `/australia/our-common-bond/` and `/part-1/`, `/part-2/`, `/part-3/` | Booklet guides (sample questions on Part 1 only) | Run 3 |
 | `/australia/citizenship-test-questions/` | 50 free practice questions with answers and a printable PDF | SEO sprint |
 | `/australia/book-citizenship-test/` | How booking works: the letter, rescheduling, test centres, cost | SEO sprint |
+| `/australia/is-the-citizenship-test-hard/` | Is the test hard? What it checks, what makes it harder and easier, how to prepare | SEO sprint |
 | `/about/` | Who makes Pledge and how facts are checked | Run 3 |
 
 Titles, meta descriptions and search targets for each page: `docs/keywords.md`.

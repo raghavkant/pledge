@@ -5,10 +5,10 @@ export interface GuideLink { path: string; title: string; blurb: string }
 export const GUIDES: Record<string, GuideLink> = {
   hub: { path: 'australia/', title: 'The test in plain English', blurb: 'How the test works, every guide, and the free Home Affairs resources.' },
   about: { path: 'about/', title: 'About Pledge', blurb: 'Who makes Pledge and how facts are checked.' },
-  format: { path: 'australia/test-format/', title: 'Test format', blurb: 'How many questions, the pass mark, the time limit and the language.' },
+  format: { path: 'australia/test-format/', title: 'Pass mark and format', blurb: 'The pass mark, how many questions, the time limit and the language.' },
   who: { path: 'australia/who-sits-the-test/', title: 'Who sits the test', blurb: 'Who has to sit it, who doesn’t, and who can have 90 minutes.' },
   book: { path: 'australia/book-citizenship-test/', title: 'Booking the test', blurb: 'How the appointment letter works, rescheduling, test centres and the cost.' },
-  testDay: { path: 'australia/test-day/', title: 'Test day', blurb: 'Your appointment letter, what ID to bring, what happens at the centre, and the rules.' },
+  testDay: { path: 'australia/test-day/', title: 'What to bring on test day', blurb: 'The ID and letter to bring, what happens at the centre, and the rules.' },
   faq: { path: 'australia/faq/', title: 'Questions and answers', blurb: 'The fee, the residence requirement, your result, and whether Pledge is endorsed.' },
   ocb: { path: 'australia/our-common-bond/', title: 'Our Common Bond', blurb: 'The booklet every test question is based on: its four parts and where to get it free.' },
   part1: { path: 'australia/our-common-bond/part-1/', title: 'Part 1: Australia and its people', blurb: 'First peoples, history, states and territories, and national symbols, with free practice questions.' },
@@ -16,7 +16,8 @@ export const GUIDES: Record<string, GuideLink> = {
   part3: { path: 'australia/our-common-bond/part-3/', title: 'Part 3: Government and the law', blurb: 'Voting, the Constitution, Parliament, the three levels of government, courts and important laws.' },
   values: { path: 'australia/values-questions/', title: 'Australian values questions', blurb: 'The rule that decides a pass, what Part 4 covers, and a free drill of 20 values questions.' },
   questions: { path: 'australia/citizenship-test-questions/', title: '50 practice questions with answers', blurb: 'Free questions from Part 1 and Australian values, each with the answer and booklet page. Printable PDF.' },
-  failed: { path: 'australia/failed-citizenship-test/', title: 'If you don’t pass', blurb: 'Your visa, your next appointment, and the three-appointment rule.' },
+  hard: { path: 'australia/is-the-citizenship-test-hard/', title: 'Is the test hard?', blurb: 'What it checks, the rule that catches people out, and how to prepare.' },
+  failed: { path: 'australia/failed-citizenship-test/', title: 'If you don’t pass', blurb: 'How many attempts you get, your visa, and the three-appointment rule.' },
 };
 
 // The free practice test lives on the home page (docs/seo-sprint.md); /australia/practice-test/ redirects there.

@@ -1,0 +1,88 @@
+---
+// "Is the Australian citizenship test hard?" (docs/seo-sprint.md). Home Affairs publishes no difficulty rating or
+// pass rate on its test pages, so this page answers from what the test checks and its rules, all quoted from
+// docs/facts.md, and labels study tips as our suggestions. Never a pass rate, never a promise.
+import Guide from '../../../layouts/Guide.astro';
+import { url } from '../../../lib/url';
+import { SOURCES, TEST } from '../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../data/au/guides';
+
+const qa = {
+  hard: {
+    q: 'Is the Australian citizenship test hard?',
+    a: `It is a test of basic English and of one free booklet, Our Common Bond, which Home Affairs says “includes all the information you need to pass the test.” What catches people out is the values rule: all ${TEST.valuesQuestions} values questions must be right, as well as at least ${TEST.passMark} of ${TEST.questions} overall. Home Affairs doesn’t publish a difficulty rating, so we don’t guess one.`,
+  },
+  checks: {
+    q: 'What does the citizenship test check?',
+    a: 'Home Affairs says passing the test shows you have a basic knowledge of the English language, an understanding of what it means to become an Australian citizen, an adequate knowledge of Australia and the responsibilities and privileges of citizenship, and an understanding and commitment to Australian values.',
+  },
+  rate: {
+    q: 'What is the pass rate for the citizenship test?',
+    a: 'Home Affairs doesn’t give a pass rate on its citizenship test pages, so we don’t quote one. Numbers you see in news stories or on other websites aren’t checked here.',
+  },
+  fail: {
+    q: 'What if I find it too hard and don’t pass?',
+    a: 'Your visa isn’t affected, and Home Affairs books another appointment at no extra cost. If you don’t pass after three appointments, Home Affairs may refuse your application.',
+  },
+};
+const faq = Object.values(qa).map(({ q, a }) => ({ q, a }));
+---
+<Guide
+  title="Is the Australian Citizenship Test Hard? An Honest Answer"
+  description="What the test checks, the rule that catches people out, what makes it easier, and how to prepare. No pass-rate guesses: Home Affairs sources only."
+  path="australia/is-the-citizenship-test-hard/"
+  h1="Is the Australian citizenship test hard?"
+  answer={`It tests basic English and one free booklet, which Home Affairs says has all the information you need. What catches people out: all ${TEST.valuesQuestions} Australian values questions must be right, not just ${TEST.passMark} of ${TEST.questions} overall.`}
+  sources={['test', 'prepare', 'practice', 'booklet']}
+  related={[PRACTICE, GUIDES.values, GUIDES.questions]}
+  faq={faq}
+>
+  <h2 id="is-it-hard">The short answer</h2>
+  <p>{qa.hard.a}</p>
+
+  <h2 id="what-it-checks">{qa.checks.q}</h2>
+  <p><a href={SOURCES.test}>Home Affairs</a> says:</p>
+  <blockquote>
+    <p>“Passing the citizenship test will show you have:</p>
+    <ul>
+      <li>a basic knowledge of the English language</li>
+      <li>an understanding of what it means to become an Australian citizen</li>
+      <li>an adequate knowledge of Australia and the responsibilities and privileges of citizenship</li>
+      <li>an understanding and commitment to Australian values based on freedom, respect and equality.”</li>
+    </ul>
+    <cite>Home Affairs, Learn about the citizenship test</cite>
+  </blockquote>
+  <p>It is {TEST.questions} multiple choice questions in {TEST.minutes} minutes, and “All test questions are based on the OCB resource booklet”. See <a href={url(GUIDES.format.path)}>the test format and pass mark</a>.</p>
+
+  <h2 id="harder">What makes it harder than it looks</h2>
+  <ul>
+    <li><strong>The values rule.</strong> You need at least {TEST.passMark} of {TEST.questions} <em>and</em> all {TEST.valuesQuestions} values questions right. {TEST.questions - 1} of {TEST.questions} is not a pass if the one you missed is a values question. See <a href={url(GUIDES.values.path)}>Australian values questions</a>.</li>
+    <li><strong>English only.</strong> “The test is conducted in English only.” You can read the booklet in 40 community languages while you study, but the test is in English. Home Affairs suggests: “Consider enrolling into the general AMEP Program if you wish to improve your English language skills to assist you with preparing for the test.”</li>
+    <li><strong>New questions.</strong> About its own practice test, Home Affairs says: “It is a sample test only. The questions will be different on the day of the test.” Learning answers by heart isn’t enough; you need to understand the booklet.</li>
+    <li><strong>The whole booklet.</strong> Questions come from all four parts: Australia and its people; democratic beliefs, rights and liberties; government and the law; and Australian values.</li>
+  </ul>
+
+  <h2 id="easier">What makes it easier</h2>
+  <ul>
+    <li><strong>One free booklet has it all.</strong> “The testable section includes all the information you need to pass the test.” The booklet itself says: “You are not required to purchase or obtain other citizenship packages from any individuals or organisations in order to pass the citizenship test.”</li>
+    <li><strong>Free help from Home Affairs:</strong> the booklet (also in 40 community languages), the <em>Our Common Bond</em> podcast, the <a href={SOURCES.practice}>Home Affairs practice test</a> and the AMEPOnline citizenship modules.</li>
+    <li><strong>You can skip and come back.</strong> The Home Affairs practice test site says that during the test you can “answer the questions in any order” and “skip questions and come back to them later if you are unsure.”</li>
+    <li><strong>More than one try.</strong> If you don’t pass, Home Affairs books another appointment at no extra cost.</li>
+    <li><strong>Support if you need it.</strong> A Test Facilitator can read the questions aloud or use the computer for you, and some people can sit an <a href={url(GUIDES.who.path) + '#assisted-test'}>Assisted Test</a> with 90 minutes.</li>
+  </ul>
+
+  <h2 id="pass-rate">{qa.rate.q}</h2>
+  <p>{qa.rate.a}</p>
+
+  <h2 id="how-to-prepare">How should I prepare?</h2>
+  <p>Home Affairs’ advice is to read the booklet and use its free resources. Our suggestions for using them (a study approach, not a Home Affairs rule):</p>
+  <ol>
+    <li>Read <a href={SOURCES.booklet}><em>Our Common Bond</em></a> one part at a time. Our plain-English summaries of <a href={url(GUIDES.part1.path)}>Part 1</a>, <a href={url(GUIDES.part2.path)}>Part 2</a> and <a href={url(GUIDES.part3.path)}>Part 3</a> can help, but they don’t replace the booklet.</li>
+    <li>After each part, test yourself, then reread the page for every question you got wrong. Our <a href={url(GUIDES.questions.path)}>50 practice questions</a> show the page for each answer.</li>
+    <li>Give Part 4, Australian values, extra time, and use the <a href={url(GUIDES.values.path) + '#drill'}>values drill</a> until you get every one right.</li>
+    <li>Take full practice tests with the {TEST.minutes}-minute timer: the <a href={url(PRACTICE.path)}>free practice test</a> here and the <a href={SOURCES.practice}>Home Affairs practice test</a>. Remember that the real questions will be different.</li>
+  </ol>
+
+  <h2 id="if-you-dont-pass">{qa.fail.q}</h2>
+  <p>{qa.fail.a} See <a href={url(GUIDES.failed.path)}>what happens if you don’t pass</a>.</p>
+</Guide>

@@ -6,7 +6,7 @@
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build --silent",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
-    "check": "npm run -s build && node scripts/check-free-tier.mjs && node scripts/check-legal.mjs",
+    "check": "npm run -s build && node scripts/check-free-tier.mjs && node scripts/check-legal.mjs && node scripts/check-year.mjs",
     "check:types": "ASTRO_TELEMETRY_DISABLED=1 astro check --minimumSeverity warning > .astro-check.log 2>&1 && echo '✓ types: astro check passed' || (cat .astro-check.log; exit 1)",
     "check:links": "node scripts/check-links.mjs",
     "check:a11y": "node scripts/check-a11y.mjs",
@@ -17,7 +17,8 @@
     "check:ci": "npm run -s check && npm run -s check:types && npm run -s check:budgets && npm run -s check:links && npm run -s check:a11y && npm run -s check:lighthouse",
     "check:full": "npm run -s check:ci && npm run -s check:export && npm run -s check:paid-leak && npm run -s screenshots",
     "screenshots": "node scripts/screenshots.mjs",
-    "export:questions": "node scripts/export-questions.mjs"
+    "export:questions": "node scripts/export-questions.mjs",
+    "check:year": "node scripts/check-year.mjs"
   },
   "dependencies": {
     "astro": "7.3.5"

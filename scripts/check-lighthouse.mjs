@@ -30,7 +30,12 @@ const log = await new Promise((resolve) => {
   child.stdout.on('data', (d) => (out += d));
   child.stderr.on('data', (d) => (out += d));
   const limit = Number(process.env.LH_TIMEOUT_MIN || 20) * 60_000;
-  const timer = setTimeout(() => { out += `\nLighthouse hung for ${limit / 60_000} minutes (Chrome may have crashed); stopped.`; child.kill('SIGKILL'); }, limit);
+  const timer = setTimeout(() => {
+    out += `\nLighthouse hung for ${limit / 60_000} minutes (Chrome may have crashed); stopped.`;
+    child.kill('SIGKILL');
+    // The Chrome that Lighthouse started outlives lhci; left running, it made every later run hang (2026-10-01).
+    spawn('pkill', ['-f', 'lighthouse\\.XXXXXXX']);
+  }, limit);
   child.on('close', (code) => { clearTimeout(timer); resolve({ code, out }); });
 });
 server.close();

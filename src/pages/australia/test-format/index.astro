@@ -1,42 +1,98 @@
 ---
+// Pass mark and format (docs/seo-sprint.md: "australian citizenship test pass mark", "how many questions",
+// "how long", "online", "language"). Every rule is quoted from docs/facts.md. Answers are written once and used
+// for both the page and its FAQPage structured data.
 import Guide from '../../../layouts/Guide.astro';
 import { url } from '../../../lib/url';
-import { SOURCES, TEST } from '../../../data/au/facts';
+import { SOURCES, TEST, YEAR } from '../../../data/au/facts';
 import { GUIDES, PRACTICE } from '../../../data/au/guides';
+
+const qa = {
+  passMark: {
+    q: 'What is the pass mark for the Australian citizenship test?',
+    a: `At least ${TEST.passMark} out of ${TEST.questions} (75%), and all ${TEST.valuesQuestions} Australian values questions correct. Home Affairs says you must “achieve an overall mark of at least 15/20 (75%)” and “answer 5/5 (100%) of the Australian values questions correctly”. Both rules apply on the same test.`,
+  },
+  nineteen: {
+    q: `Can you fail with ${TEST.questions - 1} out of ${TEST.questions}?`,
+    a: `Yes. If the one question you got wrong is an Australian values question, ${TEST.questions - 1} out of ${TEST.questions} is not a pass, because every values question must be right.`,
+  },
+  howMany: {
+    q: 'How many questions are on the citizenship test?',
+    a: `${TEST.questions} multiple choice questions. Home Affairs says you must “answer 20 multiple choice questions”, and describes them as “computer-based multiple choice questions”.`,
+  },
+  howLong: {
+    q: 'How long is the citizenship test?',
+    a: `${TEST.minutes} minutes: “You will have 45 minutes to complete the test.” If you sit an Assisted Test, you have 90 minutes.`,
+  },
+  english: {
+    q: 'Is the citizenship test only in English?',
+    a: 'Yes. Home Affairs says: “The test is conducted in English only.” The booklet you study from is available in 40 community languages, but the test itself is in English.',
+  },
+  online: {
+    q: 'Can you do the citizenship test online at home?',
+    a: 'No. You sit it at an appointment, at a departmental office in most Australian capital cities or at some Services Australia (Centrelink) offices, on a computer or tablet. Your result is shown on the screen when you finish.',
+  },
+  same: {
+    q: 'Is the real test the same as the practice test?',
+    a: 'No. About its practice test, Home Affairs says: “It is a sample test only. The questions will be different on the day of the test.”',
+  },
+};
+const faq = Object.values(qa).map(({ q, a }) => ({ q, a }));
+
+// Worked examples of the two rules (derived from them; no new facts).
+const examples = [
+  { score: 15, values: 5, pass: true },
+  { score: 20, values: 5, pass: true },
+  { score: 19, values: 4, pass: false },
+  { score: 14, values: 5, pass: false },
+];
 ---
 <Guide
-  title="Citizenship Test Format: Questions, Pass Mark and Time"
-  description="How many questions, how many to pass, the values rule, time limit, language, and whether it's online. Short answers with Home Affairs sources."
+  title={`Australian Citizenship Test Pass Mark and Format (${YEAR})`}
+  description="The pass mark is 15 of 20 (75%) and all 5 values questions right. Plus how many questions, the time limit, the language and where you sit it."
   path="australia/test-format/"
-  h1="The citizenship test format"
-  answer={`${TEST.questions} multiple choice questions in ${TEST.minutes} minutes, in English, on a computer or tablet at your appointment. To pass you need at least ${TEST.passMark} of ${TEST.questions} correct and all ${TEST.valuesQuestions} Australian values questions correct.`}
+  h1="Australian citizenship test pass mark and format"
+  answer={`The pass mark is ${TEST.passMark} out of ${TEST.questions} (75%), and you must also get all ${TEST.valuesQuestions} Australian values questions right. The test is ${TEST.questions} multiple choice questions in ${TEST.minutes} minutes, in English, on a computer or tablet at your appointment.`}
   sources={['test', 'prepare', 'practice']}
-  related={[PRACTICE, GUIDES.failed, GUIDES.who]}
+  related={[PRACTICE, GUIDES.hard, GUIDES.values]}
+  faq={faq}
 >
   <h2 id="at-a-glance">At a glance</h2>
   <dl class="facts">
-    <div><dt>Questions</dt><dd>{TEST.questions} multiple choice questions</dd></div>
     <div><dt>To pass</dt><dd>At least {TEST.passMark} of {TEST.questions} correct (75%), <strong>and</strong> all {TEST.valuesQuestions} Australian values questions correct</dd></div>
+    <div><dt>Questions</dt><dd>{TEST.questions} multiple choice questions</dd></div>
     <div><dt>Time</dt><dd>{TEST.minutes} minutes (90 minutes for the Assisted Test)</dd></div>
     <div><dt>Language</dt><dd>English only</dd></div>
     <div><dt>Where</dt><dd>At your appointment, on a computer or tablet</dd></div>
     <div><dt>Cost</dt><dd>No extra cost: it is included in your application fee</dd></div>
   </dl>
 
-  <h2 id="how-many-questions">How many questions are there?</h2>
-  <p>{TEST.questions}. <a href={SOURCES.test}>Home Affairs</a> says that to pass you must “answer {TEST.questions} multiple choice questions”, and describes them as “computer-based multiple choice questions”.</p>
+  <h2 id="how-many-to-pass">{qa.passMark.q}</h2>
+  <p>{qa.passMark.a} Source: <a href={SOURCES.test}>Home Affairs</a>.</p>
+  <table class="plain">
+    <caption class="visually-hidden">Examples of results and whether they pass</caption>
+    <thead><tr><th scope="col">Overall score</th><th scope="col">Values questions right</th><th scope="col">Result</th></tr></thead>
+    <tbody>
+      {examples.map((e) => (
+        <tr><td>{e.score} of {TEST.questions}</td><td>{e.values} of {TEST.valuesQuestions}</td><td>{e.pass ? 'Pass' : <strong>Not a pass</strong>}</td></tr>
+      ))}
+    </tbody>
+  </table>
 
-  <h2 id="how-many-to-pass">How many do you need to get right?</h2>
-  <p>You must “achieve an overall mark of at least 15/20 (75%)” <strong>and</strong> “answer 5/5 (100%) of the Australian values questions correctly”. Both rules apply at the same time: {TEST.questions - 1} out of {TEST.questions} is not a pass if the wrong answer is a values question.</p>
+  <h2 id="nineteen">{qa.nineteen.q}</h2>
+  <p>{qa.nineteen.a} See <a href={url(GUIDES.values.path)}>Australian values questions</a>.</p>
 
-  <h2 id="how-long">How long do you have?</h2>
-  <p>“You will have 45 minutes to complete the test.” If you sit an Assisted Test, you have 90 minutes. See <a href={url(GUIDES.who.path)}>who can have an Assisted Test</a>.</p>
+  <h2 id="how-many-questions">{qa.howMany.q}</h2>
+  <p>{qa.howMany.a}</p>
 
-  <h2 id="language">Is the test only in English?</h2>
-  <p>Yes. Home Affairs says: “The test is conducted in English only.” The booklet you study from is available in 40 community languages, but the test itself is in English.</p>
+  <h2 id="how-long">{qa.howLong.q}</h2>
+  <p>{qa.howLong.a} See <a href={url(GUIDES.who.path) + '#assisted-test'}>who can have an Assisted Test</a>.</p>
 
-  <h2 id="online">Can you do the test online at home?</h2>
-  <p>No. You sit it at an appointment, at a departmental office in most Australian capital cities or at some Services Australia (Centrelink) offices. Home Affairs says: “You will use a computer or tablet device to take the test. Your result will be displayed on the screen after you complete the test.”</p>
+  <h2 id="language">{qa.english.q}</h2>
+  <p>{qa.english.a}</p>
+
+  <h2 id="online">{qa.online.q}</h2>
+  <p>{qa.online.a} Home Affairs says: “You will use a computer or tablet device to take the test. Your result will be displayed on the screen after you complete the test.” See <a href={url(GUIDES.book.path)}>how booking works</a>.</p>
 
   <h2 id="topics">What are the questions about?</h2>
   <p>“All test questions are based on the OCB resource booklet”, <em>Australian Citizenship: Our Common Bond</em>. The topics are:</p>
@@ -47,7 +103,7 @@ import { GUIDES, PRACTICE } from '../../../data/au/guides';
     <li>Australian values.</li>
   </ul>
 
-  <h2 id="practice-test">Is the real test the same as the practice test?</h2>
-  <p>No. About its practice test, Home Affairs says: “It is a sample test only. The questions will be different on the day of the test.” The <a href={SOURCES.practice}>Home Affairs practice test</a> site also says that during the test you can answer the questions in any order, and skip questions and come back to them later if you are unsure.</p>
+  <h2 id="practice-test">{qa.same.q}</h2>
+  <p>{qa.same.a} The <a href={SOURCES.practice}>Home Affairs practice test</a> site also says that during the test you can answer the questions in any order, and skip questions and come back to them later if you are unsure.</p>
   <p>Our <a href={url(PRACTICE.path)}>free practice test</a> uses Pledge’s own questions from Part 1 and the values part of the booklet, marked with both pass rules.</p>
 </Guide>
