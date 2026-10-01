@@ -4,7 +4,8 @@ Each check prints one line when it passes and details only when it fails.
 
 | Command | What it checks | Where it runs |
 |---|---|---|
-| `npm run check` | Build, free tier (exactly 125 Part 1 + the 20 free values questions, well formed; no paid ids in the build), legal text. Quick: run it while working. | local, CI |
+| `npm run check` | Build, free tier (exactly 125 Part 1 + the 20 free values questions, well formed; no paid ids in the build; the 50-questions PDF is current), legal text, year in titles (the January check). Quick: run it while working. | local, CI |
+| `npm run check:year` | Every year in a title is the year of the latest fact check; from 1 January, a warning until the facts are re-checked (`--strict`, in the weekly workflow, fails instead) | local, CI, weekly |
 | `npm run check:types` | `astro check` (TypeScript) | local, CI |
 | `npm run check:budgets` | Gzipped JS and CSS per page (home JS ≤ 15 KB) | local, CI |
 | `npm run check:links` | Every internal link and asset, served under the real base path | local, CI |

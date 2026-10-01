@@ -1,5 +1,7 @@
 # Weekly: checks links to other sites (Home Affairs, Apple, licences). Warnings only, because some
 # sites block automated checkers; a broken internal link still fails.
+# Also the January check: from 1 January it fails until the facts are re-checked for the new year
+# (scripts/check-year.mjs), so GitHub emails a reminder. It never blocks a deploy.
 name: External links
 
 on:
@@ -24,3 +26,5 @@ jobs:
         env:
           ASTRO_TELEMETRY_DISABLED: 1
       - run: node scripts/check-links.mjs --external
+      - if: always()
+        run: node scripts/check-year.mjs --strict
