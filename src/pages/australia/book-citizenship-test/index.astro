@@ -1,0 +1,109 @@
+---
+// How booking the citizenship test works (docs/seo-sprint.md: "book citizenship test australia", "how to book",
+// "reschedule", "appointment"). The honest answer: Home Affairs sends a letter after you apply. We only say what
+// Home Affairs says (docs/facts.md, "Invitation", "Rescheduling", "Where you sit it", "Applying"); we don't link or
+// describe appointments.homeaffairs.gov.au, and we never quote waiting times (they change every month).
+// Each answer below is written once and used for both the page and its FAQPage structured data.
+import Guide from '../../../layouts/Guide.astro';
+import { url } from '../../../lib/url';
+import { SOURCES, TEST, YEAR } from '../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../data/au/guides';
+
+const qa = {
+  how: {
+    q: 'How do I book the Australian citizenship test?',
+    a: 'You apply for citizenship, and Home Affairs invites you to a test appointment. It sends you a letter with the date, time and place. Home Affairs doesn’t describe any separate step where you choose or book a test date yourself.',
+  },
+  wait: {
+    q: 'How long until I get a test appointment?',
+    a: 'Home Affairs doesn’t give a fixed time. It says: “The wait time for an appointment may vary” and “Appointment waiting times will vary between test centres.” Its citizenship processing times page is updated every month.',
+  },
+  reschedule: {
+    q: 'How do I reschedule my citizenship test?',
+    a: 'Follow your letter. Home Affairs says: “If you need to reschedule your appointment, follow the instructions in your appointment letter.”',
+  },
+  where: {
+    q: 'Where is the citizenship test held?',
+    a: 'At departmental offices in most Australian capital cities and at some Services Australia (Centrelink) offices. Home Affairs has a test centre locator where you enter your address to find the closest one.',
+  },
+  cost: {
+    q: 'Does it cost extra to book the test?',
+    a: 'No. Home Affairs says: “There is no extra cost to sit the citizenship test. The citizenship application fee that you paid includes the test.” If you don’t pass, it books another appointment for you at no extra cost.',
+  },
+  book: {
+    q: 'Looking for the citizenship test book?',
+    a: 'The book the test is based on is Australian Citizenship: Our Common Bond. It is free from Home Affairs as a PDF, in English and 40 community languages.',
+  },
+};
+const faq = Object.values(qa).map(({ q, a }) => ({ q, a }));
+---
+<Guide
+  title={`How to Book the Australian Citizenship Test (${YEAR})`}
+  description="After you apply, Home Affairs sends a letter with the date, time and place of your test. How it works, rescheduling, test centres and the cost."
+  path="australia/book-citizenship-test/"
+  h1="How to book the Australian citizenship test"
+  answer="After you apply for citizenship, Home Affairs invites you to a test appointment by letter, with the date, time and place. Home Affairs doesn’t describe a separate booking step. To change the date, follow the instructions in your appointment letter."
+  sources={['test', 'locator', 'conferral', 'ptimes', 'booklet']}
+  related={[GUIDES.testDay, PRACTICE, GUIDES.questions]}
+  faq={faq}
+>
+  <h2 id="how">{qa.how.q}</h2>
+  <p>{qa.how.a}</p>
+  <ol class="steps">
+    <li>
+      <strong>Apply for citizenship.</strong> Home Affairs says: “Apply and pay online in ImmiAccount”. You can apply online if you are aged 18 to 59 and not eligible for a fee concession; some people need a paper form instead. See <a href={SOURCES.conferral}>Home Affairs: citizenship by conferral</a>.
+    </li>
+    <li>
+      <strong>Wait for your invitation.</strong> From the Home Affairs test locator page:
+      <blockquote><p>“When we receive your application you will be invited to attend a citizenship appointment. We will send you a letter with the date, place and time of your appointment.”</p><cite>Home Affairs, Citizenship test locator</cite></blockquote>
+    </li>
+    <li>
+      <strong>Get your documents ready.</strong> “Before attending your appointment ensure that you have attached all documents to your application in ImmiAccount.” If your address or name has changed since you applied, attach your new documents in <a href={SOURCES.immiaccount}>ImmiAccount</a> too.
+    </li>
+    <li>
+      <strong>Go to your appointment</strong> with photo ID and your letter. Home Affairs confirms your identity, then you sit the test. See <a href={url(GUIDES.testDay.path)}>what to bring and what happens on the day</a>.
+    </li>
+  </ol>
+  <p>Some people don’t sit the test and may have an interview instead. See <a href={url(GUIDES.who.path)}>who has to sit the test</a>.</p>
+
+  <h2 id="wait">{qa.wait.q}</h2>
+  <p>{qa.wait.a}</p>
+  <p>For the current numbers, see <a href={SOURCES.ptimes}>Home Affairs: citizenship processing times</a>. We don’t copy them here, because they change.</p>
+
+  <h2 id="reschedule">{qa.reschedule.q}</h2>
+  <p>{qa.reschedule.a}</p>
+  <p>Two things that can move your appointment to a later date:</p>
+  <ul>
+    <li>Forgetting your photo ID: “If you do not bring a photo ID, your appointment will be changed to a later date.”</li>
+    <li>Not passing: Home Affairs books another appointment for you. See <a href={url(GUIDES.failed.path)}>what happens if you don’t pass</a>.</li>
+  </ul>
+
+  <h2 id="where">{qa.where.q}</h2>
+  <p>{qa.where.a} Use the <a href={SOURCES.locator}>Home Affairs citizenship test locator</a>.</p>
+  <ul>
+    <li>“If you lodge your application in Australia, you will attend your test appointment in Australia.”</li>
+    <li>If you apply from outside Australia, Home Affairs invites you to a test appointment after you return to Australia. “In exceptional circumstances we may arrange for you to attend a test appointment at an Australian Embassy or Consulate.”</li>
+  </ul>
+
+  <h2 id="cost">{qa.cost.q}</h2>
+  <p>{qa.cost.a}</p>
+  <p>The test itself is {TEST.questions} questions in {TEST.minutes} minutes. See <a href={url(GUIDES.format.path)}>the test format and pass mark</a>.</p>
+
+  <h2 id="book">{qa.book.q}</h2>
+  <p>{qa.book.a} Read our <a href={url(GUIDES.ocb.path)}>guide to the booklet</a> or download it from <a href={SOURCES.booklet}>Home Affairs (PDF)</a>.</p>
+
+  <h2 id="while-you-wait">What to do while you wait</h2>
+  <ul>
+    <li>Read <em>Our Common Bond</em>: every test question is based on it.</li>
+    <li>Take the <a href={url(PRACTICE.path)}>free practice test</a>, marked with both pass rules.</li>
+    <li>Go through the <a href={url(GUIDES.questions.path)}>50 practice questions with answers</a>, or print them.</li>
+    <li>Learn the <a href={url(GUIDES.values.path)}>Australian values</a> part well: all {TEST.valuesQuestions} values questions must be right.</li>
+  </ul>
+</Guide>
+
+<style is:global>
+  .prose ol.steps { padding-left: 1.4em; }
+  .prose ol.steps > li { margin: 0 0 1em; padding-left: 0.3em; }
+  .prose ol.steps > li::marker { color: var(--accent); font-weight: 800; }
+  .prose ol.steps blockquote { margin: 0.6em 0 0; }
+</style>

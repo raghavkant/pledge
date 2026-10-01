@@ -11,13 +11,10 @@ import { GUIDES, PRACTICE } from '../../../data/au/guides';
   h1="Citizenship test day: your appointment and what to bring"
   answer="Bring photo ID (such as a passport or an Australian driver licence) and your appointment letter, printed or on your phone. Arrive 10 minutes early. Home Affairs confirms your identity, then you sit the test on your own on a computer or tablet, and your result appears on the screen."
   sources={['test']}
-  related={[GUIDES.format, GUIDES.failed, PRACTICE]}
+  related={[GUIDES.book, GUIDES.format, PRACTICE]}
 >
   <h2 id="appointment-letter">Your appointment letter</h2>
-  <p>If you need to sit the test, <a href={SOURCES.test}>Home Affairs</a> sends you a letter:</p>
-  <blockquote><p>“we will send you a letter with the date, time and place of your appointment. The wait time for an appointment may vary.”</p><cite>Home Affairs, Learn about the citizenship test</cite></blockquote>
-  <p>To reschedule, “follow the instructions in your appointment letter.”</p>
-  <p>Appointments are held at departmental offices in most Australian capital cities and at some Services Australia (Centrelink) offices. If you applied from outside Australia, Home Affairs invites you to a test appointment after you return to Australia.</p>
+  <p>After you apply, <a href={SOURCES.test}>Home Affairs</a> sends you a letter with the date, time and place of your appointment. To change it, follow the instructions in the letter. See <a href={url(GUIDES.book.path)}>how booking and rescheduling work</a>.</p>
 
   <h2 id="what-to-bring">What to bring</h2>
   <ul>
