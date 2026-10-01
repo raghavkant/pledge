@@ -3,6 +3,8 @@
 // Options: --runs=N (median of N runs; default 1, or LH_RUNS; CI uses 3), page path prefixes to check only some pages
 // ("index" = the home page only). A run that hangs (Chrome crashed) fails after LH_TIMEOUT_MIN minutes (default 20).
 // The first URL is also run once as a warm-up that isn't scored (a cold browser skews the first result).
+// The full-page screenshot (a picture in the report, not a scored audit) is turned off: on very long pages, such as
+// the 50 practice questions on a phone, it made headless Chrome hang (found 2026-10-01).
 import { spawn } from 'node:child_process';
 import { readdir, readFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -19,7 +21,7 @@ const match = (p, o) => (o === 'index' ? p.path === '' : p.path.startsWith(o));
 const pages = (await builtPages()).filter((p) => p.path !== '404.html' && (!only.length || only.some((o) => match(p, o))));
 await rm(OUT, { recursive: true, force: true });
 
-const args = ['collect', `--numberOfRuns=${runs}`, '--settings.chromeFlags=--headless=new --no-sandbox',
+const args = ['collect', `--numberOfRuns=${runs}`, '--settings.chromeFlags=--headless=new --no-sandbox', '--settings.disableFullPageScreenshot=true',
   `--url=${server.base}?warm-up`, ...pages.map((p) => `--url=${server.base}${p.path}`)];
 const log = await new Promise((resolve) => {
   let out = '';

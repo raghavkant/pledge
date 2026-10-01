@@ -89,6 +89,7 @@ Choices made during a run without stopping to ask. Each is a recommendation; say
 | 2026-10-01 | Answers from the booklet's glossary (2 of the 50) say "Our Common Bond, glossary, page 42"; topic headings give only that Part's own pages. "On this page" lists now leave out those page labels (this also tidies the Part 1–3 guides). |
 | 2026-10-01 | **Booking page** (`/australia/book-citizenship-test/`, "How to Book the Australian Citizenship Test (2026)"). The honest answer first: after you apply, Home Affairs invites you by letter with the date, time and place, and you reschedule by following the letter. We say "Home Affairs doesn't describe a separate booking step", never "you can't book it yourself", because Home Affairs doesn't say that. Steps (apply in ImmiAccount → invitation → documents → appointment), waiting times (linked, never quoted), where, cost, and a line for people looking for the *book* (Our Common Bond). FAQPage data is built from the same answers the page shows. |
 | 2026-10-01 | Test day keeps one short paragraph about the letter and links the booking page, so the two pages don't compete; its "Keep reading" now leads with booking. The hub lists booking under "Your appointment". |
+| 2026-10-01 | `check:lighthouse` no longer takes Lighthouse's full-page screenshot (a picture in the report, not a scored audit). On the very long 50-questions page on a phone it made headless Chrome hang for 20 minutes, twice. With it off, that page scores 97 / 100 / 100 / 100. The limits are unchanged. |
 
 ## Decided
 
