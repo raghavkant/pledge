@@ -3,7 +3,7 @@
 Every fact about the real test that the site states must be in this file, with a Home Affairs quote, the page URL and the date it was checked. Pages link the source and show "Checked against Home Affairs on <date>".
 
 - **Checked:** 2026-10-01 (earlier checks 2026-09-25 and 2026-09-26), by downloading each page (Home Affairs blocks some automated fetchers; `curl` with a normal browser user agent works) and matching every quote below against its text; the fee form PDF's text was extracted and checked too. All quotes were still present.
-- **Re-check:** at least every 90 days, before any phase that writes about the fact, and **every 1 July** for fees (they are indexed then).
+- **Re-check:** at least every 90 days, before any phase that writes about the fact, **every 1 July** for fees (they are indexed then), and in early January before a new year goes into page titles (`check:year`).
 - Home Affairs pages show a "Last updated" date at the bottom (on 2026-10-01: `test` 30/09/2026, `conferral` 30/09/2026, `hub` 4/05/2026, `prepare` 23/02/2026, `ocb` 15/11/2024, `locator` 23/09/2024, `ptimes` 20/04/2026). The `test` page changed on 30 September 2026; every quote below was still on it word for word on 1 October 2026. We record our own check date as well; much of the `test` page's text sits in expandable sections.
 
 ## Sources

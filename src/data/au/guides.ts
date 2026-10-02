@@ -5,6 +5,7 @@ export interface GuideLink { path: string; title: string; blurb: string }
 export const GUIDES: Record<string, GuideLink> = {
   hub: { path: 'australia/', title: 'The test in plain English', blurb: 'How the test works, every guide, and the free Home Affairs resources.' },
   about: { path: 'about/', title: 'About Pledge', blurb: 'Who makes Pledge and how facts are checked.' },
+  checking: { path: 'about/how-we-check-facts/', title: 'How we check facts', blurb: 'Quoted from Home Affairs, linked and dated. What we never publish, and how to report a mistake.' },
   format: { path: 'australia/test-format/', title: 'Pass mark and format', blurb: 'The pass mark, how many questions, the time limit and the language.' },
   who: { path: 'australia/who-sits-the-test/', title: 'Who sits the test', blurb: 'Who has to sit it, who doesn’t, and who can have 90 minutes.' },
   book: { path: 'australia/book-citizenship-test/', title: 'Booking the test', blurb: 'How the appointment letter works, rescheduling, test centres and the cost.' },
