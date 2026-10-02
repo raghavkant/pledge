@@ -23,7 +23,7 @@ On-page work makes each page the most accurate answer for its search. It can't b
 2. **Search Console** (the verification tag has been live since 26 September): click **Verify** if you haven't already, then **Sitemaps** → submit `sitemap.xml`. Use **URL inspection** → **Request indexing** for the home page, `/australia/citizenship-test-questions/` and `/australia/book-citizenship-test/`. Steps: `docs/overnight-report.md`.
 3. **Bing Webmaster Tools**: "Import from Google Search Console" (5 minutes; Bing also feeds ChatGPT search).
 4. **Check `appointments.homeaffairs.gov.au`** ("Citizenship Appointment Booking"). It ranks for booking searches, but we couldn't confirm what it's for, so the site doesn't mention it. If you can see what it does (for example from an appointment letter), tell me and I'll check whether Home Affairs says it anywhere we can quote.
-5. **Domain day** is the biggest single step for the main searches. A `.com.au` tells Google the site is for Australia. auDA's rules require an Australian connection to register one (check them before choosing). Steps are in `docs/phases.md`.
+5. ~~**Domain day**~~ Done 2026-10-02: the site is at `https://pledgecitizenship.com/` (a `.com`, the owner's choice). Next: Search Console and Bing for the new domain (`docs/progress-log.md`, 2026-10-02).
 6. **Work from `~/Code`.** Since 2 October both projects live in `~/Code/pledge-website` and `~/Code/citizenship-test`, outside iCloud. The old copies (`~/pledge-work`, `~/Desktop/Developer`) are no longer used.
 
 ## Genuine links (off-site)
@@ -38,5 +38,5 @@ Only links that are honest and useful to the reader, always saying you made Pled
 ## Still open on the site
 
 - Real app screenshots in the phone frames (App Store launch step).
-- `robots.txt` (domain day; it can't be added on `github.io`).
+- ~~`robots.txt`~~ Added on domain day (2026-10-02).
 - Removing the old root rollback files (after a week of stable deploys, as decided).
