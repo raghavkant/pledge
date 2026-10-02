@@ -24,7 +24,7 @@ On-page work makes each page the most accurate answer for its search. It can't b
 3. **Bing Webmaster Tools**: "Import from Google Search Console" (5 minutes; Bing also feeds ChatGPT search).
 4. **Check `appointments.homeaffairs.gov.au`** ("Citizenship Appointment Booking"). It ranks for booking searches, but we couldn't confirm what it's for, so the site doesn't mention it. If you can see what it does (for example from an appointment letter), tell me and I'll check whether Home Affairs says it anywhere we can quote.
 5. **Domain day** is the biggest single step for the main searches. A `.com.au` tells Google the site is for Australia. auDA's rules require an Australian connection to register one (check them before choosing). Steps are in `docs/phases.md`.
-6. **Your Desktop copy is out of date.** The current work is in `~/pledge-work` (outside iCloud). `~/Desktop/Developer` is synced to iCloud again, which stalls the tools.
+6. **Work from `~/Code`.** Since 2 October both projects live in `~/Code/pledge-website` and `~/Code/citizenship-test`, outside iCloud. The old copies (`~/pledge-work`, `~/Desktop/Developer`) are no longer used.
 
 ## Genuine links (off-site)
 

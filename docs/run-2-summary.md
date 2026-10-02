@@ -1,6 +1,6 @@
 # Run 2 summary: home page and practice test (phases 5–8)
 
-> **Superseded 2026-09-26:** the paths below (`~/pledge-work`, `~/Desktop/pledge-website`) no longer exist. This repo now lives at `~/Developer/pledge-website` and the app project at `~/Developer/citizenship-test`. See `docs/decisions.md`.
+> **Superseded:** the paths below (`~/pledge-work`, `~/Desktop/pledge-website`, and later `~/Developer` and `~/Desktop/Developer`) no longer exist. Since 2026-10-02 this repo lives at `~/Code/pledge-website` and the app project at `~/Code/citizenship-test`. See `docs/decisions.md`.
 
 Finished 2026-09-26. Everything below is live at <https://raghavkant.github.io/pledge/>, deployed by GitHub Actions after every check passed. `/privacy/`, `/terms/` and `/support/` returned 200 after every deploy, with their text unchanged.
 

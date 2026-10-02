@@ -109,14 +109,14 @@ export function textOf(html) {
 }
 
 /**
- * The app project (read-only, docs/rules.md rule 14): PLEDGE_APP_DIR, else the first of ~/Developer/citizenship-test
- * and ~/Desktop/Developer/citizenship-test that exists. Returns null only in CI, where the app project isn't
+ * The app project (read-only, docs/rules.md rule 14): PLEDGE_APP_DIR, else ~/Code/citizenship-test (both projects
+ * live in ~/Code, outside iCloud). Returns null only in CI, where the app project isn't
  * available; on this Mac a missing app project fails loudly, so a check can never pass by silently skipping.
  */
 export function appDir() {
   const tries = process.env.PLEDGE_APP_DIR
     ? [process.env.PLEDGE_APP_DIR]
-    : [join(homedir(), 'Developer', 'citizenship-test'), join(homedir(), 'Desktop', 'Developer', 'citizenship-test')];
+    : [join(homedir(), 'Code', 'citizenship-test')];
   const found = tries.find((d) => existsSync(join(d, 'content', 'au', 'questions.json')));
   if (found) return found;
   if (process.env.CI) return null;
