@@ -51,4 +51,4 @@ Research, target map and decisions: `docs/seo-sprint.md`; summary and the owner'
 
 ## Later
 
-Citizenship Pledge page (wording checked on legislation.gov.au first), more free practice sets, removing the old root rollback files, UK and other countries.
+Citizenship Pledge page (wording checked on legislation.gov.au first), more free practice sets, removing the old root rollback files, remove the github.io redirect check once the app ships with pledgecitizenship.com links, UK and other countries.
