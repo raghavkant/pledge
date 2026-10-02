@@ -1,6 +1,6 @@
 # Phases
 
-**Current:** SEO sprint (phases 15–20) finished 2026-10-02; Phases 17–20 wait for the owner's go-ahead to merge into `main` (that deploys). Then waiting for the owner: Search Console and Bing, domain day, App Store launch (to-do list in `docs/seo-sprint-report.md`). See `docs/progress-log.md` for the latest step.
+**Current:** SEO sprint (phases 15–20) finished 2026-10-02; Phases 17–20 wait for the owner's go-ahead to merge into `main` (that deploys). Domain day done 2026-10-02. Then waiting for the owner: Search Console and Bing for the new domain, the app project's URL changes, App Store launch (to-do list in `docs/seo-sprint-report.md`). See `docs/progress-log.md` for the latest step.
 
 The owner prefers **fewer, longer runs** (2026-09-25). Each phase inside a run still gets its own branch (`phase-N-name`) and one commit, merged into `main` and pushed only when `npm run check:full` passes, with a line in `docs/progress-log.md`. Inside a run, don't stop to ask: pick the recommendation and log it under "Decisions for Raghav to review" in `docs/decisions.md`. The only reason to stop early is a legal URL (`/privacy/`, `/terms/`, `/support/`) not returning 200: roll back, then stop and report.
 
@@ -45,7 +45,7 @@ Research, target map and decisions: `docs/seo-sprint.md`; summary and the owner'
 
 ## Separate small steps
 
-- [ ] **Domain day** (when the owner's `.app` domain arrives). Rehearse the redirect and certificate timing on the throwaway repo first. Verify the domain on GitHub, set DNS, change `DEPLOY_URL` in `site.config.mjs`, set the custom domain in Pages, enforce HTTPS, check the 301s from `github.io/pledge/*`. Add `robots.txt` allowing all crawlers (including GPTBot) with the sitemap. Then the owner updates the app project (`docs/app-project-changes.md`).
+- [x] **Domain day** (2026-10-02): `https://pledgecitizenship.com/` (Hostinger DNS, verified on GitHub, HTTPS enforced); every `github.io/pledge/*` URL 301s to the same path; `robots.txt` allows all crawlers with the sitemap. Not rehearsed (owner's decision). Still for the owner: Search Console and Bing for the new domain, and the app project changes (`docs/app-project-changes.md`).
 - [ ] **App Store pre-order** (once the app passes review): Apple's "Pre-order on the App Store" badge.
 - [ ] **App Store launch:** "Download on the App Store" badge, Smart App Banner, `MobileApplication` structured data, real screenshots in the phone slots.
 
