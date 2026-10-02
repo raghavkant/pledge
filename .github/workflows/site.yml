@@ -2,6 +2,9 @@
 # Deploys to GitHub Pages from main only, and only once Pages uses GitHub Actions
 # (repo variable PAGES_ACTIONS=true), or when started by hand.
 # After every deploy it checks that the legal pages still return 200 (docs/rules.md, rule 1).
+# It also checks that the old github.io legal links (the ones the app ships with) redirect to the
+# same paths on the new domain and end on a 200. Remove that part once the app's live build uses
+# the new links (docs/phases.md, "Later").
 name: Site
 
 on:
@@ -63,6 +66,7 @@ jobs:
       - name: Legal pages return 200
         run: |
           base=$(node -e "import('./site.config.mjs').then(m => console.log(m.DEPLOY_URL))")
+          old=https://raghavkant.github.io/pledge/
           fail=0
           for p in "" privacy/ terms/ support/; do
             code=000
@@ -72,5 +76,15 @@ jobs:
               sleep 10
             done
             [ "$code" = 200 ] || { echo "::error::${base}${p} returned ${code}"; fail=1; }
+          done
+          # Old github.io legal links: at least one redirect, ending on the same path on the new domain with a 200
+          for p in privacy/ terms/ support/; do
+            ok=0
+            for try in 1 2 3 4 5 6; do
+              read -r code hops end <<< "$(curl -s -o /dev/null -w "%{http_code} %{num_redirects} %{url_effective}" -L "${old}${p}?check=${GITHUB_RUN_ID}")"
+              [ "$code" = 200 ] && [ "$hops" -ge 1 ] && [ "${end%%\?*}" = "${base}${p}" ] && { ok=1; break; }
+              sleep 10
+            done
+            [ $ok = 1 ] || { echo "::error::${old}${p} should redirect to ${base}${p} and return 200; got ${code} after ${hops} redirect(s) at ${end}"; fail=1; }
           done
           exit $fail
