@@ -7,23 +7,24 @@ import stats from '../../data/au/app-stats.json';
 ---
 <Guide
   title="About Pledge: Who Makes It and How Facts Are Checked"
-  description="An independent study app by one developer. How facts are checked and dated. Not affiliated with the Australian Government."
+  description="An independent study app by an independent developer and student. How facts are checked and dated. Not affiliated with the Australian Government."
   path="about/"
   h1="About Pledge"
-  answer="Pledge is an independent iPhone app for the Australian citizenship test, made by one developer, Raghav Kant. It is not affiliated with or endorsed by the Australian Government. Every fact on this site about the real test is quoted from Home Affairs, with the date it was checked."
+  answer="Pledge is an independent iPhone app for the Australian citizenship test, made by Raghav Kant, an independent developer and student. It is not affiliated with or endorsed by the Australian Government. Every fact on this site about the real test is quoted from Home Affairs, with the date it was checked."
   sources={['test', 'prepare', 'booklet']}
   related={[GUIDES.checking, PRACTICE, GUIDES.faq]}
   schema={[{
     '@context': 'https://schema.org', '@type': 'Person', '@id': absoluteUrl('about/') + '#author',
     name: 'Raghav Kant', url: absoluteUrl('about/') + '#author', email: 'mailto:pledge.citizenship.help@gmail.com',
-    sameAs: ['https://github.com/raghavkant'], knowsAbout: ['Australian citizenship test', 'Australian Citizenship: Our Common Bond'],
+    description: 'Independent developer and student. Not a migration agent, lawyer or government official.',
+    sameAs: ['https://github.com/raghavkant'],
   }]}
 >
   <h2 id="who">Who makes Pledge</h2>
-  <p>Pledge is made by Raghav Kant, an individual developer. The app has no advertising. You can write to <a href="mailto:pledge.citizenship.help@gmail.com">pledge.citizenship.help@gmail.com</a>.</p>
+  <p>Pledge is made by Raghav Kant, an independent developer and student. The app has no advertising. You can write to <a href="mailto:pledge.citizenship.help@gmail.com">pledge.citizenship.help@gmail.com</a>.</p>
 
   <h2 id="author">About the author</h2>
-  <p>Raghav Kant writes the guides and the practice questions on this website and builds the Pledge app. Every guide carries Raghav’s name and the date its facts were last checked against Home Affairs, and lists its sources.</p>
+  <p>Raghav Kant is an independent developer and student who writes the guides on this website from the booklet <em>Our Common Bond</em> and Home Affairs sources, and builds the Pledge app. Raghav is not a migration agent, a lawyer or a government official. Every guide carries Raghav’s name, the date its facts were last checked against Home Affairs, and its sources.</p>
   <ul>
     <li>The rules about the test are quoted word for word from Home Affairs; the practice questions are written from <em>Our Common Bond</em>, each with its booklet page.</li>
     <li>The process is set out in <a href={url('about/how-we-check-facts/')}>how we check facts</a>, and every fact is listed with its source and check date in a <a href="https://github.com/raghavkant/pledge/blob/main/docs/facts.md">public facts register</a>.</li>
