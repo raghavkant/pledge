@@ -1,6 +1,6 @@
 # Phases
 
-**Current:** Run 3 (phases 9–14) finished 2026-09-26. Waiting for the owner: Search Console and Bing (steps in `docs/overnight-report.md`), domain day, App Store launch. See `docs/progress-log.md` for the latest step.
+**Current:** SEO sprint (phases 15–20) finished 2026-10-02; Phases 17–20 wait for the owner's go-ahead to merge into `main` (that deploys). Then waiting for the owner: Search Console and Bing, domain day, App Store launch (to-do list in `docs/seo-sprint-report.md`). See `docs/progress-log.md` for the latest step.
 
 The owner prefers **fewer, longer runs** (2026-09-25). Each phase inside a run still gets its own branch (`phase-N-name`) and one commit, merged into `main` and pushed only when `npm run check:full` passes, with a line in `docs/progress-log.md`. Inside a run, don't stop to ask: pick the recommendation and log it under "Decisions for Raghav to review" in `docs/decisions.md`. The only reason to stop early is a legal URL (`/privacy/`, `/terms/`, `/support/`) not returning 200: roll back, then stop and report.
 
@@ -31,6 +31,17 @@ Every phase ends with something the owner can open, and with screenshots reviewe
 - [x] **Phase 12.** Values questions page with the free values drill.
 - [x] **Phase 13.** `/australia/` hub (with the Home Affairs statement and free resources), About page, structured data, sitemap, Open Graph images, internal linking.
 - [x] **Phase 14.** Full audit; the owner sets up Search Console and Bing.
+
+## SEO sprint (phases 15–20, October 2026)
+
+Research, target map and decisions: `docs/seo-sprint.md`; summary and the owner's to-do list: `docs/seo-sprint-report.md`.
+
+- [x] **Phase 15.** Research: Australian results pages, why #3 ranks, one main search per page; facts re-checked.
+- [x] **Phase 16.** The free practice test in the home page hero; `/australia/practice-test/` redirects there.
+- [x] **Phase 17.** `/australia/citizenship-test-questions/`: 50 free-tier practice questions and a printable PDF.
+- [x] **Phase 18.** `/australia/book-citizenship-test/`.
+- [x] **Phase 19.** Long-tail pages answer-first, `/australia/is-the-citizenship-test-hard/`, 2026 titles, the January check.
+- [x] **Phase 20.** Trust: `/about/how-we-check-facts/`, author byline, practice-test box on guides, share images.
 
 ## Separate small steps
 
