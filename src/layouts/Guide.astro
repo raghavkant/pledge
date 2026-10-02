@@ -5,7 +5,7 @@
 import Base from './Base.astro';
 import { url, absoluteUrl } from '../lib/url';
 import { CHECKED, SOURCES } from '../data/au/facts';
-import type { GuideLink } from '../data/au/guides';
+import { PRACTICE, type GuideLink } from '../data/au/guides';
 
 type SourceKey = keyof typeof SOURCES;
 const SOURCE_NAMES: Record<SourceKey, string> = {
@@ -36,19 +36,23 @@ interface Props {
   faq?: { q: string; a: string }[];
   /** More structured data for this page (for example a Quiz), added to the Article and breadcrumbs. */
   schema?: object[];
+  /** The date the page was first published (ISO), for structured data. */
+  published?: string;
 }
-const { title, description, path, h1, answer, sources, related = [], kind = 'rules', faq, schema: extra = [] } = Astro.props;
+const { title, description, path, h1, answer, sources, related = [], kind = 'rules', faq, schema: extra = [], published = '2026-09-26' } = Astro.props;
+const isAbout = path.startsWith('about/');
 
 // Structured data: the guide as an Article, its place in the site as a breadcrumb trail, and (FAQ page) FAQPage.
-const author = { '@type': 'Person', name: 'Raghav Kant', url: absoluteUrl('about/') };
-const crumbs = [{ name: 'Pledge', path: '' }, { name: 'Australian citizenship test', path: 'australia/' }];
+const author = { '@type': 'Person', name: 'Raghav Kant', url: absoluteUrl('about/') + '#author' };
+const crumbs = isAbout
+  ? [{ name: 'Pledge', path: '' }, { name: 'About Pledge', path: 'about/' }]
+  : [{ name: 'Pledge', path: '' }, { name: 'Australian citizenship test', path: 'australia/' }];
 if (path.startsWith('australia/our-common-bond/part-')) crumbs.push({ name: 'Our Common Bond', path: 'australia/our-common-bond/' });
 if (path !== 'australia/' && path !== 'about/') crumbs.push({ name: h1, path });
-if (path === 'about/') crumbs.splice(1, 1, { name: 'About Pledge', path });
 const schema: object[] = [
   {
     '@context': 'https://schema.org', '@type': 'Article', headline: h1, description, inLanguage: 'en-AU',
-    datePublished: '2026-09-26', dateModified: CHECKED.iso, author, publisher: author,
+    datePublished: published, dateModified: CHECKED.iso, author, publisher: author,
     mainEntityOfPage: absoluteUrl(path), image: absoluteUrl(`og/${path.replace(/\/$/, '').replace(/[/.]/g, '-')}.jpg`),
   },
   {
@@ -73,9 +77,9 @@ const toc = [...body.matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m
         <h1>{h1}</h1>
         <p class="guide-answer">{answer}</p>
         {kind === 'booklet' ? (
-          <p class="lead-in">Summarised from <em>Australian Citizenship: Our Common Bond</em> (Home Affairs, CC BY 4.0), downloaded <time datetime={CHECKED.iso}>{CHECKED.label}</time>. General information, not migration advice.</p>
+          <p class="lead-in">By <a href={url('about/') + '#author'}>Raghav Kant</a>. Summarised from <em>Australian Citizenship: Our Common Bond</em> (Home Affairs, CC BY 4.0), downloaded <time datetime={CHECKED.iso}>{CHECKED.label}</time>. General information, not migration advice.</p>
         ) : (
-          <p class="lead-in">Checked against Home Affairs on <time datetime={CHECKED.iso}>{CHECKED.label}</time>. General information, not migration advice.</p>
+          <p class="lead-in">By <a href={url('about/') + '#author'}>Raghav Kant</a>. Checked against Home Affairs on <time datetime={CHECKED.iso}>{CHECKED.label}</time>. General information, not migration advice.</p>
         )}
       </div>
     </header>
@@ -89,11 +93,20 @@ const toc = [...body.matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m
         )}
         <p class="side-note">{kind === 'booklet'
           ? 'Page numbers are the printed pages of Our Common Bond.'
-          : <Fragment>Every fact here is quoted from Home Affairs and was checked on <time datetime={CHECKED.iso}>{CHECKED.label}</time>.</Fragment>}</p>
+          : 'Every fact about the test is quoted from Home Affairs.'}
+          <span class="side-checked">Last checked: <time datetime={CHECKED.iso}>{CHECKED.label}</time></span>
+          {path !== 'about/how-we-check-facts/' && <a href={url('about/how-we-check-facts/')}>How we check facts</a>}</p>
       </aside>
       <article class="prose">
         <Fragment set:html={body} />
         <slot name="tool" />
+        {!isAbout && (
+          <aside class="practice-cta" aria-labelledby="practice-cta-title">
+            <p id="practice-cta-title" class="practice-cta-title">Test yourself for free</p>
+            <p>{PRACTICE.blurb} No sign-up.</p>
+            <a class="btn btn-primary" href={url(PRACTICE.path)}>Take the free practice test</a>
+          </aside>
+        )}
         <h2 id="sources">Sources</h2>
         <ul class="sources">
           {sources.map((k) => <li><a href={SOURCES[k]}>{SOURCE_NAMES[k]}</a></li>)}
@@ -119,6 +132,16 @@ const toc = [...body.matchAll(/<h2 id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map((m
   .guide-answer { max-width: 38rem; margin: 1.3rem 0 0; color: var(--on-night); font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.5rem); line-height: 1.5; font-weight: 600; text-wrap: pretty; }
   .guide .lead-in { font-size: 0.9375rem; }
   .guide-side .side-note { margin: 1.6rem 0 0; padding-top: 1rem; border-top: 1px solid var(--hairline); color: var(--muted); font-size: 0.875rem; line-height: 1.5; }
+  .guide-side .side-note > * { display: block; margin-top: 0.5rem; }
+  .guide-side .side-checked { color: var(--ink); font-weight: 700; }
+  .guide-side .side-note a { color: var(--accent); font-weight: 600; }
+  .guide .lead-in a { color: var(--on-night); }
+  .prose .practice-cta { margin: 2.6em 0 0; padding: 1.4rem 1.6rem 1.6rem; border-radius: var(--radius-m); color: var(--on-night-soft); background: linear-gradient(160deg, var(--night-0), var(--night-mid)); }
+  .prose .practice-cta p { margin: 0 0 0.9rem; }
+  .prose .practice-cta .practice-cta-title { margin-bottom: 0.3rem; color: var(--on-night); font-family: var(--font-display); font-size: 1.4rem; line-height: 1.2; }
+  .prose .practice-cta .btn { background: var(--gold); color: var(--night-0); text-decoration: none; }
+  .prose .practice-cta :focus-visible { outline-color: var(--gold); }
+  @media print { .prose .practice-cta { display: none; } }
   .prose blockquote { margin: 1.4em 0; padding: 0.2em 0 0.2em 1.2em; border-left: 3px solid var(--gold-1); color: var(--ink); }
   .prose blockquote p { margin: 0.4em 0; }
   .prose blockquote cite { display: block; margin-top: 0.4em; color: var(--muted); font-size: 0.9375rem; font-style: normal; }

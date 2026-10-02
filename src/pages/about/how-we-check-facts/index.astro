@@ -1,0 +1,56 @@
+---
+// Editorial policy: how facts are checked (SEO sprint, trust). Describes the process in docs/rules.md (rules 5, 6, 8,
+// 10) and docs/facts.md in plain words. Claims about the process only; nothing about the owner beyond the public
+// About page.
+import Guide from '../../../layouts/Guide.astro';
+import { url } from '../../../lib/url';
+import { CHECKED, SOURCES } from '../../../data/au/facts';
+import { GUIDES, PRACTICE } from '../../../data/au/guides';
+
+const REGISTER = 'https://github.com/raghavkant/pledge/blob/main/docs/facts.md';
+---
+<Guide
+  title="How Pledge Checks Facts: Our Editorial Policy"
+  description="Every rule about the real test is quoted from Home Affairs, linked and dated. What we check, how often, what we never publish, and how to report a mistake."
+  path="about/how-we-check-facts/"
+  h1="How we check facts"
+  answer="Every rule about the real test on this site is quoted word for word from a Home Affairs page, linked, and dated. If we can’t confirm something on a Home Affairs page, we don’t say it."
+  sources={['test', 'prepare', 'conferral', 'booklet']}
+  related={[GUIDES.about, GUIDES.format, PRACTICE]}
+  published="2026-10-02"
+>
+  <h2 id="where-facts-come-from">Where the facts come from</h2>
+  <p>Facts about the real test (the number of questions, the pass mark, the time, the values rule, booking, fees, who sits it and so on) come only from Home Affairs:</p>
+  <ul>
+    <li>its pages about the <a href={SOURCES.test}>citizenship test</a>, <a href={SOURCES.prepare}>preparing for the test</a> and <a href={SOURCES.conferral}>citizenship by conferral</a>, and its fee form,</li>
+    <li>the booklet <a href={SOURCES.booklet}><em>Australian Citizenship: Our Common Bond</em></a>, which every test question is based on.</li>
+  </ul>
+  <p>We don’t use news stories, forums, other study websites or our own app’s text as a source for a rule.</p>
+
+  <h2 id="how-we-check">How we check them</h2>
+  <ol>
+    <li>We download each Home Affairs page and match every quote we use against its text, word for word.</li>
+    <li>We record each fact with its quote, the page address and the date we checked it, in a public <a href={REGISTER}>facts register</a>.</li>
+    <li>Every guide shows the date: “Checked against Home Affairs on <time datetime={CHECKED.iso}>{CHECKED.label}</time>”, and lists its sources.</li>
+    <li>We check again at least every 90 days, before writing anything new about a fact, every 1 July (when fees change) and every January (before a new year goes in our page titles).</li>
+  </ol>
+
+  <h2 id="what-we-dont-publish">What we don’t publish</h2>
+  <ul>
+    <li><strong>Anything Home Affairs doesn’t say.</strong> For example, we don’t quote pass rates or waiting times, because they aren’t on the test pages or they change every month. We link the Home Affairs page instead.</li>
+    <li><strong>Promises.</strong> No one can promise you a pass, and we don’t.</li>
+    <li><strong>Real test questions.</strong> Our practice questions are Pledge’s own, written from the booklet. They are not questions from the real test.</li>
+    <li><strong>Fake trust signals.</strong> No made-up reviews, ratings, user numbers, testimonials or press logos.</li>
+    <li><strong>Anything that looks official.</strong> Pledge is independent and not affiliated with or endorsed by the Australian Government, and the site doesn’t look like a government site.</li>
+    <li><strong>Migration advice.</strong> This is general information. For your own situation, contact Home Affairs or a registered migration agent.</li>
+  </ul>
+
+  <h2 id="practice-questions">Our practice questions</h2>
+  <p>Each practice question is written from <em>Our Common Bond</em> and shows the booklet page its answer comes from. This website has Pledge’s free questions only: Part 1 and 20 Australian values questions. See the <a href={url(PRACTICE.path)}>free practice test</a> and the <a href={url(GUIDES.questions.path)}>50 practice questions</a>.</p>
+
+  <h2 id="independence">Independence</h2>
+  <p>Pledge is an independent study app made by Raghav Kant. The site has no advertising, affiliate links or sponsored content, and no tracking. Home Affairs says: “The Department does not endorse or recommend any external courses that claim to help you prepare for the citizenship test, including paid external apps.” Its free resources are listed in our <a href={url('australia/') + '#free-resources'}>guide to the test</a>.</p>
+
+  <h2 id="corrections">Report a mistake</h2>
+  <p>If you think something here is wrong or out of date, write to <a href="mailto:pledge.citizenship.help@gmail.com">pledge.citizenship.help@gmail.com</a> and tell us the page. We check it against Home Affairs and correct the page, with a new date.</p>
+</Guide>

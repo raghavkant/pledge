@@ -1,6 +1,6 @@
 ---
 import Guide from '../../layouts/Guide.astro';
-import { url } from '../../lib/url';
+import { url, absoluteUrl } from '../../lib/url';
 import { CHECKED, SOURCES } from '../../data/au/facts';
 import { GUIDES, PRACTICE } from '../../data/au/guides';
 import stats from '../../data/au/app-stats.json';
@@ -12,15 +12,30 @@ import stats from '../../data/au/app-stats.json';
   h1="About Pledge"
   answer="Pledge is an independent iPhone app for the Australian citizenship test, made by one developer, Raghav Kant. It is not affiliated with or endorsed by the Australian Government. Every fact on this site about the real test is quoted from Home Affairs, with the date it was checked."
   sources={['test', 'prepare', 'booklet']}
-  related={[GUIDES.faq, PRACTICE, GUIDES.ocb]}
+  related={[GUIDES.checking, PRACTICE, GUIDES.faq]}
+  schema={[{
+    '@context': 'https://schema.org', '@type': 'Person', '@id': absoluteUrl('about/') + '#author',
+    name: 'Raghav Kant', url: absoluteUrl('about/') + '#author', email: 'mailto:pledge.citizenship.help@gmail.com',
+    sameAs: ['https://github.com/raghavkant'], knowsAbout: ['Australian citizenship test', 'Australian Citizenship: Our Common Bond'],
+  }]}
 >
   <h2 id="who">Who makes Pledge</h2>
   <p>Pledge is made by Raghav Kant, an individual developer. The app has no advertising. You can write to <a href="mailto:pledge.citizenship.help@gmail.com">pledge.citizenship.help@gmail.com</a>.</p>
+
+  <h2 id="author">About the author</h2>
+  <p>Raghav Kant writes the guides and the practice questions on this website and builds the Pledge app. Every guide carries Raghav’s name and the date its facts were last checked against Home Affairs, and lists its sources.</p>
+  <ul>
+    <li>The rules about the test are quoted word for word from Home Affairs; the practice questions are written from <em>Our Common Bond</em>, each with its booklet page.</li>
+    <li>The process is set out in <a href={url('about/how-we-check-facts/')}>how we check facts</a>, and every fact is listed with its source and check date in a <a href="https://github.com/raghavkant/pledge/blob/main/docs/facts.md">public facts register</a>.</li>
+    <li>Found a mistake? Write to <a href="mailto:pledge.citizenship.help@gmail.com">pledge.citizenship.help@gmail.com</a>.</li>
+  </ul>
+  <p>This website gives general information, not migration advice.</p>
 
   <h2 id="not-government">Not a government service</h2>
   <p>Pledge is an independent study app. It is not affiliated with or endorsed by the Australian Government. Home Affairs says: “The Department does not endorse or recommend any external courses that claim to help you prepare for the citizenship test, including paid external apps.” Its own free resources, including the booklet and the practice test, are listed in our <a href={url('australia/') + '#free-resources'}>guide to the test</a>.</p>
 
   <h2 id="how-facts-are-checked">How facts are checked</h2>
+  <p>In short (the full policy is on <a href={url('about/how-we-check-facts/')}>how we check facts</a>):</p>
   <ul>
     <li>Every rule about the real test (the number of questions, the pass mark, the time, the values rule, booking, fees and so on) is quoted from a Home Affairs page, and the page is linked.</li>
     <li>Each guide shows the date the facts were last checked against Home Affairs. The latest check was <time datetime={CHECKED.iso}>{CHECKED.label}</time>.</li>
