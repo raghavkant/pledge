@@ -3,7 +3,7 @@
 ## 1. What this site is
 
 - The public website for **Pledge** (App Store name "Pledge: Citizenship Test AU"), an iPhone app for the Australian citizenship test. The app is not on the App Store yet.
-- Hosted free on GitHub Pages from this public repo. Today: `https://raghavkant.github.io/pledge/`. Later: a custom `.app` domain (see "Domain day" in `docs/phases.md`).
+- Hosted free on GitHub Pages from this public repo. Address: `https://pledgecitizenship.com/` since domain day (2026-10-02); the old `https://raghavkant.github.io/pledge/` links redirect there.
 - Later it will also cover other countries (UK, Canada and so on) under their own folders.
 
 ## 2. Goals
