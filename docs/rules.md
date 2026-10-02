@@ -11,7 +11,7 @@
    2. **If that isn't enough, switch Pages back to the branch** (the old root files on `main` are the rollback copies). Switching alone does **not** publish anything; the rehearsal on 2026-09-25 showed you must also request a build:
       - `gh api -X PUT repos/raghavkant/pledge/pages -f build_type=legacy -f "source[branch]=main" -f "source[path]=/"`
       - `gh api -X POST repos/raghavkant/pledge/pages/builds`
-      - wait about 60 seconds, then check the four URLs.
+      - wait about 60 seconds, then check the four URLs (home and the three legal pages) on `https://pledgecitizenship.com/` and the old `https://raghavkant.github.io/pledge/` links (they should redirect). The root `CNAME` file keeps the custom domain in branch mode.
    3. To go back to Actions later: `gh api -X PUT repos/raghavkant/pledge/pages -f build_type=workflow`, then `gh workflow run site.yml --ref main`.
 
 ## Content and honesty
