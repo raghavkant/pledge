@@ -71,25 +71,25 @@ What it gets wrong, and where we can be better:
 
 ## Page and search map
 
-One main search per page. "Also" searches are close variants the same page should satisfy; no other page targets them.
+One main search per page. Titles are as shipped (updated 2 October 2026). "Also" searches are close variants the same page should satisfy; no other page targets them.
 
 | Page | Main search | Also | Title (≤ 60) |
 |---|---|---|---|
 | `/` (home, with the working test) | australian citizenship test practice | australia citizenship test practice, citizenship test practice, free australian citizenship test, australian citizenship test free, australian citizenship test 2026, … practice free, … online | Free Australian Citizenship Practice Test 2026 \| Pledge |
 | `/australia/practice-test/` | none: redirects to the home page's test | | |
 | `/australia/` (hub) | australian citizenship test | how does the test work, what is the test | The Australian Citizenship Test, Explained in Plain English |
-| `/australia/citizenship-test-questions/` (new) | australian citizenship test questions | … questions pdf, … 50 questions, … questions and answers, … sample questions | 50 Citizenship Test Practice Questions and Answers (2026) |
+| `/australia/citizenship-test-questions/` (new) | australian citizenship test questions | … questions pdf, … 50 questions, … questions and answers, … sample questions | Australian Citizenship Test: 50 Practice Questions (2026) |
 | `/australia/book-citizenship-test/` (new) | book citizenship test australia | how to book, appointment, reschedule, where do I take it, waiting time | How to Book the Australian Citizenship Test (2026) |
 | `/australia/our-common-bond/` | citizenship test australia book (the booklet) | our common bond, … book pdf, booklet | Our Common Bond: The Citizenship Test Book (Free PDF) |
 | `/australia/test-format/` | australian citizenship test pass mark | how many questions, format, how long, minimum score, language, online | Australian Citizenship Test Pass Mark and Format (2026) |
-| `/australia/is-the-citizenship-test-hard/` (new) | is the australian citizenship test hard | how hard, difficulty, how to prepare, tips, how to pass first time | Is the Australian Citizenship Test Hard? (2026) |
-| `/australia/failed-citizenship-test/` | fail australian citizenship test 3 times | how many attempts, can you retake, what happens if you fail | Failed the Citizenship Test? Attempts and the 3-Appointment Rule |
+| `/australia/is-the-citizenship-test-hard/` (new) | is the australian citizenship test hard | how hard, difficulty, how to prepare, tips, how to pass first time | Is the Australian Citizenship Test Hard? An Honest Answer |
+| `/australia/failed-citizenship-test/` | fail australian citizenship test 3 times | how many attempts, can you retake, what happens if you fail | Failed the Citizenship Test? How Many Attempts You Get |
 | `/australia/test-day/` | what to bring to citizenship test | what to expect, at the appointment, rules | What to Bring to the Australian Citizenship Test (2026) |
 | `/australia/values-questions/` | australian values questions | part 4, values test practice, value questions | Australian Values Questions: Part 4 Practice (2026) |
 | `/australia/who-sits-the-test/` | australian citizenship test age limit | exemption, after 60, under 18, medical exemption | Who Has to Sit the Australian Citizenship Test? |
 | `/australia/faq/` | australian citizenship test cost | fee, how much, is the test free, result | Australian Citizenship Test FAQ: Fees, Results, Attempts |
 | `/australia/our-common-bond/part-1/` … `part-3/` | australian citizenship test part 1 / 2 / 3 | our common bond part N | (unchanged) |
-| `/about/`, `/about/how-we-check-facts/` (new) | none (trust pages) | | |
+| `/about/`, `/about/how-we-check-facts/` (new) | none (trust pages) | | About Pledge: Who Makes It and How Facts Are Checked; How Pledge Checks Facts: Our Editorial Policy |
 
 Two overlaps resolved:
 
