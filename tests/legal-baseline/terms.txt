@@ -1,7 +1,7 @@
 Terms of Use
 Last updated: 25 September 2026
 1. About these terms
-These terms are an agreement between you and Raghav Kant, the individual developer of Pledge (“I” or “me”). By downloading or using the app you agree to them. If you don’t agree, please don’t use the app.
+These terms are an agreement between you and the independent developer of Pledge, based in India (“I” or “me”). By downloading or using the app you agree to them. If you don’t agree, please don’t use the app.
 2. Apple’s standard terms also apply
 Pledge is licensed to you through Apple’s App Store. Apple’s Licensed Application End User License Agreement [link: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/] also applies. I, not Apple, am responsible for the app and its content. Apple has no obligation to provide support for the app.
 3. What Pledge is
@@ -12,7 +12,7 @@ For official information about citizenship and the test, see the Australian Gove
 Pledge helps you practise, but I cannot promise that you will pass the citizenship test. Practice readiness is worked out only from your own practice results and does not predict your result in the real test. The real test and the booklet can change; the app shows the date its content was last checked against the booklet.
 5. Content and licence
 Pledge contains material from Australian Citizenship: Our Common Bond, © Commonwealth of Australia, licensed under CC BY 4.0 [link: https://creativecommons.org/licenses/by/4.0/].
-Everything else in the app, including the questions, explanations, lessons, flashcards, illustrations and design, is © 2026 Raghav Kant. You may use the app for your own personal study. Please don’t copy, sell or republish its content.
+Everything else in the app, including the questions, explanations, lessons, flashcards, illustrations and design, is © 2026 the developer of Pledge. You may use the app for your own personal study. Please don’t copy, sell or republish its content.
 6. Pledge Premium
 Some features are free. Pledge Premium unlocks the rest, as shown in the app before you buy.
 Plans. Premium is an auto-renewing subscription (weekly or monthly), bought through your Apple ID. The price, in your local currency, is shown in the app before you buy.

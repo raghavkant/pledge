@@ -46,5 +46,5 @@
 ## Working with the owner
 
 21. The owner is a beginner: explain what you are doing and why, in plain words.
-22. For anything bigger than a small fix, show a plan first and wait for OK (unless the owner has said to run a set of phases without stopping; then log choices under "Decisions for Raghav to review" in `docs/decisions.md`).
+22. For anything bigger than a small fix, show a plan first and wait for OK (unless the owner has said to run a set of phases without stopping; then log choices under "Decisions for the owner to review" in `docs/decisions.md`).
 23. Record every important decision in `docs/decisions.md` (date + one line).

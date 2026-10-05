@@ -2,7 +2,7 @@
 
 **Current:** SEO sprint (phases 15–20) finished and published 2026-10-02. Domain day done 2026-10-02. Then waiting for the owner: Search Console and Bing for the new domain, the app project's URL changes, App Store launch (to-do list in `docs/seo-sprint-report.md`). See `docs/progress-log.md` for the latest step.
 
-The owner prefers **fewer, longer runs** (2026-09-25). Each phase inside a run still gets its own branch (`phase-N-name`) and one commit, merged into `main` and pushed only when `npm run check:full` passes, with a line in `docs/progress-log.md`. Inside a run, don't stop to ask: pick the recommendation and log it under "Decisions for Raghav to review" in `docs/decisions.md`. The only reason to stop early is a legal URL (`/privacy/`, `/terms/`, `/support/`) not returning 200: roll back, then stop and report.
+The owner prefers **fewer, longer runs** (2026-09-25). Each phase inside a run still gets its own branch (`phase-N-name`) and one commit, merged into `main` and pushed only when `npm run check:full` passes, with a line in `docs/progress-log.md`. Inside a run, don't stop to ask: pick the recommendation and log it under "Decisions for the owner to review" in `docs/decisions.md`. The only reason to stop early is a legal URL (`/privacy/`, `/terms/`, `/support/`) not returning 200: roll back, then stop and report.
 
 Every phase ends with something the owner can open, and with screenshots reviewed at 390×844, 1280×800, 1440×900 and 1920×1080, light and dark.
 
