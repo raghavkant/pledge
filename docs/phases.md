@@ -46,8 +46,9 @@ Research, target map and decisions: `docs/seo-sprint.md`; summary and the owner'
 ## Separate small steps
 
 - [x] **Domain day** (2026-10-02): `https://pledgecitizenship.com/` (Hostinger DNS, verified on GitHub, HTTPS enforced); every `github.io/pledge/*` URL 301s to the same path; `robots.txt` allows all crawlers with the sitemap. Not rehearsed (owner's decision). Still for the owner: Search Console and Bing for the new domain, and the app project changes (`docs/app-project-changes.md`).
+- [x] **Real screenshots in the phone slots** (2026-10-05): the 4 named slots (`mock-test`, `lesson`, `question`, `mock-result`) now hold real App Store screenshots from the app project, rendered through Astro's image pipeline (AVIF/WebP, 1x/2x, no layout shift). Only `lesson`, `question` and `mock-result` are shown on the home page today.
 - [ ] **App Store pre-order** (once the app passes review): Apple's "Pre-order on the App Store" badge.
-- [ ] **App Store launch:** "Download on the App Store" badge, Smart App Banner, `MobileApplication` structured data, real screenshots in the phone slots.
+- [ ] **App Store launch:** "Download on the App Store" badge, Smart App Banner, `MobileApplication` structured data.
 
 ## Later
 

@@ -2,8 +2,14 @@
 // A neutral phone frame drawn in CSS (no Apple device image), holding named screen slots.
 // Pass one screen, or several to stack them as layers (the scroll story swaps between them).
 // Space is reserved with aspect-ratio, so nothing shifts. See src/assets/screens/.
+// Real screenshots render through Astro's image pipeline: AVIF + WebP, 1x/2x (densities), sized to
+// the frame's largest on-page width (320 CSS px, docs/design.md §6) rather than the full 1320px source.
+import { Picture } from 'astro:assets';
 import { screens, type ScreenSlot } from '../../assets/screens';
 import brand from '../../lib/brand-paths.json';
+
+// Largest rendered width across breakpoints (see .phone/.story-phone/.stage-phone in index.astro).
+const FRAME_WIDTH = 320;
 
 interface Props { screen: ScreenSlot | ScreenSlot[]; class?: string; eager?: boolean }
 const { screen, class: className, eager = false } = Astro.props;
@@ -15,11 +21,23 @@ const layered = list.length > 1;
     <div class="phone-screen">
       {list.map((name, i) => {
         const slot = screens[name];
-        const layer = layered ? { 'data-layer': name, class: i === 0 ? 'is-active' : undefined } : {};
+        const isFirst = i === 0;
+        // In a layered stack only the first (visible) layer loads eagerly; a single screen follows the `eager` prop.
+        const loading = (layered ? isFirst : eager) ? 'eager' : 'lazy';
+        const pictureAttributes = layered ? { 'data-layer': name, class: isFirst ? 'is-active' : undefined } : {};
         return slot.image ? (
-          <img {...layer} src={slot.image.src} width={slot.image.width} height={slot.image.height} alt={`The ${slot.name.toLowerCase()} screen in Pledge.`} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+          <Picture
+            src={slot.image}
+            formats={['avif', 'webp']}
+            width={FRAME_WIDTH}
+            densities={[1, 2]}
+            loading={loading}
+            decoding="async"
+            alt={slot.alt}
+            pictureAttributes={pictureAttributes}
+          />
         ) : (
-          <div class:list={['screen-slot', layer.class]} data-layer={layer['data-layer']}>
+          <div class:list={['screen-slot', layered && isFirst ? 'is-active' : undefined]} data-layer={layered ? name : undefined}>
             <svg class="screen-sparkle" viewBox="714 116 184 184" aria-hidden="true"><path d={brand.sparkle} /></svg>
             <p class="screen-name">{slot.name}</p>
             <p class="screen-caption">{slot.caption}</p>
