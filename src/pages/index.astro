@@ -167,9 +167,9 @@ const steps = [
           <Phone screen={steps.map((s) => s.screen)} class="stage-phone" />
         </div>
         <ol class="story-steps">
-          {steps.map((s) => (
+          {steps.map((s, i) => (
             <li class="story-step" data-step={s.screen}>
-              <Phone screen={s.screen} class="story-phone" />
+              <Phone screen={s.screen} class="story-phone" eager={i === 0} />
               <div class="story-text">
                 <h3>{s.title}</h3>
                 <p>{s.text}</p>
@@ -178,6 +178,7 @@ const steps = [
           ))}
         </ol>
         </div>
+        <p class="story-note">App screens show example practice data.</p>
       </div>
     </section>
 
@@ -345,6 +346,8 @@ const steps = [
   }
   .phone-screen { position: relative; height: 100%; border-radius: 12.5% / 5.8%; background: linear-gradient(170deg, #2743D6 0%, #17237A 55%, #0E1650 100%); }
   .phone-screen::before { content: ''; position: absolute; top: 2.6%; left: 50%; width: 30%; height: 3.4%; margin-left: -15%; border-radius: 99px; background: #05070F; }
+  /* <Picture> wraps the real screenshot in <picture>; give it the same box and radius the old bare <img> had. */
+  .phone-screen picture { display: block; position: absolute; inset: 0; border-radius: inherit; }
   .phone-screen img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
   .screen-slot { display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 0 12%; color: var(--ivory); text-align: left; }
   .screen-sparkle { width: calc(var(--pw) * 0.13); margin-bottom: calc(var(--pw) * 0.075); fill: var(--gold); }
@@ -390,6 +393,7 @@ const steps = [
   .pill-quiet { margin-left: 6px; min-height: 32px; border-color: var(--hairline); color: var(--ink); font-size: 0.875rem; vertical-align: middle; }
   .pill-quiet::before { background: var(--gold-1); }
   .story { padding: 0 0 clamp(88px, 11vw, 168px); }
+  .story-note { max-width: 44rem; margin: clamp(32px, 5vw, 56px) 0 0; color: var(--muted); font-size: 0.875rem; }
   .story-steps { margin: clamp(32px, 5vw, 72px) 0 0; padding: 0; list-style: none; display: grid; gap: clamp(64px, 9vw, 140px); }
   .story-step { display: grid; gap: 28px; align-items: center; grid-template-columns: minmax(0, 1fr); }
   .story-phone { --pw: min(50vw, 200px); }
