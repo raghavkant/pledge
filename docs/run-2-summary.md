@@ -24,7 +24,7 @@ Order was 7 → 8 → 5 → 6: the home page's numbers come from the export, and
 
 ## Decisions for you to review
 
-All are in `docs/decisions.md` under "Decisions for Raghav to review" (35 rows from Run 2). The ones most worth a look:
+All are in `docs/decisions.md` under "Decisions for the owner to review" (35 rows from Run 2). The ones most worth a look:
 
 1. **Home headline:** "Get ready for the Australian citizenship test."
 2. **Free vs Premium** shows features only, no prices ("You'll see the price in the App Store before you buy").
